@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Diagramas, bloque funcional y máquina de estados de EcoHuella IA-Bio.">
+  <title>Diagramas | EcoHuella IA-Bio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Inicio de EcoHuella IA-Bio">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>EcoHuella IA-Bio</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Abrir navegación" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="top-nav" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="ia.html">IA y métricas</a>
+        <a href="tecnico.html">Arquitectura</a>
+        <a href="materiales.html">Materiales</a>
+        <a href="metodologia.html">Metodología</a>
+        <a href="diagramas.html">Diagramas</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <p class="eyebrow">Lógica de operación</p>
+      <h1>Diagramas del sistema</h1>
+      <p>
+        El flujo combina cámara, IA local, pantalla, sensor de proximidad y
+        actuadores. La compuerta no abre solo por detectar el residuo: espera
+        confirmación de proximidad para hacerlo más seguro y controlado.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Diagrama de bloques</p>
+        <h2>Relación entre módulos</h2>
+      </div>
+      <figure class="diagram-frame diagram-figure">
+        <div class="diagram-scroll" aria-label="Diagrama de bloques desplazable">
+          <img class="zoomable diagram-image wide" src="assets/diagrama-bloques-modulos.png" alt="Diagrama de bloques entre cámara, Jetson Nano, controlador, pantalla, sensor y compartimento físico">
+        </div>
+        <figcaption>Cámara, Jetson Nano, pantalla, controlador, sensor y actuador conectados por el módulo de decisión.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Diagrama visual</p>
+        <h2>Flujo operativo completo</h2>
+      </div>
+      <div class="diagram-frame">
+        <div class="diagram-scroll" aria-label="Diagrama de flujo desplazable">
+          <img class="zoomable" src="assets/diagrama.png.png" alt="Diagrama de flujo del sistema EcoHuella IA-Bio">
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Máquina de estados</p>
+        <h2>Secuencia de control</h2>
+      </div>
+      <div class="state-grid">
+        <article class="state-card">
+          <span>IDLE</span>
+          <h3>Listo</h3>
+          <p>Cámara en espera y pantalla con estado “Listo”.</p>
+        </article>
+        <article class="state-card">
+          <span>CAPTURAR</span>
+          <h3>Imagen</h3>
+          <p>La cámara toma un frame cuando detecta movimiento.</p>
+        </article>
+        <article class="state-card">
+          <span>CLASIFICAR</span>
+          <h3>IA</h3>
+          <p>MobileNetV2 devuelve clase y confianza: orgánico, reciclable o no reciclable.</p>
+        </article>
+        <article class="state-card">
+          <span>MOSTRAR</span>
+          <h3>Ícono</h3>
+          <p>La pantalla enseña el logo del compartimento correspondiente.</p>
+        </article>
+        <article class="state-card">
+          <span>ESPERAR_PROX</span>
+          <h3>Sensor</h3>
+          <p>Si la distancia es menor al umbral, se autoriza abrir.</p>
+        </article>
+        <article class="state-card">
+          <span>ABRIR</span>
+          <h3>Actuador</h3>
+          <p>El PCA9685 activa el servo del compartimento correcto.</p>
+        </article>
+        <article class="state-card">
+          <span>CERRAR</span>
+          <h3>Seguro</h3>
+          <p>Cierra después de 1–3 segundos o cuando se retira la mano.</p>
+        </article>
+        <article class="state-card">
+          <span>LOG</span>
+          <h3>Registro</h3>
+          <p>Guarda tipo, hora, latencia y resultado para análisis.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section two-column">
+      <div>
+        <p class="eyebrow">Secuencia visual</p>
+        <h2>Lógica completa de operación</h2>
+        <p>
+          Este flujo reemplaza el pseudocódigo y muestra de forma directa cómo
+          el sistema pasa de espera a captura, clasificación, proximidad,
+          apertura, cierre y registro del evento.
+        </p>
+      </div>
+      <figure class="diagram-frame diagram-figure">
+        <div class="diagram-scroll tall-diagram" aria-label="Diagrama de secuencia desplazable">
+          <img class="zoomable diagram-image tall" src="assets/diagrama-secuencia-control.png" alt="Diagrama de secuencia de control desde inicio hasta registro del evento">
+        </div>
+        <figcaption>Máquina de estados completa con validación de confianza y proximidad.</figcaption>
+      </figure>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>EcoHuella IA-Bio · Flujo de control para operación autónoma</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

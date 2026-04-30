@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Metodología de desarrollo del sistema EcoHuella IA-Bio.">
+  <title>Metodología | EcoHuella IA-Bio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Inicio de EcoHuella IA-Bio">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>EcoHuella IA-Bio</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Abrir navegación" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="top-nav" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="ia.html">IA y métricas</a>
+        <a href="tecnico.html">Arquitectura</a>
+        <a href="materiales.html">Materiales</a>
+        <a href="metodologia.html">Metodología</a>
+        <a href="diagramas.html">Diagramas</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <p class="eyebrow">Desarrollo del prototipo</p>
+      <h1>Metodología de desarrollo</h1>
+      <p>
+        El proyecto se construye con aprendizaje supervisado, pruebas de
+        hardware y validación progresiva para llegar a un sistema funcional,
+        medible y presentable.
+      </p>
+    </section>
+
+    <section class="section timeline">
+      <article class="timeline-item">
+        <span>01</span>
+        <div>
+          <h2>Definición del problema</h2>
+          <p>
+            Se identificaron errores comunes de separación de residuos y se
+            establecieron tres categorías objetivo: orgánicos, reciclables y no
+            reciclables.
+          </p>
+        </div>
+      </article>
+      <article class="timeline-item">
+        <span>02</span>
+        <div>
+          <h2>Construcción del dataset</h2>
+          <p>
+            Se integraron 45,330 imágenes provenientes de
+            datasets públicos como Garbage Classification, RealWaste y Waste
+            Classification Data.
+          </p>
+        </div>
+      </article>
+      <article class="timeline-item">
+        <span>03</span>
+        <div>
+          <h2>Preprocesamiento</h2>
+          <p>
+            Se limpiaron clases ambiguas, se reasignaron etiquetas, se
+            normalizaron imágenes y se aplicó aumento de datos mediante
+            rotación, escalado y recorte.
+          </p>
+        </div>
+      </article>
+      <article class="timeline-item">
+        <span>04</span>
+        <div>
+          <h2>Entrenamiento y fine-tuning</h2>
+          <p>
+            MobileNetV2 se entrenó con transfer learning y ajuste parcial,
+            usando una división 70% entrenamiento, 15% validación y 15% prueba.
+          </p>
+        </div>
+      </article>
+      <article class="timeline-item">
+        <span>05</span>
+        <div>
+          <h2>Integración física</h2>
+          <p>
+            El modelo se integró con cámara, sensores, servomotores, pantalla y
+            lógica de errores para controlar la experiencia completa del usuario.
+          </p>
+        </div>
+      </article>
+      <article class="timeline-item">
+        <span>06</span>
+        <div>
+          <h2>Calibración y seguridad</h2>
+          <p>
+            Se calibran ángulos de servo, umbral de proximidad, tiempos de
+            apertura y cierre, además de topes mecánicos, fusibles y botón de
+            emergencia para proteger al usuario.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section class="section two-column">
+      <div class="checklist-panel">
+        <h2>Buenas prácticas aplicadas</h2>
+        <ul class="clean-list">
+          <li>Separación entre captura, clasificación y control físico.</li>
+          <li>Validación de baja confianza antes de accionar compuertas.</li>
+          <li>Pruebas con residuos de uso común y al menos 500 imágenes por clase.</li>
+          <li>Diseño modular para mejorar o reemplazar componentes.</li>
+          <li>Procesamiento local de imágenes para privacidad.</li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Siguiente etapa</p>
+        <h2>Validación en campo</h2>
+        <p>
+          La evolución natural del prototipo es medir su desempeño con usuarios
+          reales: tiempo de respuesta, tasa de corrección, frecuencia de errores
+          y mejora de hábitos de separación después de varios días de uso.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>EcoHuella IA-Bio · Desarrollo basado en datos, pruebas y mejora continua</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

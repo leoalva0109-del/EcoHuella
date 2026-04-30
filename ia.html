@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Modelo de inteligencia artificial de EcoHuella IA-Bio: clasificación, entrenamiento y métricas.">
+  <title>IA y métricas | EcoHuella IA-Bio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Inicio de EcoHuella IA-Bio">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>EcoHuella IA-Bio</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Abrir navegación" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="top-nav" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="ia.html">IA y métricas</a>
+        <a href="tecnico.html">Arquitectura</a>
+        <a href="materiales.html">Materiales</a>
+        <a href="metodologia.html">Metodología</a>
+        <a href="diagramas.html">Diagramas</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <p class="eyebrow">Visión computacional aplicada</p>
+      <h1>Modelo de inteligencia artificial</h1>
+      <p>
+        EcoHuella usa clasificación visual ligera para tomar decisiones en el
+        borde, sin depender de un servidor externo para cada depósito.
+      </p>
+    </section>
+
+    <section class="section split-cards">
+      <article class="feature-card">
+        <span class="feature-label">Modelo base</span>
+        <h2>MobileNetV2 CDMX reconoce las tres categorías</h2>
+        <p>
+          El sistema recibe una imagen del residuo, la adapta a 224 × 224 px y
+          ejecuta un clasificador entrenado con las clases orgánicos,
+          reciclables y no reciclables.
+        </p>
+      </article>
+      <article class="feature-card">
+        <span class="feature-label">Decisión</span>
+        <h2>Umbral de confianza decide la acción</h2>
+        <p>
+          El modelo devuelve etiqueta y probabilidad softmax. Si la confianza
+          es baja, el sistema solicita repetir la captura en lugar de abrir una
+          compuerta equivocada.
+        </p>
+      </article>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Pipeline de software</p>
+        <h2>Captura, inferencia y respuesta</h2>
+      </div>
+      <div class="workflow-grid">
+        <article class="workflow-card">
+          <span>01</span>
+          <h3>Captura CSI</h3>
+          <p>La cámara toma imagen cuando hay movimiento o presencia frente al área de lectura.</p>
+        </article>
+        <article class="workflow-card">
+          <span>02</span>
+          <h3>Preprocesado</h3>
+          <p>Resize a 224 × 224 px, normalización y preparación del frame para MobileNetV2.</p>
+        </article>
+        <article class="workflow-card">
+          <span>03</span>
+          <h3>Inferencia</h3>
+          <p>El modelo obtiene probabilidades por clase y aplica el umbral de confianza.</p>
+        </article>
+        <article class="workflow-card">
+          <span>04</span>
+          <h3>UI + actuación</h3>
+          <p>Se muestra el ícono PNG, se espera proximidad y se abre la compuerta asignada.</p>
+        </article>
+        <article class="workflow-card">
+          <span>05</span>
+          <h3>Registro para reentrenamiento</h3>
+          <p>Guarda evento, etiqueta y opcionalmente foto local para mejorar el dataset.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Resultados del prototipo</p>
+        <h2>Métricas principales</h2>
+      </div>
+      <div class="metric-layout">
+        <article class="metric-card strong">
+          <span class="metric-value">96.13%</span>
+          <h3>Accuracy</h3>
+          <p>Desempeño global del modelo sobre el conjunto de prueba.</p>
+        </article>
+        <article class="metric-card">
+          <span class="metric-value">0.9615</span>
+          <h3>F1-score</h3>
+          <p>Balance entre precisión y recall para clasificación multiclase.</p>
+        </article>
+        <article class="metric-card">
+          <span class="metric-value">96.33%</span>
+          <h3>Recall orgánico</h3>
+          <p>Capacidad para recuperar correctamente residuos biodegradables.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Evidencia del proceso</p>
+        <h2>Dataset, entrenamiento y evaluación</h2>
+        <p>
+          Las capturas del proceso muestran la preparación del dataset CDMX, el
+          entrenamiento por etapas, la evaluación final y la matriz de confusión
+          usada para validar el modelo antes de exportarlo.
+        </p>
+      </div>
+      <div class="training-grid">
+        <article class="training-shot">
+          <img src="assets/entrenamiento-04.png" alt="Terminal con split 70 15 15 del dataset CDMX">
+          <div>
+            <span>Split reproducible</span>
+            <h3>45,330 imágenes en train, val y test</h3>
+            <p>La división mantiene 70% entrenamiento, 15% validación y 15% prueba con semilla fija.</p>
+          </div>
+        </article>
+        <article class="training-shot">
+          <img src="assets/entrenamiento-07.png" alt="Resumen del modelo MobileNetV2 entrenado para EcoHuella">
+          <div>
+            <span>Transfer learning</span>
+            <h3>MobileNetV2 + cabeza clasificadora</h3>
+            <p>Se congeló la base preentrenada y después se ajustaron las últimas capas para el dominio de residuos.</p>
+          </div>
+        </article>
+        <article class="training-shot">
+          <img src="assets/entrenamiento-05.png" alt="Reporte de entrenamiento y métricas finales del modelo">
+          <div>
+            <span>Evaluación final</span>
+            <h3>96.13% de accuracy en test</h3>
+            <p>El reporte muestra precisión, recall y F1-score sobre 6,802 imágenes de prueba.</p>
+          </div>
+        </article>
+        <article class="training-shot">
+          <img src="assets/entrenamiento-06.png" alt="Matriz de confusión del modelo EcoHuella IA-Bio">
+          <div>
+            <span>Matriz de confusión</span>
+            <h3>Errores concentrados y medibles</h3>
+            <p>La diagonal principal confirma buen desempeño en orgánicos, reciclables y no reciclables.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section two-column">
+      <div>
+        <p class="eyebrow">Diseño del pipeline</p>
+        <h2>Controles antes de abrir la compuerta</h2>
+        <p>
+          La predicción no se usa de forma aislada. Antes de accionar el
+          mecanismo, el sistema revisa condiciones de operación: cámara activa,
+          sensor disponible, objeto único, confianza suficiente y estado libre de
+          la compuerta.
+        </p>
+      </div>
+      <div class="checklist-panel">
+        <ul class="clean-list">
+          <li>Validación de imagen y confianza del modelo.</li>
+          <li>Rechazo de baja confianza.</li>
+          <li>Ícono grande por clase en pantalla TFT.</li>
+          <li>Sensor HC-SR04 activo solo durante la espera de proximidad.</li>
+          <li>Registro local de tipo, hora y latencia.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section two-column">
+      <div class="checklist-panel">
+        <h2>Entrenamiento realizado</h2>
+        <ul class="clean-list">
+          <li>Dataset CDMX unificado desde Garbage Classification, RealWaste y Waste Classification Data.</li>
+          <li>Clases finales: orgánicos, reciclables y no reciclables.</li>
+          <li>Aumento de datos con rotación, zoom, contraste y volteo horizontal.</li>
+          <li>Exportación en Keras y TFLite para integración en el prototipo.</li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Tiempos objetivo</p>
+        <h2>Respuesta percibida como inmediata</h2>
+        <p>
+          Captura: 0.5–1 s. Clasificación: 0.2–1 s según modelo y optimización.
+          Apertura: 1–3 s. Espera antes de cerrar: 5–10 s o hasta detectar que
+          el usuario retiró la mano.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>EcoHuella IA-Bio · Modelo IA optimizado para operación en tiempo real</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

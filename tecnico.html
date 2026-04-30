@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Arquitectura técnica del sistema EcoHuella IA-Bio con Jetson Nano, cámara, pantalla, sensor y actuadores.">
+  <title>Arquitectura | EcoHuella IA-Bio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Inicio de EcoHuella IA-Bio">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>EcoHuella IA-Bio</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Abrir navegación" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="top-nav" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="ia.html">IA y métricas</a>
+        <a href="tecnico.html">Arquitectura</a>
+        <a href="materiales.html">Materiales</a>
+        <a href="metodologia.html">Metodología</a>
+        <a href="diagramas.html">Diagramas</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <p class="eyebrow">Sistema ciberfísico definido</p>
+      <h1>Arquitectura con NVIDIA Jetson Nano</h1>
+      <p>
+        EcoHuella usa Jetson Nano como cerebro para ejecutar IA local,
+        recibir imagen desde cámara CSI, mostrar el ícono de clasificación en
+        pantalla y abrir el compartimento cuando el sensor de proximidad confirma
+        que la mano u objeto está cerca.
+      </p>
+    </section>
+
+    <section class="section two-column visual-feature">
+      <div>
+        <p class="eyebrow">Procesamiento de borde</p>
+        <h2>Jetson Nano concentra IA, decisión y control</h2>
+        <p>
+          La placa ejecuta el modelo MobileNetV2 CDMX, coordina el flujo de
+          estados, envía feedback a la pantalla TFT y controla servos mediante
+          un driver PWM I2C PCA9685. La arquitectura evita depender de un
+          servidor externo y protege la privacidad al procesar imágenes
+          localmente.
+        </p>
+      </div>
+      <figure class="image-panel">
+        <img src="assets/jetson-nano.jpg" alt="Placa NVIDIA Jetson Nano para inferencia local">
+        <figcaption>NVIDIA Jetson Nano, procesador principal del bote inteligente.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Componentes recomendados</p>
+        <h2>Hardware del prototipo</h2>
+      </div>
+      <div class="component-grid">
+        <article class="component-card">
+          <img src="assets/camara-imx219.jpg" alt="Cámara IMX219 compatible con Jetson Nano">
+          <div>
+            <span>Cámara</span>
+            <h3>IMX219 / Camera V2</h3>
+            <p>Entrada visual por MIPI CSI para capturar el residuo y enviarlo al modelo.</p>
+          </div>
+        </article>
+        <article class="component-card">
+          <img src="assets/tft-touchscreen.jpg" alt="Pantalla TFT táctil para mostrar íconos de clasificación">
+          <div>
+            <span>Interfaz</span>
+            <h3>TFT 5–7 pulgadas</h3>
+            <p>Muestra logo, categoría, estado del sistema y confirmación de depósito.</p>
+          </div>
+        </article>
+        <article class="component-card">
+          <img src="assets/hc-sr04.jpg" alt="Sensor ultrasónico HC-SR04">
+          <div>
+            <span>Proximidad</span>
+            <h3>HC-SR04</h3>
+            <p>Detecta distancia menor al umbral para autorizar la apertura.</p>
+          </div>
+        </article>
+        <article class="component-card">
+          <img src="assets/pca9685.jpg" alt="Controlador PWM I2C PCA9685">
+          <div>
+            <span>Control</span>
+            <h3>PCA9685 I2C</h3>
+            <p>Genera PWM estable para servos sin cargar directamente los GPIO.</p>
+          </div>
+        </article>
+        <article class="component-card">
+          <img src="assets/servomotor.jpg" alt="Servomotor para apertura de compuertas">
+          <div>
+            <span>Actuador</span>
+            <h3>Servo 20–30 kg·cm</h3>
+            <p>Abre y cierra cada compartimento mediante bisagra y topes mecánicos.</p>
+          </div>
+        </article>
+        <article class="component-card">
+          <img src="assets/bateria-lifepo4.jpg" alt="Batería LiFePO4 de 12 V y 7 Ah para respaldo energético">
+          <div>
+            <span>Energía</span>
+            <h3>Batería LiFePO4 12 V 7 Ah</h3>
+            <p>Banco recargable con BMS integrada para energía de respaldo y pruebas en campo.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Conexión pin a pin</p>
+        <h2>Header J41 de Jetson Nano</h2>
+      </div>
+      <div class="table-wrap">
+        <table class="spec-table">
+          <thead>
+            <tr>
+              <th>Señal</th>
+              <th>Jetson Nano J41</th>
+              <th>Dispositivo</th>
+              <th>Nota clave</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>I2C SDA</td>
+              <td>Pin 3</td>
+              <td>PCA9685 SDA</td>
+              <td>Bus lógico a 3.3 V.</td>
+            </tr>
+            <tr>
+              <td>I2C SCL</td>
+              <td>Pin 5</td>
+              <td>PCA9685 SCL</td>
+              <td>Dirección típica 0x40.</td>
+            </tr>
+            <tr>
+              <td>GND común</td>
+              <td>Pin 6</td>
+              <td>Jetson, servos, sensor</td>
+              <td>Referencia común para lectura estable de sensores y control PWM.</td>
+            </tr>
+            <tr>
+              <td>TRIG</td>
+              <td>Pin 11 / GPIO17</td>
+              <td>HC-SR04 TRIG</td>
+              <td>Salida 3.3 V desde Jetson.</td>
+            </tr>
+            <tr>
+              <td>ECHO</td>
+              <td>Pin 13 / GPIO27</td>
+              <td>HC-SR04 ECHO</td>
+              <td>Usar divisor o level shifter: no conectar 5 V directo.</td>
+            </tr>
+            <tr>
+              <td>Cámara</td>
+              <td>Conector MIPI CSI</td>
+              <td>IMX219</td>
+              <td>Conectar con la placa apagada y revisar orientación del cable.</td>
+            </tr>
+            <tr>
+              <td>Pantalla</td>
+              <td>HDMI / DSI / SPI</td>
+              <td>TFT 5–7"</td>
+              <td>HDMI simplifica montaje; SPI/DSI depende del módulo.</td>
+            </tr>
+            <tr>
+              <td>Servos</td>
+              <td>PCA9685, canales 0–15</td>
+              <td>Compuertas</td>
+              <td>Usar regulador DC-DC de 5–6 V desde el banco LiFePO4.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section two-column visual-feature">
+      <div>
+        <p class="eyebrow">Energía del prototipo</p>
+        <h2>Fuente de poder LiFePO4 para operación autónoma</h2>
+        <p>
+          La fuente recomendada es una batería LiFePO4 de hierro de litio de
+          12 V y 7 Ah, recargable y con BMS integrada. Su química es estable
+          para mantenimiento del hogar, respaldo energético, almacenamiento
+          solar y pruebas de campo como camping o instalaciones escolares.
+        </p>
+        <div class="power-specs">
+          <article>
+            <span>12 V</span>
+            <p>Bus principal para distribuir energía dentro del prototipo.</p>
+          </article>
+          <article>
+            <span>7 Ah</span>
+            <p>Capacidad útil para demostraciones y ciclos de prueba prolongados.</p>
+          </article>
+          <article>
+            <span>BMS</span>
+            <p>Protección integrada para carga, descarga y operación recargable.</p>
+          </article>
+          <article>
+            <span>DC-DC</span>
+            <p>Regulación hacia 5 V para Jetson y 5–6 V para actuadores.</p>
+          </article>
+        </div>
+      </div>
+      <figure class="image-panel power-image">
+        <img src="assets/bateria-lifepo4.jpg" alt="Batería recargable LiFePO4 12 V 7 Ah con BMS integrada">
+        <figcaption>Batería LiFePO4 12 V 7 Ah seleccionada como fuente de poder del sistema.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section source-note">
+      <h2>Créditos de imágenes técnicas</h2>
+      <p>
+        Cámara Raspberry Pi Camera V2 por Sven.petersen en
+        <a href="https://commons.wikimedia.org/wiki/File:1638_-_Raspberry_Pi_Camera_V2.jpg">Wikimedia Commons</a>;
+        HC-SR04, pantalla y servo por
+        <a href="https://www.sparkfun.com/">SparkFun</a>; PCA9685 por
+        <a href="https://wiki.seeedstudio.com/Grove-16-Channel_PWM_Driver-PCA9685/">Seeed Studio</a>.
+        Las imágenes de Jetson Nano, HDPE y batería LiFePO4 fueron proporcionadas en
+        los archivos del proyecto.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>EcoHuella IA-Bio · Arquitectura modular para prototipos escalables</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

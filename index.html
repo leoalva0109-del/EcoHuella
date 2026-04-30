@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="EcoHuella IA-Bio, contenedor inteligente para clasificar residuos con visión computacional y hardware embebido.">
+  <title>EcoHuella IA-Bio | Clasificación inteligente de residuos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Inicio de EcoHuella IA-Bio">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>EcoHuella IA-Bio</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Abrir navegación" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="top-nav" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="ia.html">IA y métricas</a>
+        <a href="tecnico.html">Arquitectura</a>
+        <a href="materiales.html">Materiales</a>
+        <a href="metodologia.html">Metodología</a>
+        <a href="diagramas.html">Diagramas</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-shell">
+      <img class="hero-bg" src="assets/eco-bote-hero.png" alt="Contenedor inteligente EcoHuella IA-Bio instalado en un parque urbano">
+      <div class="hero-content">
+        <p class="eyebrow">Contenedor inteligente para espacios urbanos y escolares</p>
+        <h1>EcoHuella IA-Bio</h1>
+        <p class="hero-copy">
+          Sistema ciberfísico que identifica residuos con visión computacional,
+          muestra en pantalla el ícono del compartimento correcto y abre la
+          compuerta cuando el sensor detecta la mano u objeto cerca.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="ia.html">Ver modelo IA</a>
+          <a class="button secondary" href="metodologia.html">Proceso de desarrollo</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compact">
+      <div class="stats-grid">
+        <article class="stat-card">
+          <span class="stat-number">96.13</span>
+          <span class="stat-label">% accuracy</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-number">45,330</span>
+          <span class="stat-label">imágenes de entrenamiento</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-number">3</span>
+          <span class="stat-label">categorías de separación</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-number">80</span>
+          <span class="stat-label">% menos contaminación cruzada estimada</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section two-column">
+      <div>
+        <p class="eyebrow">Problema</p>
+        <h2>Separar bien no debería depender de adivinar</h2>
+        <p>
+          En escuelas, parques y edificios públicos, muchos residuos terminan en
+          el contenedor incorrecto por falta de señalización, prisa o dudas sobre
+          el material. EcoHuella convierte ese momento en una interacción simple:
+          detectar, clasificar, abrir la compuerta correcta y registrar el uso.
+        </p>
+      </div>
+      <div class="impact-panel">
+        <h3>Objetivo del proyecto</h3>
+        <p>
+          Diseñar un prototipo accesible, autónomo y escalable que mejore la
+          calidad del reciclaje desde el origen, usando IA ligera y componentes
+          resistentes para operación continua.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Flujo de operación</p>
+        <h2>Del residuo a la compuerta correcta</h2>
+      </div>
+      <div class="process-grid">
+        <article class="process-card">
+          <span class="step-number">01</span>
+          <h3>Captura</h3>
+          <p>La cámara RGB toma imagen cuando hay movimiento frente al contenedor.</p>
+        </article>
+        <article class="process-card">
+          <span class="step-number">02</span>
+          <h3>Inferencia</h3>
+          <p>El modelo MobileNetV2 CDMX clasifica el residuo localmente en Jetson Nano.</p>
+        </article>
+        <article class="process-card">
+          <span class="step-number">03</span>
+          <h3>Feedback visual</h3>
+          <p>La pantalla TFT muestra el logo o ícono grande de la categoría detectada.</p>
+        </article>
+        <article class="process-card">
+          <span class="step-number">04</span>
+          <h3>Apertura segura</h3>
+          <p>El HC-SR04 confirma proximidad y el actuador abre el compartimento correcto.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section two-column visual-feature">
+      <div>
+        <p class="eyebrow">Cerebro del prototipo</p>
+        <h2>NVIDIA Jetson Nano para IA local</h2>
+        <p>
+          El diseño queda definido sobre Jetson Nano para ejecutar inferencia en
+          el borde, controlar periféricos por GPIO/I2C y mantener la operación
+          sin depender de internet durante cada clasificación.
+        </p>
+      </div>
+      <figure class="image-panel">
+        <img src="assets/jetson-nano.jpg" alt="NVIDIA Jetson Nano usada como procesador principal del sistema">
+        <figcaption>Procesador principal para cámara, IA, pantalla y control de compuertas.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section category-band">
+      <div class="section-heading">
+        <p class="eyebrow">Clasificación alineada al uso cotidiano</p>
+        <h2>Tres decisiones claras</h2>
+      </div>
+      <div class="category-grid">
+        <article class="category-card organic">
+          <h3>Orgánico</h3>
+          <p>Restos de comida, cáscaras, hojas y residuos biodegradables.</p>
+        </article>
+        <article class="category-card recyclable">
+          <h3>Reciclable</h3>
+          <p>Plástico, cartón, papel, vidrio y metales con potencial de recuperación.</p>
+        </article>
+        <article class="category-card landfill">
+          <h3>No reciclable</h3>
+          <p>Material contaminado, empaques mixtos o residuos sin ruta de reciclaje viable.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>EcoHuella IA-Bio · Prototipo de clasificación inteligente de residuos</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
