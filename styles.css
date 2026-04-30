@@ -242,6 +242,13 @@ h3 {
   color: #fff;
 }
 
+.button.inline-button {
+  width: fit-content;
+  margin-top: 24px;
+  background: var(--blue);
+  color: #fff;
+}
+
 .page-hero,
 .section {
   width: min(1180px, calc(100% - 40px));
@@ -388,6 +395,54 @@ h3 {
   color: var(--muted);
   font-size: 0.92rem;
   line-height: 1.55;
+  padding: 16px 18px 18px;
+}
+
+.quick-access {
+  align-items: center;
+}
+
+.qr-panel,
+.video-panel {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: 0 18px 45px rgba(17, 24, 39, 0.07);
+}
+
+.qr-panel {
+  display: grid;
+  place-items: center;
+  padding: 28px;
+}
+
+.qr-panel img {
+  width: min(300px, 100%);
+  border: 1px solid #eef1f5;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.qr-panel figcaption,
+.video-panel figcaption {
+  width: 100%;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  padding: 16px 18px 0;
+  text-align: center;
+}
+
+.video-panel video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  background: #101820;
+}
+
+.video-panel figcaption {
   padding: 16px 18px 18px;
 }
 
