@@ -1,24 +1,11 @@
 # EcoHuella IA-Bio
 
-Sitio web estático para presentar el prototipo EcoHuella IA-Bio: arquitectura,
-modelo de inteligencia artificial, materiales, metodología y diagramas.
+Sitio estático para la propuesta EcoHuella IA-Bio.
 
-## Ver localmente
+## Publicación en GitHub Pages
 
-Abre `index.html` en el navegador o ejecuta:
+El sitio se publica automáticamente desde la rama principal mediante GitHub Actions.
 
-```powershell
-node serve-ecohuella.js
-```
+Una vez que el workflow termine, estará disponible en:
 
-Luego entra a `http://localhost:8080`.
-
-## Publicar con GitHub Pages
-
-En GitHub, entra al repositorio y ve a:
-
-`Settings` -> `Pages` -> `Deploy from a branch` -> `main` -> `/root`.
-
-El sitio quedará disponible en:
-
-`https://TU-USUARIO.github.io/NOMBRE-DEL-REPO/`
+https://leoalva0109-del.github.io/EcoHuella/
