@@ -9,6 +9,21 @@
   --amber: #f2b705;
   --red: #df3f36;
   --dark: #101820;
+  --hero-overlay: rgba(16, 24, 32, 0.9);
+}
+
+body.dark-mode {
+  --ink: #f4f7fb;
+  --muted: #b7c0cc;
+  --paper: #07111f;
+  --surface: #101b2d;
+  --line: #27364a;
+  --green: #4edc87;
+  --blue: #7fb8ff;
+  --amber: #ffcf4d;
+  --red: #ff7d74;
+  --dark: #030811;
+  --hero-overlay: rgba(2, 8, 20, 0.82);
 }
 
 * {
@@ -26,6 +41,13 @@ body {
     linear-gradient(180deg, rgba(230, 246, 235, 0.9) 0%, rgba(247, 249, 252, 0.92) 28%, rgba(238, 246, 255, 0.88) 62%, rgba(255, 250, 236, 0.72) 100%),
     var(--paper);
   color: var(--ink);
+  transition: background 220ms ease, color 220ms ease;
+}
+
+body.dark-mode {
+  background:
+    linear-gradient(180deg, rgba(5, 12, 23, 0.98) 0%, rgba(8, 16, 30, 0.96) 36%, rgba(7, 14, 28, 0.98) 100%),
+    var(--paper);
 }
 
 body.nav-open {
@@ -78,6 +100,11 @@ h3 {
   border-bottom: 1px solid rgba(217, 222, 231, 0.78);
   background: rgba(255, 255, 255, 0.86);
   backdrop-filter: blur(18px);
+}
+
+body.dark-mode .site-header {
+  background: rgba(7, 14, 28, 0.82);
+  border-color: rgba(39, 54, 74, 0.95);
 }
 
 .header-inner {
@@ -144,6 +171,29 @@ h3 {
   color: var(--blue);
 }
 
+body.dark-mode .top-nav a:hover,
+body.dark-mode .top-nav a.active {
+  background: rgba(127, 184, 255, 0.16);
+  color: var(--blue);
+}
+
+.theme-toggle {
+  margin-left: 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+body.dark-mode .theme-toggle {
+  background: rgba(127, 184, 255, 0.14);
+  color: var(--ink);
+}
+
 .nav-toggle {
   display: none;
   width: 42px;
@@ -176,7 +226,7 @@ h3 {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(16, 24, 32, 0.9) 0%, rgba(16, 24, 32, 0.56) 42%, rgba(16, 24, 32, 0.12) 100%),
+    linear-gradient(90deg, var(--hero-overlay) 0%, rgba(16, 24, 32, 0.56) 42%, rgba(16, 24, 32, 0.12) 100%),
     linear-gradient(0deg, rgba(16, 24, 32, 0.78) 0%, rgba(16, 24, 32, 0) 38%);
 }
 
@@ -622,6 +672,12 @@ h3 {
   border-bottom: 1px solid var(--line);
 }
 
+body.dark-mode .component-card img,
+body.dark-mode .card-media.contain-media,
+body.dark-mode .qr-panel img {
+  background: #0b1526;
+}
+
 .component-card div {
   padding: 22px;
 }
@@ -644,7 +700,7 @@ h3 {
   overflow-x: auto;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: #fff;
+  background: var(--surface);
   box-shadow: 0 18px 45px rgba(17, 24, 39, 0.07);
 }
 
