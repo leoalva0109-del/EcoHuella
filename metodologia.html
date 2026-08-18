@@ -43,71 +43,66 @@
       </p>
     </section>
 
-    <section class="section timeline">
-      <article class="timeline-item">
-        <span>01</span>
-        <div>
-          <h2>Definición del problema</h2>
-          <p>
-            Se identificaron errores comunes de separación de residuos y se
-            establecieron tres categorías objetivo: orgánicos, reciclables y no
-            reciclables.
-          </p>
-        </div>
-      </article>
-      <article class="timeline-item">
-        <span>02</span>
-        <div>
-          <h2>Construcción del dataset</h2>
-          <p>
-            Se integraron 45,330 imágenes provenientes de
-            datasets públicos como Garbage Classification, RealWaste y Waste
-            Classification Data.
-          </p>
-        </div>
-      </article>
-      <article class="timeline-item">
-        <span>03</span>
-        <div>
-          <h2>Preprocesamiento</h2>
-          <p>
-            Se limpiaron clases ambiguas, se reasignaron etiquetas, se
-            normalizaron imágenes y se aplicó aumento de datos mediante
-            rotación, escalado y recorte.
-          </p>
-        </div>
-      </article>
-      <article class="timeline-item">
-        <span>04</span>
-        <div>
-          <h2>Entrenamiento y fine-tuning</h2>
-          <p>
-            MobileNetV2 se entrenó con transfer learning y ajuste parcial,
-            usando una división 70% entrenamiento, 15% validación y 15% prueba.
-          </p>
-        </div>
-      </article>
-      <article class="timeline-item">
-        <span>05</span>
-        <div>
-          <h2>Integración física</h2>
-          <p>
-            El modelo se integró con cámara, sensores, servomotores, pantalla y
-            lógica de errores para controlar la experiencia completa del usuario.
-          </p>
-        </div>
-      </article>
-      <article class="timeline-item">
-        <span>06</span>
-        <div>
-          <h2>Calibración y seguridad</h2>
-          <p>
-            Se calibran ángulos de servo, umbral de proximidad, tiempos de
-            apertura y cierre, además de topes mecánicos, fusibles y botón de
-            emergencia para proteger al usuario.
-          </p>
-        </div>
-      </article>
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Línea de tiempo</p>
+        <h2>Avance limpio del desarrollo</h2>
+        <p>
+          La ruta se resume en seis momentos: primero se valida la IA y el
+          prototipo físico; después se conecta el flujo completo con app,
+          backend, sesiones y EcoPuntos.
+        </p>
+      </div>
+      <div class="timeline clean-timeline">
+        <article class="timeline-item">
+          <span>01</span>
+          <div>
+            <small>Fase 1</small>
+            <h2>Problema y clases</h2>
+            <p>Se definieron tres salidas claras: orgánico, reciclable y no reciclable.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <span>02</span>
+          <div>
+            <small>Fase 1</small>
+            <h2>Dataset CDMX</h2>
+            <p>Se reunieron 45,330 imágenes y se organizaron para entrenamiento, validación y prueba.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <span>03</span>
+          <div>
+            <small>Fase 1</small>
+            <h2>Modelo de IA</h2>
+            <p>MobileNetV2 fue entrenado, evaluado y exportado en Keras y TFLite.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <span>04</span>
+          <div>
+            <small>Fase 1</small>
+            <h2>Prototipo físico</h2>
+            <p>Se definieron cámara, pantalla, sensores, actuadores, panel solar y batería.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <span>05</span>
+          <div>
+            <small>Transición</small>
+            <h2>Validación del flujo</h2>
+            <p>El test de IA demuestra captura, clasificación, resultado visual y respuesta del sistema.</p>
+          </div>
+        </article>
+        <article class="timeline-item highlight">
+          <span>06</span>
+          <div>
+            <small>Fase 2</small>
+            <h2>Integración funcional</h2>
+            <p>Se acopla app móvil, QR, backend NestJS, FastAPI, PostgreSQL y EcoPuntos.</p>
+          </div>
+        </article>
+      </div>
     </section>
 
     <section class="section two-column">
