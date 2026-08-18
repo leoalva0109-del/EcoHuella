@@ -1,11 +1,16 @@
 # EcoHuella IA-Bio
 
-Sitio estático para la propuesta EcoHuella IA-Bio.
+Sitio estatico para la propuesta EcoHuella IA-Bio.
 
-## Publicación en GitHub Pages
+## Estructura
 
-El sitio se publica automáticamente desde la rama principal mediante GitHub Actions.
+Consulta `ESTRUCTURA.md` para saber que archivo o carpeta modificar segun el
+cambio que quieras hacer.
 
-Una vez que el workflow termine, estará disponible en:
+## Publicacion en GitHub Pages
+
+El sitio se publica automaticamente desde la rama principal mediante GitHub Actions.
+
+Una vez que el workflow termine, estara disponible en:
 
 https://leoalva0109-del.github.io/EcoHuella/
