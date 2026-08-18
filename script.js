@@ -75,20 +75,22 @@ const subtabPanels = document.querySelectorAll("[data-subtab-panel]");
 const syncTabsFromHash = () => {
   const targetId = decodeURIComponent(window.location.hash.replace("#", ""));
 
-  if (!targetId || !phaseButtons.length) {
+  if (!targetId) {
     return;
   }
 
   const isSubtabTarget = Array.from(subtabButtons).some((button) => button.dataset.subtabTarget === targetId);
 
   if (isSubtabTarget) {
-    activateTabGroup(phaseButtons, phasePanels, "fase-2", "tabTarget");
+    if (phaseButtons.length) {
+      activateTabGroup(phaseButtons, phasePanels, "fase-2", "tabTarget");
+    }
     activateTabGroup(subtabButtons, subtabPanels, targetId, "subtabTarget");
-    requestAnimationFrame(() => document.getElementById("fase-2")?.scrollIntoView({ block: "start" }));
+    requestAnimationFrame(() => document.getElementById(targetId)?.scrollIntoView({ block: "start" }));
     return;
   }
 
-  if (activateTabGroup(phaseButtons, phasePanels, targetId, "tabTarget")) {
+  if (phaseButtons.length && activateTabGroup(phaseButtons, phasePanels, targetId, "tabTarget")) {
     requestAnimationFrame(() => document.getElementById(targetId)?.scrollIntoView({ block: "start" }));
   }
 };
@@ -101,8 +103,12 @@ phaseButtons.forEach((button) => {
 
 subtabButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    activateTabGroup(phaseButtons, phasePanels, "fase-2", "tabTarget");
+    if (phaseButtons.length) {
+      activateTabGroup(phaseButtons, phasePanels, "fase-2", "tabTarget");
+    }
     activateTabGroup(subtabButtons, subtabPanels, button.dataset.subtabTarget, "subtabTarget", true);
+    document.body.classList.remove("nav-open");
+    navToggle?.setAttribute("aria-expanded", "false");
   });
 });
 

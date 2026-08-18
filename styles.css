@@ -155,26 +155,65 @@ body.dark-mode .site-header {
   gap: 6px;
 }
 
-.top-nav a {
+.top-nav a,
+.top-nav .nav-tab-button {
   border-radius: 6px;
+  border: 0;
+  background: transparent;
   color: #3d4654;
   font-size: 0.93rem;
   font-weight: 650;
   padding: 10px 12px;
+  font-family: inherit;
   text-decoration: none;
   transition: background 180ms ease, color 180ms ease;
+  cursor: pointer;
 }
 
 .top-nav a:hover,
-.top-nav a.active {
+.top-nav a.active,
+.top-nav .nav-tab-button:hover,
+.top-nav .nav-tab-button.active {
   background: #e9f2ff;
   color: var(--blue);
 }
 
 body.dark-mode .top-nav a:hover,
-body.dark-mode .top-nav a.active {
+body.dark-mode .top-nav a.active,
+body.dark-mode .top-nav .nav-tab-button:hover,
+body.dark-mode .top-nav .nav-tab-button.active {
   background: rgba(127, 184, 255, 0.16);
   color: var(--blue);
+}
+
+.phase-two-nav .nav-tab-button {
+  border: 1px solid rgba(20, 99, 255, 0.22);
+  background: rgba(233, 242, 255, 0.62);
+  color: var(--ink);
+  opacity: 1;
+}
+
+.phase-two-nav .nav-tab-button.active {
+  border-color: #e9f2ff;
+  background: #e9f2ff;
+  color: #101820;
+}
+
+body.dark-mode .phase-two-nav .nav-tab-button {
+  border-color: rgba(127, 184, 255, 0.28);
+  background: #101b2d;
+  color: #ffffff;
+}
+
+body.dark-mode .phase-two-nav .nav-tab-button.active {
+  border-color: #e9f2ff;
+  background: #e9f2ff;
+  color: #101820;
+}
+
+body.dark-mode .site-header .phase-two-nav .nav-tab-button:not(.active) {
+  background: #101b2d;
+  color: #ffffff;
 }
 
 .theme-toggle {
@@ -661,6 +700,11 @@ body.dark-mode .theme-toggle {
 }
 
 .phase-tab {
+  display: block;
+  text-decoration: none;
+}
+
+.phase-tab {
   min-height: 138px;
   padding: 22px;
 }
@@ -677,6 +721,10 @@ body.dark-mode .theme-toggle {
   background:
     linear-gradient(135deg, rgba(20, 99, 255, 0.12), rgba(255, 255, 255, 0) 46%),
     var(--surface);
+}
+
+.phase-link-tab {
+  color: var(--ink);
 }
 
 .phase-tab span {
@@ -804,6 +852,10 @@ body.dark-mode .theme-toggle {
 
 .subtab-panel {
   padding-top: 4px;
+}
+
+.phase-two-workspace {
+  padding-top: 34px;
 }
 
 .module-grid {

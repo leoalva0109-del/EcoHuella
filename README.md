@@ -1,7 +1,8 @@
 # EcoHuella IA-Bio
 
-Sitio estatico para la propuesta EcoHuella IA-Bio, organizado por fases:
-prototipo e IA en Fase 1, integracion app/backend/EcoPuntos en Fase 2.
+Sitio estatico para la propuesta EcoHuella IA-Bio. La Fase 1 conserva el
+menu tecnico principal; la Fase 2 usa una pagina propia para app, backend,
+inferencia, datos y pruebas.
 
 ## Estructura
 
