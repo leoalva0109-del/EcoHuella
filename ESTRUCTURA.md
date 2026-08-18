@@ -28,14 +28,14 @@ EcoHuella/
 Aqui van los archivos que GitHub Pages necesita encontrar directamente.
 
 - `index.html`: pagina principal.
-- `fases.html`: separa Fase 1 ya validada y Fase 2 de integracion funcional.
+- `fases.html`: organiza Fase 1 y Fase 2 con pestanas y subpestanas.
 - `ia.html`: modelo, metricas, capturas de entrenamiento y video del test de IA.
 - `tecnico.html`: arquitectura, Jetson Nano, componentes y fuente LiFePO4.
 - `materiales.html`: materiales, HDPE, panel solar principal y respaldo con bateria.
 - `metodologia.html`: proceso de desarrollo del proyecto.
 - `diagramas.html`: diagramas de bloques, flujo operativo y estados.
 - `styles.css`: diseno visual, colores, tarjetas, responsive y fondos.
-- `script.js`: menu movil, navegacion activa y zoom de diagramas.
+- `script.js`: menu movil, navegacion activa, pestanas de fases y zoom de diagramas.
 - `serve-ecohuella.js`: servidor local para probar o compartir en red Wi-Fi.
 
 ## `assets/`
@@ -73,7 +73,7 @@ No necesitas modificar esta carpeta para cambiar contenido de la pagina.
 ## Que editar segun lo que quieras cambiar
 
 - Cambiar texto de inicio: `index.html`.
-- Cambiar la division entre Fase 1 y Fase 2: `fases.html`.
+- Cambiar la division entre Fase 1, Fase 2 y subpestanas: `fases.html`.
 - Cambiar metricas, entrenamiento o video: `ia.html`.
 - Cambiar componentes electricos o Jetson: `tecnico.html`.
 - Cambiar materiales o energia: `materiales.html`.

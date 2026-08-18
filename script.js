@@ -41,3 +41,70 @@ document.querySelectorAll(".zoomable").forEach((img) => {
     img.classList.toggle("active");
   });
 });
+
+const activateTabGroup = (buttons, panels, targetId, datasetKey, updateHash = false) => {
+  const activeButton = Array.from(buttons).find((button) => button.dataset[datasetKey] === targetId);
+  const activePanel = document.getElementById(targetId);
+
+  if (!activeButton || !activePanel) {
+    return false;
+  }
+
+  buttons.forEach((button) => {
+    const isActive = button === activeButton;
+    button.classList.toggle("active", isActive);
+    button.setAttribute("aria-selected", String(isActive));
+  });
+
+  panels.forEach((panel) => {
+    panel.hidden = panel.id !== targetId;
+  });
+
+  if (updateHash) {
+    history.pushState(null, "", `#${targetId}`);
+  }
+
+  return true;
+};
+
+const phaseButtons = document.querySelectorAll("[data-tab-target]");
+const phasePanels = document.querySelectorAll("[data-tab-panel]");
+const subtabButtons = document.querySelectorAll("[data-subtab-target]");
+const subtabPanels = document.querySelectorAll("[data-subtab-panel]");
+
+const syncTabsFromHash = () => {
+  const targetId = decodeURIComponent(window.location.hash.replace("#", ""));
+
+  if (!targetId || !phaseButtons.length) {
+    return;
+  }
+
+  const isSubtabTarget = Array.from(subtabButtons).some((button) => button.dataset.subtabTarget === targetId);
+
+  if (isSubtabTarget) {
+    activateTabGroup(phaseButtons, phasePanels, "fase-2", "tabTarget");
+    activateTabGroup(subtabButtons, subtabPanels, targetId, "subtabTarget");
+    requestAnimationFrame(() => document.getElementById("fase-2")?.scrollIntoView({ block: "start" }));
+    return;
+  }
+
+  if (activateTabGroup(phaseButtons, phasePanels, targetId, "tabTarget")) {
+    requestAnimationFrame(() => document.getElementById(targetId)?.scrollIntoView({ block: "start" }));
+  }
+};
+
+phaseButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    activateTabGroup(phaseButtons, phasePanels, button.dataset.tabTarget, "tabTarget", true);
+  });
+});
+
+subtabButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    activateTabGroup(phaseButtons, phasePanels, "fase-2", "tabTarget");
+    activateTabGroup(subtabButtons, subtabPanels, button.dataset.subtabTarget, "subtabTarget", true);
+  });
+});
+
+syncTabsFromHash();
+window.addEventListener("popstate", syncTabsFromHash);

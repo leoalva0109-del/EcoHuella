@@ -34,183 +34,328 @@
 
   <main>
     <section class="page-hero phase-page-hero">
-      <p class="eyebrow">Evolución del proyecto</p>
-      <h1>Fase 1 validada, Fase 2 en integración</h1>
+      <p class="eyebrow">Hoja de ruta</p>
+      <h1>EcoHuella IA-Bio por fases</h1>
       <p>
-        Esta página organiza EcoHuella IA-Bio en dos partes: primero la validación
-        del prototipo, el modelo y el diseño físico; después la integración
-        funcional con aplicación móvil, backend, IA servida por API y EcoPuntos.
+        La presentación se divide en dos niveles. La Fase 1 reúne el prototipo,
+        la IA y la documentación técnica ya construida. La Fase 2 muestra la
+        integración funcional con app móvil, backend, sesiones y EcoPuntos.
       </p>
     </section>
 
-    <section class="section phase-grid" aria-label="Resumen de fases">
-      <article class="phase-card current" id="fase-1">
-        <span class="phase-kicker">Fase 1</span>
-        <h2>Prototipo, IA y diseño físico</h2>
-        <p>
-          La primera fase documenta y demuestra que la idea funciona: el sistema
-          puede reconocer residuos, mostrar resultados y explicar su arquitectura.
-        </p>
-        <ul class="clean-list">
-          <li>Sitio web informativo publicado con las secciones principales.</li>
-          <li>Modelo MobileNetV2 entrenado para orgánico, reciclable y no reciclable.</li>
-          <li>Dataset CDMX preparado, dividido y evaluado con métricas del modelo.</li>
-          <li>Video de prueba del modelo de IA en la página de IA y métricas.</li>
-          <li>Materiales definidos: HDPE, panel solar principal y batería LiFePO4.</li>
-          <li>Diagramas de arquitectura, flujo de decisión y operación mecánica.</li>
-        </ul>
-        <a class="button inline-button" href="ia.html#test-video">Ver test de IA</a>
-      </article>
+    <section class="section phase-tabs-shell" aria-label="Fases del proyecto">
+      <div class="phase-tabs" role="tablist" aria-label="Seleccionar fase">
+        <button class="phase-tab active" id="tab-fase-1" type="button" role="tab" aria-selected="true" aria-controls="fase-1" data-tab-target="fase-1">
+          <span>Fase 1</span>
+          <strong>Base construida</strong>
+          <small>IA, prototipo, materiales, metodología y diagramas.</small>
+        </button>
+        <button class="phase-tab" id="tab-fase-2" type="button" role="tab" aria-selected="false" aria-controls="fase-2" data-tab-target="fase-2">
+          <span>Fase 2</span>
+          <strong>Integración funcional</strong>
+          <small>App móvil, backend, inferencia, datos y EcoPuntos.</small>
+        </button>
+      </div>
 
-      <article class="phase-card next" id="fase-2">
-        <span class="phase-kicker">Fase 2</span>
-        <h2>Vertical funcional con app, backend y EcoPuntos</h2>
-        <p>
-          La segunda fase acopla lo ya validado a un flujo real de usuario:
-          abrir sesión, escanear el contenedor, clasificar el residuo, guardar el
-          evento y entregar la recompensa.
-        </p>
-        <ul class="clean-list">
-          <li>App móvil en Expo y React Native con acceso demo.</li>
-          <li>Backend NestJS como entrada principal para la aplicación.</li>
-          <li>FastAPI con OpenCV y TFLite para ejecutar la clasificación.</li>
-          <li>PostgreSQL como fuente de verdad para sesiones, eventos y EcoPuntos.</li>
-          <li>Estados de sesión: activa, completada, cancelada y expirada.</li>
-          <li>Manejo de baja confianza, reintentos, idempotencia y errores operativos.</li>
-        </ul>
-        <a class="button inline-button" href="#roadmap-fase-2">Ver roadmap</a>
-      </article>
-    </section>
+      <section class="phase-panel" id="fase-1" role="tabpanel" aria-labelledby="tab-fase-1" data-tab-panel>
+        <div class="phase-panel-header">
+          <div>
+            <p class="eyebrow">Fase 1</p>
+            <h2>Base técnica y visual del prototipo</h2>
+            <p>
+              Esta fase concentra el avance ya presentado: modelo de IA, diseño
+              del contenedor, componentes físicos, evidencia de entrenamiento y
+              documentación del flujo de operación.
+            </p>
+          </div>
+          <a class="button inline-button" href="ia.html#test-video">Ver Test de IA</a>
+        </div>
 
-    <section class="section" id="roadmap-fase-2">
-      <div class="section-heading">
-        <p class="eyebrow">Roadmap de implementación</p>
-        <h2>Cómo se verá la Fase 2 en producto</h2>
-        <p>
-          La Fase 2 traduce el prototipo en un recorrido completo desde el celular
-          hasta el registro del depósito y la actualización de puntos.
-        </p>
-      </div>
-      <div class="roadmap-grid">
-        <article class="roadmap-card">
-          <span>01</span>
-          <h3>Acceso demo</h3>
-          <p>Entrada rápida para probar el flujo sin construir autenticación completa.</p>
-        </article>
-        <article class="roadmap-card">
-          <span>02</span>
-          <h3>Home + EcoPuntos</h3>
-          <p>Pantalla principal con saldo, acciones disponibles y estado del sistema.</p>
-        </article>
-        <article class="roadmap-card">
-          <span>03</span>
-          <h3>Escaneo QR</h3>
-          <p>El usuario vincula la app con un contenedor y solicita una sesión de depósito.</p>
-        </article>
-        <article class="roadmap-card">
-          <span>04</span>
-          <h3>Sesión activa</h3>
-          <p>NestJS crea la sesión, evita duplicados y controla expiración o cancelación.</p>
-        </article>
-        <article class="roadmap-card">
-          <span>05</span>
-          <h3>Clasificación IA</h3>
-          <p>FastAPI procesa frames, ejecuta TFLite y devuelve clase, confianza y latencia.</p>
-        </article>
-        <article class="roadmap-card">
-          <span>06</span>
-          <h3>Resultado</h3>
-          <p>La app muestra si el depósito fue aceptado, rechazado por baja confianza o requiere reintento.</p>
-        </article>
-        <article class="roadmap-card">
-          <span>07</span>
-          <h3>Historial</h3>
-          <p>El usuario consulta depósitos, etiquetas, tiempos y EcoPuntos obtenidos.</p>
-        </article>
-      </div>
-    </section>
+        <div class="phase-menu-grid" aria-label="Menú de Fase 1">
+          <a class="phase-link-card" href="ia.html">
+            <span>01</span>
+            <h3>IA y métricas</h3>
+            <p>Modelo MobileNetV2, dataset CDMX, evaluación y video del test.</p>
+          </a>
+          <a class="phase-link-card" href="tecnico.html">
+            <span>02</span>
+            <h3>Arquitectura</h3>
+            <p>Jetson Nano, cámara, pantalla, sensores, controlador y actuadores.</p>
+          </a>
+          <a class="phase-link-card" href="materiales.html">
+            <span>03</span>
+            <h3>Materiales</h3>
+            <p>HDPE, energía solar principal, batería LiFePO4 y estructura física.</p>
+          </a>
+          <a class="phase-link-card" href="metodologia.html">
+            <span>04</span>
+            <h3>Metodología</h3>
+            <p>Ruta de trabajo, dataset, entrenamiento, prototipo y validación.</p>
+          </a>
+          <a class="phase-link-card" href="diagramas.html">
+            <span>05</span>
+            <h3>Diagramas</h3>
+            <p>Bloques del sistema, flujo de decisión y secuencia de control.</p>
+          </a>
+        </div>
 
-    <section class="section">
-      <div class="section-heading">
-        <p class="eyebrow">Arquitectura de Fase 2</p>
-        <h2>Del prototipo aislado a un sistema conectado</h2>
-      </div>
-      <div class="architecture-flow" aria-label="Flujo técnico de Fase 2">
-        <article class="flow-node">
-          <span>App</span>
-          <h3>Expo / React Native</h3>
-          <p>Acceso demo, QR, resultado, puntos e historial.</p>
-        </article>
-        <article class="flow-node">
-          <span>API</span>
-          <h3>NestJS</h3>
-          <p>Sesiones, reglas, idempotencia y comunicación con la IA.</p>
-        </article>
-        <article class="flow-node">
-          <span>IA</span>
-          <h3>FastAPI + TFLite</h3>
-          <p>OpenCV prepara frames y el modelo devuelve clase y confianza.</p>
-        </article>
-        <article class="flow-node">
-          <span>DB</span>
-          <h3>PostgreSQL</h3>
-          <p>Guarda sesiones, resultados, movimientos y saldo de EcoPuntos.</p>
-        </article>
-      </div>
-    </section>
+        <div class="phase-check-grid phase-compact-grid">
+          <article>
+            <h3>Resultado actual</h3>
+            <p>El sitio explica el prototipo y muestra una prueba visual del modelo.</p>
+          </article>
+          <article>
+            <h3>Evidencia técnica</h3>
+            <p>Las métricas, capturas y diagramas respaldan el desarrollo realizado.</p>
+          </article>
+          <article>
+            <h3>Preparación para integrar</h3>
+            <p>La arquitectura queda lista para conectarse con app, API y base de datos.</p>
+          </article>
+        </div>
+      </section>
 
-    <section class="section two-column">
-      <div>
-        <p class="eyebrow">Alcance controlado</p>
-        <h2>Límites del MVP para no inflar la complejidad</h2>
-        <p>
-          La Fase 2 debe demostrar el flujo completo sin prometer todavía todo el
-          hardware automatizado en producción. El objetivo es probar integración,
-          trazabilidad y experiencia de usuario antes de escalar el sistema físico.
-        </p>
-      </div>
-      <div class="checklist-panel">
-        <ul class="clean-list">
-          <li>Autenticación real queda fuera del MVP; se usa acceso demo.</li>
-          <li>No se almacenan imágenes completas como evidencia permanente.</li>
-          <li>La compuerta física puede seguir como demostración conceptual.</li>
-          <li>FastAPI queda detrás de NestJS, no expuesta directamente al usuario.</li>
-          <li>El flujo offline se deja para una etapa posterior.</li>
-        </ul>
-      </div>
-    </section>
+      <section class="phase-panel" id="fase-2" role="tabpanel" aria-labelledby="tab-fase-2" data-tab-panel hidden>
+        <div class="phase-panel-header">
+          <div>
+            <p class="eyebrow">Fase 2</p>
+            <h2>Integración app, backend, IA y EcoPuntos</h2>
+            <p>
+              La segunda fase convierte el prototipo en un recorrido funcional:
+              el usuario entra a la app, escanea el contenedor, inicia una sesión,
+              recibe la clasificación y obtiene su registro de puntos.
+            </p>
+          </div>
+        </div>
 
-    <section class="section">
-      <div class="section-heading">
-        <p class="eyebrow">Criterios de cierre</p>
-        <h2>Qué debe funcionar para declarar lista la Fase 2</h2>
-      </div>
-      <div class="phase-check-grid">
-        <article>
-          <h3>Salud del sistema</h3>
-          <p>NestJS, FastAPI y base de datos responden con health checks claros.</p>
-        </article>
-        <article>
-          <h3>QR a sesión</h3>
-          <p>Escanear un contenedor crea una sesión activa con expiración controlada.</p>
-        </article>
-        <article>
-          <h3>IA con umbral</h3>
-          <p>El resultado acepta depósitos confiables y solicita reintento en baja confianza.</p>
-        </article>
-        <article>
-          <h3>EcoPuntos</h3>
-          <p>Un depósito aceptado actualiza saldo y deja registro en historial.</p>
-        </article>
-        <article>
-          <h3>Consistencia</h3>
-          <p>Reintentos duplicados no suman puntos de más y los errores hacen rollback.</p>
-        </article>
-        <article>
-          <h3>Demo completa</h3>
-          <p>La app muestra inicio, escaneo, análisis, resultado e historial sin saltos.</p>
-        </article>
-      </div>
+        <div class="subtab-controls" role="tablist" aria-label="Subsecciones de Fase 2">
+          <button class="subtab-button active" id="subtab-ruta" type="button" role="tab" aria-selected="true" aria-controls="roadmap-fase-2" data-subtab-target="roadmap-fase-2">Ruta</button>
+          <button class="subtab-button" id="subtab-app" type="button" role="tab" aria-selected="false" aria-controls="fase-2-app" data-subtab-target="fase-2-app">App móvil</button>
+          <button class="subtab-button" id="subtab-backend" type="button" role="tab" aria-selected="false" aria-controls="fase-2-backend" data-subtab-target="fase-2-backend">Backend</button>
+          <button class="subtab-button" id="subtab-ia" type="button" role="tab" aria-selected="false" aria-controls="fase-2-ia" data-subtab-target="fase-2-ia">IA</button>
+          <button class="subtab-button" id="subtab-datos" type="button" role="tab" aria-selected="false" aria-controls="fase-2-datos" data-subtab-target="fase-2-datos">Datos</button>
+          <button class="subtab-button" id="subtab-pruebas" type="button" role="tab" aria-selected="false" aria-controls="fase-2-pruebas" data-subtab-target="fase-2-pruebas">Pruebas</button>
+        </div>
+
+        <div class="subtab-panels">
+          <section class="subtab-panel" id="roadmap-fase-2" role="tabpanel" aria-labelledby="subtab-ruta" data-subtab-panel>
+            <div class="section-heading">
+              <p class="eyebrow">Ruta funcional</p>
+              <h2>Recorrido completo de usuario</h2>
+              <p>La Fase 2 ordena la experiencia desde el celular hasta el historial del depósito.</p>
+            </div>
+            <div class="roadmap-grid">
+              <article class="roadmap-card">
+                <span>01</span>
+                <h3>Acceso demo</h3>
+                <p>Entrada directa para presentar el flujo sin depender de autenticación real.</p>
+              </article>
+              <article class="roadmap-card">
+                <span>02</span>
+                <h3>Home + EcoPuntos</h3>
+                <p>Vista principal con saldo, actividad reciente y acceso al escáner.</p>
+              </article>
+              <article class="roadmap-card">
+                <span>03</span>
+                <h3>Escaneo QR</h3>
+                <p>La app identifica el contenedor y solicita una sesión de depósito.</p>
+              </article>
+              <article class="roadmap-card">
+                <span>04</span>
+                <h3>Sesión activa</h3>
+                <p>El backend controla vigencia, estado y duplicados durante el depósito.</p>
+              </article>
+              <article class="roadmap-card">
+                <span>05</span>
+                <h3>Análisis IA</h3>
+                <p>FastAPI procesa frames y devuelve clase, confianza y tiempo de respuesta.</p>
+              </article>
+              <article class="roadmap-card">
+                <span>06</span>
+                <h3>Resultado</h3>
+                <p>La app muestra clasificación aceptada, baja confianza o solicitud de reintento.</p>
+              </article>
+              <article class="roadmap-card">
+                <span>07</span>
+                <h3>Historial</h3>
+                <p>El usuario consulta depósitos, etiquetas, fechas y EcoPuntos obtenidos.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="subtab-panel" id="fase-2-app" role="tabpanel" aria-labelledby="subtab-app" data-subtab-panel hidden>
+            <div class="section-heading">
+              <p class="eyebrow">Aplicación móvil</p>
+              <h2>Interfaces principales de la demo</h2>
+              <p>La app se plantea como una experiencia corta, clara y medible.</p>
+            </div>
+            <div class="module-grid">
+              <article class="module-card">
+                <span>/demo-access</span>
+                <h3>Acceso demo</h3>
+                <p>Permite entrar a la experiencia sin registro completo.</p>
+              </article>
+              <article class="module-card">
+                <span>/home</span>
+                <h3>Inicio</h3>
+                <p>Muestra saldo de EcoPuntos, estado del sistema y acción principal.</p>
+              </article>
+              <article class="module-card">
+                <span>/scan</span>
+                <h3>Escáner QR</h3>
+                <p>Vincula al usuario con el contenedor disponible.</p>
+              </article>
+              <article class="module-card">
+                <span>/deposit/analyze</span>
+                <h3>Análisis</h3>
+                <p>Presenta el estado de captura, inferencia y espera de resultado.</p>
+              </article>
+              <article class="module-card">
+                <span>/deposit/result</span>
+                <h3>Resultado</h3>
+                <p>Confirma clase detectada, confianza y puntos asignados.</p>
+              </article>
+              <article class="module-card">
+                <span>/history</span>
+                <h3>Historial</h3>
+                <p>Lista eventos anteriores y evolución del usuario.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="subtab-panel" id="fase-2-backend" role="tabpanel" aria-labelledby="subtab-backend" data-subtab-panel hidden>
+            <div class="section-heading">
+              <p class="eyebrow">Backend y contratos</p>
+              <h2>NestJS como centro de coordinación</h2>
+              <p>La app conversa con NestJS; NestJS administra reglas, sesiones y comunicación con IA.</p>
+            </div>
+            <div class="architecture-flow" aria-label="Arquitectura funcional de Fase 2">
+              <article class="flow-node">
+                <span>App</span>
+                <h3>Expo / React Native</h3>
+                <p>QR, sesión, resultado, puntos e historial.</p>
+              </article>
+              <article class="flow-node">
+                <span>API</span>
+                <h3>NestJS</h3>
+                <p>Estados de sesión, reglas de depósito e idempotencia.</p>
+              </article>
+              <article class="flow-node">
+                <span>IA</span>
+                <h3>FastAPI</h3>
+                <p>Recibe frames, ejecuta inferencia y devuelve respuesta estructurada.</p>
+              </article>
+              <article class="flow-node">
+                <span>DB</span>
+                <h3>PostgreSQL</h3>
+                <p>Conserva sesiones, clasificaciones, transacciones y puntos.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="subtab-panel" id="fase-2-ia" role="tabpanel" aria-labelledby="subtab-ia" data-subtab-panel hidden>
+            <div class="section-heading">
+              <p class="eyebrow">Servicio de inferencia</p>
+              <h2>Clasificación preparada para la demo conectada</h2>
+              <p>El modelo se integra como servicio para responder con rapidez y mantener trazabilidad.</p>
+            </div>
+            <div class="phase-check-grid">
+              <article>
+                <h3>Captura breve</h3>
+                <p>El contenedor toma una secuencia corta de frames para analizar el residuo.</p>
+              </article>
+              <article>
+                <h3>Selección de frames</h3>
+                <p>OpenCV prepara las imágenes más representativas para el modelo TFLite.</p>
+              </article>
+              <article>
+                <h3>Umbral de confianza</h3>
+                <p>La respuesta distingue clasificación aceptada y baja confianza.</p>
+              </article>
+              <article>
+                <h3>Respuesta estructurada</h3>
+                <p>La API devuelve etiqueta, confianza, latencia y estado de la predicción.</p>
+              </article>
+              <article>
+                <h3>Reintento controlado</h3>
+                <p>Cuando la confianza no alcanza el umbral, el usuario recibe una salida clara.</p>
+              </article>
+              <article>
+                <h3>Preparación para reentrenar</h3>
+                <p>Los resultados agregados ayudan a detectar clases difíciles y mejorar el dataset.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="subtab-panel" id="fase-2-datos" role="tabpanel" aria-labelledby="subtab-datos" data-subtab-panel hidden>
+            <div class="section-heading">
+              <p class="eyebrow">Datos y recompensa</p>
+              <h2>Sesiones, historial y EcoPuntos</h2>
+              <p>La base de datos sostiene la trazabilidad del depósito y evita recompensas duplicadas.</p>
+            </div>
+            <div class="phase-check-grid">
+              <article>
+                <h3>Sesión de depósito</h3>
+                <p>Registra contenedor, usuario demo, estado, creación y expiración.</p>
+              </article>
+              <article>
+                <h3>Resultado IA</h3>
+                <p>Guarda clase detectada, confianza y estado final de la clasificación.</p>
+              </article>
+              <article>
+                <h3>EcoPuntos</h3>
+                <p>Un depósito aceptado suma puntos mediante una transacción controlada.</p>
+              </article>
+              <article>
+                <h3>Historial</h3>
+                <p>La app recupera eventos anteriores para mostrar progreso del usuario.</p>
+              </article>
+              <article>
+                <h3>Consistencia</h3>
+                <p>La idempotencia evita que un mismo intento genere recompensas repetidas.</p>
+              </article>
+              <article>
+                <h3>Auditoría técnica</h3>
+                <p>Los registros permiten revisar latencia, errores y comportamiento del flujo.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="subtab-panel" id="fase-2-pruebas" role="tabpanel" aria-labelledby="subtab-pruebas" data-subtab-panel hidden>
+            <div class="section-heading">
+              <p class="eyebrow">Validación</p>
+              <h2>Condiciones para cerrar la Fase 2</h2>
+              <p>La entrega se valida con un recorrido completo y casos de error controlados.</p>
+            </div>
+            <div class="phase-check-grid">
+              <article>
+                <h3>Servicios disponibles</h3>
+                <p>NestJS, FastAPI y PostgreSQL responden con estado saludable.</p>
+              </article>
+              <article>
+                <h3>Flujo aceptado</h3>
+                <p>QR, sesión, clasificación, resultado y EcoPuntos funcionan de inicio a fin.</p>
+              </article>
+              <article>
+                <h3>Baja confianza</h3>
+                <p>La app solicita reintento sin cerrar incorrectamente la sesión.</p>
+              </article>
+              <article>
+                <h3>Estados de sesión</h3>
+                <p>Activa, completada, cancelada y expirada se reflejan en backend y app.</p>
+              </article>
+              <article>
+                <h3>Duplicados</h3>
+                <p>El mismo intento conserva el resultado original y no suma dos veces.</p>
+              </article>
+              <article>
+                <h3>Recuperación</h3>
+                <p>Los errores de IA o base de datos dejan el sistema en un estado consistente.</p>
+              </article>
+            </div>
+          </section>
+        </div>
+      </section>
     </section>
   </main>
 
