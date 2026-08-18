@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Fases de desarrollo de EcoHuella IA-Bio: prototipo de IA, arquitectura fisica e integracion funcional con app, backend y EcoPuntos.">
+  <title>Fases del proyecto | EcoHuella IA-Bio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Inicio de EcoHuella IA-Bio">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>EcoHuella IA-Bio</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Abrir navegación" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="top-nav" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="fases.html">Fases</a>
+        <a href="ia.html">IA y métricas</a>
+        <a href="tecnico.html">Arquitectura</a>
+        <a href="materiales.html">Materiales</a>
+        <a href="metodologia.html">Metodología</a>
+        <a href="diagramas.html">Diagramas</a>
+        <button class="theme-toggle" type="button" aria-pressed="false">🌙 Oscuro</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero phase-page-hero">
+      <p class="eyebrow">Evolución del proyecto</p>
+      <h1>Fase 1 validada, Fase 2 en integración</h1>
+      <p>
+        Esta página organiza EcoHuella IA-Bio en dos partes: primero la validación
+        del prototipo, el modelo y el diseño físico; después la integración
+        funcional con aplicación móvil, backend, IA servida por API y EcoPuntos.
+      </p>
+    </section>
+
+    <section class="section phase-grid" aria-label="Resumen de fases">
+      <article class="phase-card current" id="fase-1">
+        <span class="phase-kicker">Fase 1</span>
+        <h2>Prototipo, IA y diseño físico</h2>
+        <p>
+          La primera fase documenta y demuestra que la idea funciona: el sistema
+          puede reconocer residuos, mostrar resultados y explicar su arquitectura.
+        </p>
+        <ul class="clean-list">
+          <li>Sitio web informativo publicado con las secciones principales.</li>
+          <li>Modelo MobileNetV2 entrenado para orgánico, reciclable y no reciclable.</li>
+          <li>Dataset CDMX preparado, dividido y evaluado con métricas del modelo.</li>
+          <li>Video de prueba del modelo de IA en la página de IA y métricas.</li>
+          <li>Materiales definidos: HDPE, panel solar principal y batería LiFePO4.</li>
+          <li>Diagramas de arquitectura, flujo de decisión y operación mecánica.</li>
+        </ul>
+        <a class="button inline-button" href="ia.html#test-video">Ver test de IA</a>
+      </article>
+
+      <article class="phase-card next" id="fase-2">
+        <span class="phase-kicker">Fase 2</span>
+        <h2>Vertical funcional con app, backend y EcoPuntos</h2>
+        <p>
+          La segunda fase acopla lo ya validado a un flujo real de usuario:
+          abrir sesión, escanear el contenedor, clasificar el residuo, guardar el
+          evento y entregar la recompensa.
+        </p>
+        <ul class="clean-list">
+          <li>App móvil en Expo y React Native con acceso demo.</li>
+          <li>Backend NestJS como entrada principal para la aplicación.</li>
+          <li>FastAPI con OpenCV y TFLite para ejecutar la clasificación.</li>
+          <li>PostgreSQL como fuente de verdad para sesiones, eventos y EcoPuntos.</li>
+          <li>Estados de sesión: activa, completada, cancelada y expirada.</li>
+          <li>Manejo de baja confianza, reintentos, idempotencia y errores operativos.</li>
+        </ul>
+        <a class="button inline-button" href="#roadmap-fase-2">Ver roadmap</a>
+      </article>
+    </section>
+
+    <section class="section" id="roadmap-fase-2">
+      <div class="section-heading">
+        <p class="eyebrow">Roadmap de implementación</p>
+        <h2>Cómo se verá la Fase 2 en producto</h2>
+        <p>
+          La Fase 2 traduce el prototipo en un recorrido completo desde el celular
+          hasta el registro del depósito y la actualización de puntos.
+        </p>
+      </div>
+      <div class="roadmap-grid">
+        <article class="roadmap-card">
+          <span>01</span>
+          <h3>Acceso demo</h3>
+          <p>Entrada rápida para probar el flujo sin construir autenticación completa.</p>
+        </article>
+        <article class="roadmap-card">
+          <span>02</span>
+          <h3>Home + EcoPuntos</h3>
+          <p>Pantalla principal con saldo, acciones disponibles y estado del sistema.</p>
+        </article>
+        <article class="roadmap-card">
+          <span>03</span>
+          <h3>Escaneo QR</h3>
+          <p>El usuario vincula la app con un contenedor y solicita una sesión de depósito.</p>
+        </article>
+        <article class="roadmap-card">
+          <span>04</span>
+          <h3>Sesión activa</h3>
+          <p>NestJS crea la sesión, evita duplicados y controla expiración o cancelación.</p>
+        </article>
+        <article class="roadmap-card">
+          <span>05</span>
+          <h3>Clasificación IA</h3>
+          <p>FastAPI procesa frames, ejecuta TFLite y devuelve clase, confianza y latencia.</p>
+        </article>
+        <article class="roadmap-card">
+          <span>06</span>
+          <h3>Resultado</h3>
+          <p>La app muestra si el depósito fue aceptado, rechazado por baja confianza o requiere reintento.</p>
+        </article>
+        <article class="roadmap-card">
+          <span>07</span>
+          <h3>Historial</h3>
+          <p>El usuario consulta depósitos, etiquetas, tiempos y EcoPuntos obtenidos.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Arquitectura de Fase 2</p>
+        <h2>Del prototipo aislado a un sistema conectado</h2>
+      </div>
+      <div class="architecture-flow" aria-label="Flujo técnico de Fase 2">
+        <article class="flow-node">
+          <span>App</span>
+          <h3>Expo / React Native</h3>
+          <p>Acceso demo, QR, resultado, puntos e historial.</p>
+        </article>
+        <article class="flow-node">
+          <span>API</span>
+          <h3>NestJS</h3>
+          <p>Sesiones, reglas, idempotencia y comunicación con la IA.</p>
+        </article>
+        <article class="flow-node">
+          <span>IA</span>
+          <h3>FastAPI + TFLite</h3>
+          <p>OpenCV prepara frames y el modelo devuelve clase y confianza.</p>
+        </article>
+        <article class="flow-node">
+          <span>DB</span>
+          <h3>PostgreSQL</h3>
+          <p>Guarda sesiones, resultados, movimientos y saldo de EcoPuntos.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section two-column">
+      <div>
+        <p class="eyebrow">Alcance controlado</p>
+        <h2>Límites del MVP para no inflar la complejidad</h2>
+        <p>
+          La Fase 2 debe demostrar el flujo completo sin prometer todavía todo el
+          hardware automatizado en producción. El objetivo es probar integración,
+          trazabilidad y experiencia de usuario antes de escalar el sistema físico.
+        </p>
+      </div>
+      <div class="checklist-panel">
+        <ul class="clean-list">
+          <li>Autenticación real queda fuera del MVP; se usa acceso demo.</li>
+          <li>No se almacenan imágenes completas como evidencia permanente.</li>
+          <li>La compuerta física puede seguir como demostración conceptual.</li>
+          <li>FastAPI queda detrás de NestJS, no expuesta directamente al usuario.</li>
+          <li>El flujo offline se deja para una etapa posterior.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Criterios de cierre</p>
+        <h2>Qué debe funcionar para declarar lista la Fase 2</h2>
+      </div>
+      <div class="phase-check-grid">
+        <article>
+          <h3>Salud del sistema</h3>
+          <p>NestJS, FastAPI y base de datos responden con health checks claros.</p>
+        </article>
+        <article>
+          <h3>QR a sesión</h3>
+          <p>Escanear un contenedor crea una sesión activa con expiración controlada.</p>
+        </article>
+        <article>
+          <h3>IA con umbral</h3>
+          <p>El resultado acepta depósitos confiables y solicita reintento en baja confianza.</p>
+        </article>
+        <article>
+          <h3>EcoPuntos</h3>
+          <p>Un depósito aceptado actualiza saldo y deja registro en historial.</p>
+        </article>
+        <article>
+          <h3>Consistencia</h3>
+          <p>Reintentos duplicados no suman puntos de más y los errores hacen rollback.</p>
+        </article>
+        <article>
+          <h3>Demo completa</h3>
+          <p>La app muestra inicio, escaneo, análisis, resultado e historial sin saltos.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>EcoHuella IA-Bio · Fases de desarrollo e integración funcional</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

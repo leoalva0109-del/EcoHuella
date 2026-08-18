@@ -39,7 +39,7 @@ function resolveRequest(url) {
 
   const extension = path.extname(relativePath).toLowerCase();
   const allowed =
-    ["index.html", "ia.html", "tecnico.html", "materiales.html", "metodologia.html", "diagramas.html", "styles.css", "script.js"].includes(relativePath) ||
+    ["index.html", "fases.html", "ia.html", "tecnico.html", "materiales.html", "metodologia.html", "diagramas.html", "styles.css", "script.js"].includes(relativePath) ||
     (relativePath.startsWith("assets/") && Boolean(mimeTypes[extension]));
 
   if (!allowed) {

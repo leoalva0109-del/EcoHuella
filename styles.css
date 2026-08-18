@@ -368,7 +368,11 @@ body.dark-mode .theme-toggle {
 .impact-panel,
 .image-panel,
 .component-card,
-.state-card {
+.state-card,
+.phase-card,
+.roadmap-card,
+.flow-node,
+.phase-check-grid article {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--surface);
@@ -623,6 +627,122 @@ body.dark-mode .theme-toggle {
   margin-bottom: 18px;
 }
 
+.phase-preview {
+  padding-top: 36px;
+}
+
+.phase-page-hero {
+  padding-bottom: 26px;
+}
+
+.phase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+.phase-card {
+  padding: 30px;
+  min-height: 360px;
+}
+
+.phase-card.current {
+  border-top: 6px solid var(--green);
+  background:
+    linear-gradient(135deg, rgba(31, 143, 77, 0.12), rgba(255, 255, 255, 0) 42%),
+    var(--surface);
+}
+
+.phase-card.next {
+  border-top: 6px solid var(--blue);
+  background:
+    linear-gradient(135deg, rgba(20, 99, 255, 0.12), rgba(255, 255, 255, 0) 42%),
+    var(--surface);
+}
+
+.phase-kicker {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  border-radius: 8px;
+  background: #e9f2ff;
+  color: var(--blue);
+  font-size: 0.82rem;
+  font-weight: 850;
+  padding: 0 12px;
+  margin-bottom: 18px;
+}
+
+.phase-card.current .phase-kicker {
+  background: #eaf8ef;
+  color: var(--green);
+}
+
+.phase-card h2 {
+  margin-bottom: 14px;
+}
+
+.phase-card p + .clean-list {
+  margin-top: 20px;
+}
+
+.roadmap-grid,
+.architecture-flow,
+.phase-check-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.roadmap-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.roadmap-card,
+.flow-node,
+.phase-check-grid article {
+  padding: 24px;
+}
+
+.roadmap-card {
+  min-height: 230px;
+}
+
+.roadmap-card span,
+.flow-node span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 46px;
+  height: 34px;
+  border-radius: 8px;
+  background: #e9f2ff;
+  color: var(--blue);
+  font-size: 0.82rem;
+  font-weight: 850;
+  padding: 0 10px;
+  margin-bottom: 16px;
+}
+
+.roadmap-card h3,
+.flow-node h3,
+.phase-check-grid h3 {
+  margin-bottom: 10px;
+}
+
+.architecture-flow {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.flow-node {
+  min-height: 210px;
+  border-left: 5px solid var(--green);
+}
+
+.phase-check-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .clean-list {
   margin: 0;
   padding: 0;
@@ -676,6 +796,12 @@ body.dark-mode .component-card img,
 body.dark-mode .card-media.contain-media,
 body.dark-mode .qr-panel img {
   background: #0b1526;
+}
+
+body.dark-mode .phase-kicker,
+body.dark-mode .roadmap-card span,
+body.dark-mode .flow-node span {
+  background: rgba(127, 184, 255, 0.16);
 }
 
 .component-card div {
@@ -1017,14 +1143,18 @@ body.dark-mode .qr-panel img {
   .workflow-grid,
   .training-grid,
   .power-specs,
-  .state-grid {
+  .state-grid,
+  .roadmap-grid,
+  .architecture-flow,
+  .phase-check-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .two-column,
   .split-cards,
   .metric-layout,
-  .materials-layout {
+  .materials-layout,
+  .phase-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1127,7 +1257,10 @@ body.dark-mode .qr-panel img {
   .workflow-grid,
   .training-grid,
   .power-specs,
-  .state-grid {
+  .state-grid,
+  .roadmap-grid,
+  .architecture-flow,
+  .phase-check-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1136,7 +1269,10 @@ body.dark-mode .qr-panel img {
   .feature-card,
   .material-card,
   .metric-card,
-  .category-card {
+  .category-card,
+  .phase-card,
+  .roadmap-card,
+  .flow-node {
     min-height: auto;
   }
 
