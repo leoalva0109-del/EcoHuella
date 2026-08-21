@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Fase 2 de EcoHuella IA-Bio: experiencia móvil, frontend, backend, IA, datos y validación integral del PoC.">
   <title>Fase 2 | EcoHuella IA-Bio</title>
-  <link rel="stylesheet" href="styles.css?v=20260821-phase1">
+  <link rel="stylesheet" href="styles.css?v=20260821-video">
 </head>
 <body class="phase-two-page">
   <header class="site-header">
@@ -74,6 +74,24 @@
             <strong>Criterio rector</strong>
             <p>Cada pantalla debe representar un estado real del sistema y cada resultado debe poder reconstruirse desde el backend.</p>
           </div>
+
+          <figure class="phase-video-evidence">
+            <div class="phase-video-frame">
+              <video controls preload="metadata" playsinline poster="assets/fase2/demo-arranque-servicios-poster.webp" aria-label="Video del arranque coordinado de servicios en Windows">
+                <source src="assets/fase2/demo-arranque-servicios.mp4" type="video/mp4">
+                Tu navegador no puede reproducir este video.
+              </video>
+            </div>
+            <figcaption>
+              <p class="mini-label">22 s · Secuencia de arranque</p>
+              <h3>Servicios preparados para la demostración</h3>
+              <p>La sesión carga la URL configurada de la API, inicia Expo y levanta Metro para conectar el smartphone con el entorno local.</p>
+              <ul class="clean-list video-summary-list">
+                <li>Configuración leída desde variables de entorno.</li>
+                <li>Puerto de desarrollo seleccionado sin detener otros servicios.</li>
+              </ul>
+            </figcaption>
+          </figure>
 
           <div class="roadmap-grid journey-grid">
             <article class="roadmap-card"><span>01</span><h3>Acceso demo</h3><p>Identidad controlada para ejecutar la prueba sin autenticación institucional.</p></article>
@@ -169,6 +187,24 @@
             </section>
           </div>
 
+          <figure class="phase-video-evidence is-portrait">
+            <div class="phase-video-frame">
+              <video controls preload="metadata" playsinline poster="assets/fase2/demo-app-movil-poster.webp" aria-label="Recorrido funcional de EcoHuella en un smartphone">
+                <source src="assets/fase2/demo-app-movil.mp4" type="video/mp4">
+                Tu navegador no puede reproducir este video.
+              </video>
+            </div>
+            <figcaption>
+              <p class="mini-label">53 s · Prueba en smartphone</p>
+              <h3>Recorrido funcional de la aplicación</h3>
+              <p>La secuencia reúne bienvenida, conexión con el contenedor, preparación, análisis y respuesta del sistema.</p>
+              <ul class="clean-list video-summary-list">
+                <li>Un resultado aceptado actualiza la categoría y suma un EcoPunto.</li>
+                <li>La baja confianza solicita reintento y conserva la recompensa en cero.</li>
+              </ul>
+            </figcaption>
+          </figure>
+
           <div class="evidence-grid evidence-grid-wide frontend-docs">
             <section class="text-evidence-panel architecture-panel" aria-labelledby="frontend-architecture-title">
               <p class="mini-label">Arquitectura modular</p>
@@ -240,6 +276,24 @@
             <article><span>DB</span><h3>PostgreSQL</h3><p>Fuente oficial de verdad.</p></article>
           </div>
 
+          <figure class="phase-video-evidence">
+            <div class="phase-video-frame">
+              <video controls preload="metadata" playsinline poster="assets/fase2/demo-backend-logs-poster.webp" aria-label="Logs de NestJS durante la ejecución del backend">
+                <source src="assets/fase2/demo-backend-logs.mp4" type="video/mp4">
+                Tu navegador no puede reproducir este video.
+              </video>
+            </div>
+            <figcaption>
+              <p class="mini-label">7 s · Backend en ejecución</p>
+              <h3>NestJS inicia módulos, rutas y servicios</h3>
+              <p>Los logs muestran el arranque sin errores, el mapeo de endpoints y eventos de clasificación recibidos por la capa de negocio.</p>
+              <ul class="clean-list video-summary-list">
+                <li>Sesiones, transacciones y clasificaciones quedan disponibles.</li>
+                <li>Los eventos registran clase, confianza, latencia y aceptación.</li>
+              </ul>
+            </figcaption>
+          </figure>
+
           <div class="phase-check-grid backend-contracts">
             <article><h3>Sesión autoritativa</h3><p>El QR no crea estado local ficticio; NestJS devuelve la sesión válida.</p></article>
             <article><h3>Idempotencia</h3><p>Repetir attempt_id recupera el resultado sin duplicar transacción ni puntos.</p></article>
@@ -294,6 +348,24 @@
           </div>
 
           <p class="metric-caveat">El umbral de 0.95 controla la aceptación operativa del PoC. No debe confundirse con la accuracy global ni interpretarse como desempeño de campo.</p>
+
+          <figure class="phase-video-evidence">
+            <div class="phase-video-frame">
+              <video controls preload="metadata" playsinline poster="assets/fase2/demo-api-ia-poster.webp" aria-label="Inicio de FastAPI y solicitudes de inferencia del modelo">
+                <source src="assets/fase2/demo-api-ia.mp4" type="video/mp4">
+                Tu navegador no puede reproducir este video.
+              </video>
+            </div>
+            <figcaption>
+              <p class="mini-label">44 s · API local de IA</p>
+              <h3>FastAPI procesa solicitudes de inferencia</h3>
+              <p>La evidencia conserva el inicio de Uvicorn, la carga de MobileNetV2 TFLite y respuestas HTTP reales del clasificador.</p>
+              <ul class="clean-list video-summary-list">
+                <li>El servicio identifica modelo y versión al arrancar.</li>
+                <li>Cada POST registra clase, confianza, latencia y estado 200.</li>
+              </ul>
+            </figcaption>
+          </figure>
 
           <div class="scope-split">
             <section>

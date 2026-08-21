@@ -2115,6 +2115,61 @@ body.dark-mode .phase-section-tabs .nav-tab-button:not(.active):hover {
   font-size: 1rem;
 }
 
+.phase-video-evidence {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.75fr);
+  gap: 30px;
+  align-items: center;
+  margin: 36px 0;
+  padding: 28px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.phase-video-evidence.is-portrait {
+  grid-template-columns: minmax(280px, 0.65fr) minmax(0, 1.35fr);
+}
+
+.phase-video-frame {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #05080d;
+  box-shadow: 0 18px 45px rgba(17, 24, 39, 0.1);
+}
+
+.phase-video-evidence.is-portrait .phase-video-frame {
+  width: min(100%, 360px);
+  justify-self: center;
+}
+
+.phase-video-frame video {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 650px;
+  background: #05080d;
+  object-fit: contain;
+}
+
+.phase-video-evidence figcaption {
+  min-width: 0;
+}
+
+.phase-video-evidence figcaption h3 {
+  margin: 8px 0 12px;
+  font-size: 1.4rem;
+}
+
+.video-summary-list {
+  margin-top: 18px;
+}
+
+.video-summary-list li + li {
+  margin-top: 8px;
+}
+
 .journey-grid {
   margin-bottom: 36px;
 }
@@ -2901,6 +2956,17 @@ body.dark-mode .phase-section-tabs .nav-tab-button:not(.active):hover {
   .phase-two-callout {
     grid-template-columns: 1fr;
     gap: 8px;
+  }
+
+  .phase-video-evidence,
+  .phase-video-evidence.is-portrait {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 22px 0;
+  }
+
+  .phase-video-evidence.is-portrait .phase-video-frame {
+    width: min(100%, 340px);
   }
 
   .interface-list article {
