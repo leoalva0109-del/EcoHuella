@@ -1991,8 +1991,13 @@ body.dark-mode .footer-cta {
 
 .phase-section-tabs-shell {
   width: min(1180px, calc(100% - 40px));
+  position: sticky;
+  top: 72px;
+  z-index: 80;
   margin: 0 auto;
-  padding: 8px 0 18px;
+  padding: 8px 0 14px;
+  background: linear-gradient(180deg, var(--paper) 0%, rgba(244, 248, 245, 0.92) 100%);
+  backdrop-filter: blur(14px);
 }
 
 .phase-section-tabs-label {
@@ -2006,7 +2011,7 @@ body.dark-mode .footer-cta {
 .phase-section-tabs {
   width: 100%;
   margin: 0;
-  padding: 6px;
+  padding: 5px;
   display: flex;
   gap: 4px;
   overflow-x: auto;
@@ -2036,6 +2041,7 @@ body.dark-mode .footer-cta {
   padding: 0 14px;
   text-align: center;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .phase-section-tabs > a:hover,
@@ -2053,6 +2059,10 @@ body.dark-mode .footer-cta {
 body.dark-mode .phase-section-tabs > a:not(.active):hover,
 body.dark-mode .phase-section-tabs .nav-tab-button:not(.active):hover {
   background: rgba(127, 184, 255, 0.14);
+}
+
+body.dark-mode .phase-section-tabs-shell {
+  background: linear-gradient(180deg, var(--paper) 0%, rgba(7, 17, 31, 0.92) 100%);
 }
 
 .subtab-panel {

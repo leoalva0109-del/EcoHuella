@@ -134,7 +134,11 @@ phaseButtons.forEach((button) => {
 subtabButtons.forEach((button) => {
   button.addEventListener("click", () => {
     if (phaseButtons.length) activateTabGroup(phaseButtons, phasePanels, "fase-2", "tabTarget");
-    activateTabGroup(subtabButtons, subtabPanels, button.dataset.subtabTarget, "subtabTarget", true);
+    if (activateTabGroup(subtabButtons, subtabPanels, button.dataset.subtabTarget, "subtabTarget", true)) {
+      requestAnimationFrame(() => {
+        document.getElementById(button.dataset.subtabTarget)?.scrollIntoView({ block: "start" });
+      });
+    }
   });
 });
 
