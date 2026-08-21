@@ -2,7 +2,6 @@ const currentPage = window.location.pathname.split("/").pop() || "index.html";
 const siteHeader = document.querySelector(".site-header");
 const navLinks = document.querySelectorAll(".top-nav a");
 const navToggle = document.querySelector(".nav-toggle");
-const navMore = document.querySelector(".nav-more");
 const themeToggle = document.querySelector(".theme-toggle");
 
 const setNavOpen = (isOpen, returnFocus = false) => {
@@ -14,7 +13,6 @@ const setNavOpen = (isOpen, returnFocus = false) => {
     if (!isOpen && returnFocus) navToggle.focus();
   }
 
-  if (!isOpen) navMore?.removeAttribute("open");
 };
 
 const applyTheme = (isDark) => {
@@ -40,8 +38,6 @@ navLinks.forEach((link) => {
   link.addEventListener("click", () => setNavOpen(false));
 });
 
-if (navMore?.querySelector("a.active")) navMore.classList.add("active");
-
 navToggle?.addEventListener("click", () => {
   setNavOpen(!document.body.classList.contains("nav-open"));
 });
@@ -54,8 +50,6 @@ document.addEventListener("click", (event) => {
   if (document.body.classList.contains("nav-open") && siteHeader && !siteHeader.contains(event.target)) {
     setNavOpen(false);
   }
-
-  if (navMore?.open && !navMore.contains(event.target)) navMore.removeAttribute("open");
 });
 
 document.addEventListener("keydown", (event) => {
@@ -65,10 +59,6 @@ document.addEventListener("keydown", (event) => {
     return;
   }
 
-  if (event.key === "Escape" && navMore?.open) {
-    navMore.removeAttribute("open");
-    navMore.querySelector("summary")?.focus();
-  }
 });
 
 window.addEventListener("resize", () => {

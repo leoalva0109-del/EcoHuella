@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Fase 2 de EcoHuella IA-Bio: experiencia móvil, frontend, backend, IA, datos y validación integral del PoC.">
   <title>Fase 2 | EcoHuella IA-Bio</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20260821-simple">
 </head>
 <body class="phase-two-page">
   <header class="site-header">
@@ -24,15 +24,6 @@
         <a href="fases.html">Fase 1</a>
         <a class="nav-priority" href="fase2.html">Fase 2</a>
         <a href="ia.html">IA y métricas</a>
-        <details class="nav-more">
-          <summary>Más</summary>
-          <div class="nav-more-menu">
-            <a href="tecnico.html">Arquitectura</a>
-            <a href="materiales.html">Materiales</a>
-            <a href="metodologia.html">Metodología</a>
-            <a href="diagramas.html">Diagramas</a>
-          </div>
-        </details>
         <button class="theme-toggle" type="button" aria-pressed="false">🌙 Oscuro</button>
       </nav>
     </div>
@@ -41,11 +32,10 @@
   <main id="fase-2">
     <section class="page-hero phase-page-hero phase-two-hero">
       <p class="eyebrow">Fase 2 · PoC funcional</p>
-      <h1>Integración, evidencia y experiencia móvil</h1>
+      <h1>Integración funcional</h1>
       <p>
-        Esta fase conecta la app con NestJS, FastAPI y PostgreSQL para convertir una
-        clasificación en una sesión trazable, una respuesta comprensible y un registro
-        verificable de EcoPuntos.
+        La app móvil, el backend, la inteligencia artificial y los datos trabajan
+        como un solo flujo para registrar cada depósito y sus EcoPuntos.
       </p>
       <dl class="phase-two-facts" aria-label="Resumen de Fase 2">
         <div><dt>7</dt><dd>interfaces funcionales</dd></div>
@@ -56,6 +46,7 @@
     </section>
 
     <section class="phase-two-tabs-shell" aria-label="Navegación secundaria de Fase 2">
+      <p class="phase-two-tabs-label">Explorar la fase</p>
       <div class="phase-two-tabs" role="tablist" aria-label="Secciones de Fase 2">
         <button class="nav-tab-button active" id="nav-ruta" type="button" role="tab" tabindex="0" aria-selected="true" aria-controls="roadmap-fase-2" data-subtab-target="roadmap-fase-2">Ruta</button>
         <button class="nav-tab-button" id="nav-app" type="button" role="tab" tabindex="-1" aria-selected="false" aria-controls="fase-2-app" data-subtab-target="fase-2-app">App móvil</button>
@@ -471,7 +462,7 @@
     <p></p>
   </dialog>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=20260821-simple"></script>
   <script>
     const lightbox = document.getElementById("image-lightbox");
     const lightboxImage = lightbox?.querySelector("img");
