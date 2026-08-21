@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Fase 2 de EcoHuella IA-Bio: integracion funcional con app movil, backend, servicio de IA, datos y EcoPuntos.">
+  <meta name="description" content="Fase 2 de EcoHuella IA-Bio: experiencia móvil, frontend, backend, IA, datos y validación integral del PoC.">
   <title>Fase 2 | EcoHuella IA-Bio</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="phase-two-page">
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="Inicio de EcoHuella IA-Bio">
@@ -22,242 +22,364 @@
       <nav class="top-nav phase-two-nav" role="tablist" aria-label="Secciones de Fase 2">
         <button class="nav-tab-button active" id="nav-ruta" type="button" role="tab" aria-selected="true" aria-controls="roadmap-fase-2" data-subtab-target="roadmap-fase-2">Ruta</button>
         <button class="nav-tab-button" id="nav-app" type="button" role="tab" aria-selected="false" aria-controls="fase-2-app" data-subtab-target="fase-2-app">App móvil</button>
+        <button class="nav-tab-button" id="nav-frontend" type="button" role="tab" aria-selected="false" aria-controls="fase-2-frontend" data-subtab-target="fase-2-frontend">Frontend</button>
         <button class="nav-tab-button" id="nav-backend" type="button" role="tab" aria-selected="false" aria-controls="fase-2-backend" data-subtab-target="fase-2-backend">Backend</button>
         <button class="nav-tab-button" id="nav-ia" type="button" role="tab" aria-selected="false" aria-controls="fase-2-ia" data-subtab-target="fase-2-ia">IA</button>
         <button class="nav-tab-button" id="nav-datos" type="button" role="tab" aria-selected="false" aria-controls="fase-2-datos" data-subtab-target="fase-2-datos">Datos</button>
         <button class="nav-tab-button" id="nav-pruebas" type="button" role="tab" aria-selected="false" aria-controls="fase-2-pruebas" data-subtab-target="fase-2-pruebas">Pruebas</button>
-        <button class="theme-toggle" type="button" aria-pressed="false">🌙 Oscuro</button>
+        <button class="theme-toggle" type="button" aria-pressed="false">Oscuro</button>
       </nav>
     </div>
   </header>
 
   <main id="fase-2">
-    <section class="page-hero phase-page-hero">
-      <p class="eyebrow">Fase 2</p>
-      <h1>Integración funcional de EcoHuella</h1>
+    <section class="page-hero phase-page-hero phase-two-hero">
+      <p class="eyebrow">Fase 2 · PoC funcional</p>
+      <h1>Integración, evidencia y experiencia móvil</h1>
       <p>
-        La segunda fase transforma el prototipo en un flujo conectado: app móvil,
-        escaneo QR, sesión de depósito, inferencia por API, registro de datos y
-        actualización de EcoPuntos.
+        Esta fase conecta la app con NestJS, FastAPI y PostgreSQL para convertir una
+        clasificación en una sesión trazable, una respuesta comprensible y un registro
+        verificable de EcoPuntos.
       </p>
+      <dl class="phase-two-facts" aria-label="Resumen de Fase 2">
+        <div><dt>7</dt><dd>interfaces funcionales</dd></div>
+        <div><dt>4</dt><dd>capas conectadas</dd></div>
+        <div><dt>0.95</dt><dd>umbral operativo</dd></div>
+        <div><dt>+1</dt><dd>EcoPunto por resultado aceptado</dd></div>
+      </dl>
     </section>
 
     <section class="section phase-two-workspace" aria-label="Contenido de Fase 2">
       <div class="subtab-panels">
         <section class="subtab-panel" id="roadmap-fase-2" role="tabpanel" aria-labelledby="nav-ruta" data-subtab-panel>
-          <div class="section-heading">
+          <div class="section-heading phase-two-heading">
             <p class="eyebrow">Ruta funcional</p>
-            <h2>Recorrido completo de usuario</h2>
-            <p>La experiencia se ordena desde el acceso inicial hasta el historial de depósitos.</p>
+            <h2>Del prototipo técnico a una demostración completa</h2>
+            <p>
+              La Fase 2 no busca presentar un producto final: demuestra que percepción,
+              decisión, persistencia y experiencia de usuario pueden cerrar un ciclo repetible.
+            </p>
           </div>
-          <div class="roadmap-grid">
-            <article class="roadmap-card">
-              <span>01</span>
-              <h3>Acceso demo</h3>
-              <p>Entrada directa para presentar el flujo sin depender de autenticación real.</p>
-            </article>
-            <article class="roadmap-card">
-              <span>02</span>
-              <h3>Home + EcoPuntos</h3>
-              <p>Vista principal con saldo, actividad reciente y acceso al escáner.</p>
-            </article>
-            <article class="roadmap-card">
-              <span>03</span>
-              <h3>Escaneo QR</h3>
-              <p>La app identifica el contenedor y solicita una sesión de depósito.</p>
-            </article>
-            <article class="roadmap-card">
-              <span>04</span>
-              <h3>Sesión activa</h3>
-              <p>El backend controla vigencia, estado y duplicados durante el depósito.</p>
-            </article>
-            <article class="roadmap-card">
-              <span>05</span>
-              <h3>Análisis IA</h3>
-              <p>FastAPI procesa frames y devuelve clase, confianza y tiempo de respuesta.</p>
-            </article>
-            <article class="roadmap-card">
-              <span>06</span>
-              <h3>Resultado</h3>
-              <p>La app muestra clasificación aceptada, baja confianza o solicitud de reintento.</p>
-            </article>
-            <article class="roadmap-card">
-              <span>07</span>
-              <h3>Historial</h3>
-              <p>El usuario consulta depósitos, etiquetas, fechas y EcoPuntos obtenidos.</p>
-            </article>
+
+          <div class="phase-two-callout">
+            <strong>Criterio rector</strong>
+            <p>Cada pantalla debe representar un estado real del sistema y cada resultado debe poder reconstruirse desde el backend.</p>
+          </div>
+
+          <div class="roadmap-grid journey-grid">
+            <article class="roadmap-card"><span>01</span><h3>Acceso demo</h3><p>Identidad controlada para ejecutar la prueba sin autenticación institucional.</p></article>
+            <article class="roadmap-card"><span>02</span><h3>Inicio</h3><p>Consulta del saldo real y acceso a historial o escaneo.</p></article>
+            <article class="roadmap-card"><span>03</span><h3>QR y sesión</h3><p>NestJS valida el contenedor y crea o recupera la sesión activa.</p></article>
+            <article class="roadmap-card"><span>04</span><h3>Preparación</h3><p>La app guía la colocación del residuo y genera un intento único.</p></article>
+            <article class="roadmap-card"><span>05</span><h3>Inferencia</h3><p>FastAPI ejecuta MobileNetV2 y devuelve clase, confianza y latencia.</p></article>
+            <article class="roadmap-card"><span>06</span><h3>Persistencia</h3><p>NestJS aplica reglas y PostgreSQL conserva el resultado oficial.</p></article>
+            <article class="roadmap-card"><span>07</span><h3>Resultado</h3><p>La UI diferencia una clasificación aceptada de un reintento controlado.</p></article>
+            <article class="roadmap-card"><span>08</span><h3>Trazabilidad</h3><p>El historial confirma el evento y la idempotencia evita duplicados.</p></article>
+          </div>
+
+          <div class="evidence-grid evidence-grid-wide">
+            <figure class="evidence-figure">
+              <button type="button" data-lightbox="assets/fase2/ruta-investigacion.png" data-caption="Ruta de ocho fases del proceso de investigación de EcoHuella IA-Bio." aria-label="Ampliar ruta del proceso de investigación" title="Ampliar captura">
+                <img src="assets/fase2/ruta-investigacion.png" alt="Ruta del proceso de investigación en ocho fases" loading="lazy">
+              </button>
+              <figcaption><strong>Ruta de investigación.</strong> Problema, hipótesis, datos, entrenamiento, integración y resultados se conectan con entregables verificables.</figcaption>
+            </figure>
+            <figure class="evidence-figure">
+              <button type="button" data-lightbox="assets/fase2/roadmap-implementacion.png" data-caption="Roadmap de diseño validado, MVP funcional, piloto controlado y escalamiento." aria-label="Ampliar roadmap ejecutivo" title="Ampliar captura">
+                <img src="assets/fase2/roadmap-implementacion.png" alt="Roadmap ejecutivo de implementación" loading="lazy">
+              </button>
+              <figcaption><strong>Ruta de implementación.</strong> La Fase 2 corresponde al MVP funcional y prepara un piloto controlado antes del escalamiento.</figcaption>
+            </figure>
           </div>
         </section>
 
         <section class="subtab-panel" id="fase-2-app" role="tabpanel" aria-labelledby="nav-app" data-subtab-panel hidden>
-          <div class="section-heading">
+          <div class="section-heading phase-two-heading">
             <p class="eyebrow">Aplicación móvil</p>
-            <h2>Interfaces principales de la demo</h2>
-            <p>La app se presenta como una experiencia breve, clara y verificable.</p>
+            <h2>Siete interfaces para observar el sistema</h2>
+            <p>La experiencia reduce pasos, comunica estados reales y mantiene las reglas de negocio fuera de la app.</p>
           </div>
-          <div class="module-grid">
-            <article class="module-card">
-              <span>/demo-access</span>
-              <h3>Acceso demo</h3>
-              <p>Permite entrar a la experiencia sin registro completo.</p>
-            </article>
-            <article class="module-card">
-              <span>/home</span>
-              <h3>Inicio</h3>
-              <p>Muestra saldo de EcoPuntos, estado del sistema y acción principal.</p>
-            </article>
-            <article class="module-card">
-              <span>/scan</span>
-              <h3>Escáner QR</h3>
-              <p>Vincula al usuario con el contenedor disponible.</p>
-            </article>
-            <article class="module-card">
-              <span>/deposit/analyze</span>
-              <h3>Análisis</h3>
-              <p>Presenta el estado de captura, inferencia y espera de resultado.</p>
-            </article>
-            <article class="module-card">
-              <span>/deposit/result</span>
-              <h3>Resultado</h3>
-              <p>Confirma clase detectada, confianza y puntos asignados.</p>
-            </article>
-            <article class="module-card">
-              <span>/history</span>
-              <h3>Historial</h3>
-              <p>Lista eventos anteriores y evolución del usuario.</p>
-            </article>
+
+          <figure class="evidence-figure evidence-feature">
+            <button type="button" data-lightbox="assets/fase2/secuencia-interfaces.png" data-caption="Secuencia de pantallas base y evolución prevista de la experiencia móvil." aria-label="Ampliar secuencia de interfaces" title="Ampliar captura">
+              <img src="assets/fase2/secuencia-interfaces.png" alt="Secuencia de pantallas base de la aplicación EcoHuella" loading="lazy">
+            </button>
+            <figcaption><strong>Visión de experiencia.</strong> El PoC concentra bienvenida, acceso, inicio, QR, depósito, resultado e historial; retos, impacto y perfil pertenecen a la evolución del producto.</figcaption>
+          </figure>
+
+          <div class="interface-list" aria-label="Interfaces funcionales del PoC">
+            <article><span>01</span><div><h3>Bienvenida</h3><p>Presenta el propósito y abre el recorrido.</p></div><code>/</code></article>
+            <article><span>02</span><div><h3>Acceso demo</h3><p>Recupera una identidad de prueba controlada.</p></div><code>/demo-access</code></article>
+            <article><span>03</span><div><h3>Home y EcoPuntos</h3><p>Muestra saldo real y accesos principales.</p></div><code>/home</code></article>
+            <article><span>04</span><div><h3>Escaneo QR</h3><p>Identifica el contenedor y solicita la sesión.</p></div><code>/scan</code></article>
+            <article><span>05</span><div><h3>Preparación y análisis</h3><p>Orquesta intento, captura e inferencia.</p></div><code>/deposit/analyze</code></article>
+            <article><span>06</span><div><h3>Resultado y recompensa</h3><p>Presenta fracción y puntos confirmados.</p></div><code>/deposit/result</code></article>
+            <article><span>07</span><div><h3>Historial</h3><p>Consulta eventos persistidos y EcoPuntos.</p></div><code>/history</code></article>
+          </div>
+
+          <div class="state-comparison">
+            <article class="state-accepted"><span>Aceptado</span><h3>Clasificación confirmada</h3><p>Se registra la transacción, se cierra la sesión y se suma un EcoPunto.</p></article>
+            <article class="state-retry"><span>Baja confianza</span><h3>Reintento seguro</h3><p>Se conservan la trazabilidad y la sesión activa, pero no se otorgan puntos.</p></article>
+          </div>
+        </section>
+
+        <section class="subtab-panel" id="fase-2-frontend" role="tabpanel" aria-labelledby="nav-frontend" data-subtab-panel hidden>
+          <div class="section-heading phase-two-heading">
+            <p class="eyebrow">Frontend</p>
+            <h2>Implementación y recorrido visual de la app</h2>
+            <p>Expo y React Native concentran navegación, estado de servidor, captura QR y representación de resultados sin duplicar reglas del backend.</p>
+          </div>
+
+          <div class="frontend-overview">
+            <section>
+              <p class="mini-label">Base técnica</p>
+              <h3>Expo + React Native + TypeScript</h3>
+              <ul class="clean-list">
+                <li>Expo Router organiza las siete rutas funcionales.</li>
+                <li>TanStack Query administra consultas, caché y actualización.</li>
+                <li>El cliente HTTP usa fetch, timeout y errores normalizados.</li>
+              </ul>
+            </section>
+            <section>
+              <p class="mini-label">Frontera de integración</p>
+              <h3>NestJS es la única puerta de entrada</h3>
+              <ul class="clean-list">
+                <li>La app no consulta FastAPI ni PostgreSQL directamente.</li>
+                <li>La URL se configura mediante EXPO_PUBLIC_API_BASE_URL.</li>
+                <li>session_id y attempt_id se conservan solo durante el flujo.</li>
+              </ul>
+            </section>
+            <section>
+              <p class="mini-label">Estado verificado</p>
+              <h3>Conectividad LAN comprobada</h3>
+              <ul class="clean-list">
+                <li>Health checks de NestJS, FastAPI y PostgreSQL respondieron correctamente.</li>
+                <li>TypeScript, lint, bundle y rutas base pasaron verificación.</li>
+                <li>La evidencia visual móvil completa el recorrido del PoC.</li>
+              </ul>
+            </section>
+          </div>
+
+          <div class="evidence-grid evidence-grid-wide frontend-docs">
+            <figure class="evidence-figure portrait-document">
+              <button type="button" data-lightbox="assets/fase2/frontend-arquitectura.png" data-caption="Estructura modular de API, DTO, features, estado y tema del frontend." aria-label="Ampliar arquitectura del frontend" title="Ampliar captura">
+                <img src="assets/fase2/frontend-arquitectura.png" alt="Estructura modular del frontend EcoHuella" loading="lazy">
+              </button>
+              <figcaption><strong>Arquitectura modular.</strong> Navegación, API, features, estado y sistema visual mantienen responsabilidades separadas.</figcaption>
+            </figure>
+            <figure class="evidence-figure portrait-document">
+              <button type="button" data-lightbox="assets/fase2/frontend-matriz-evidencia.png" data-caption="Matriz de conectividad del frontend con servicios de backend e IA." aria-label="Ampliar matriz de evidencia del frontend" title="Ampliar captura">
+                <img src="assets/fase2/frontend-matriz-evidencia.png" alt="Matriz de evidencia de conectividad del frontend" loading="lazy">
+              </button>
+              <figcaption><strong>Evidencia de integración.</strong> La cadena app, NestJS, FastAPI y PostgreSQL fue comprobada antes de ampliar el flujo visual.</figcaption>
+            </figure>
+          </div>
+
+          <div class="section-heading gallery-heading">
+            <p class="eyebrow">Recorrido implementado</p>
+            <h2>Pantallas del frontend</h2>
+            <p>Las capturas muestran el camino feliz, la baja confianza y la consulta histórica del usuario.</p>
+          </div>
+
+          <div class="phone-gallery">
+            <figure class="phone-shot"><button type="button" data-lightbox="assets/fase2/frontend-01-bienvenida.jpeg" data-caption="Bienvenida y presentación del propósito de EcoHuella." aria-label="Ampliar pantalla de bienvenida" title="Ampliar captura"><img src="assets/fase2/frontend-01-bienvenida.jpeg" alt="Pantalla de bienvenida de EcoHuella" loading="lazy"></button><figcaption><span>01</span><strong>Bienvenida</strong><p>Presenta el valor del sistema e inicia la experiencia.</p></figcaption></figure>
+            <figure class="phone-shot"><button type="button" data-lightbox="assets/fase2/frontend-02-acceso-demo.jpeg" data-caption="Acceso temporal como usuario demo para la prueba de concepto." aria-label="Ampliar pantalla de acceso demo" title="Ampliar captura"><img src="assets/fase2/frontend-02-acceso-demo.jpeg" alt="Pantalla de acceso de demostración" loading="lazy"></button><figcaption><span>02</span><strong>Acceso demo</strong><p>Permite probar el PoC sin registro ni contraseña.</p></figcaption></figure>
+            <figure class="phone-shot"><button type="button" data-lightbox="assets/fase2/frontend-03-home-ecopuntos.jpeg" data-caption="Inicio con saldo de EcoPuntos, historial y acceso al escaneo QR." aria-label="Ampliar pantalla de inicio" title="Ampliar captura"><img src="assets/fase2/frontend-03-home-ecopuntos.jpeg" alt="Inicio con saldo de EcoPuntos" loading="lazy"></button><figcaption><span>03</span><strong>Home y saldo</strong><p>Concentra EcoPuntos y acciones principales.</p></figcaption></figure>
+            <figure class="phone-shot"><button type="button" data-lightbox="assets/fase2/frontend-04-contenedor.jpeg" data-caption="Vinculación de la sesión con el contenedor de demostración." aria-label="Ampliar pantalla de contenedor" title="Ampliar captura"><img src="assets/fase2/frontend-04-contenedor.jpeg" alt="Pantalla de conexión con contenedor demo" loading="lazy"></button><figcaption><span>04</span><strong>Contenedor</strong><p>Valida el equipo disponible e inicia el depósito.</p></figcaption></figure>
+            <figure class="phone-shot"><button type="button" data-lightbox="assets/fase2/frontend-05-preparacion.jpeg" data-caption="Preparación del residuo antes de iniciar la clasificación." aria-label="Ampliar pantalla de preparación" title="Ampliar captura"><img src="assets/fase2/frontend-05-preparacion.jpeg" alt="Pantalla de preparación del residuo" loading="lazy"></button><figcaption><span>05</span><strong>Preparación</strong><p>Guía visibilidad, limpieza y posición del residuo.</p></figcaption></figure>
+            <figure class="phone-shot"><button type="button" data-lightbox="assets/fase2/frontend-06-organico.jpeg" data-caption="Resultado aceptado para un residuo orgánico con un EcoPunto." aria-label="Ampliar resultado orgánico" title="Ampliar captura"><img src="assets/fase2/frontend-06-organico.jpeg" alt="Resultado de residuo orgánico identificado" loading="lazy"></button><figcaption><span>06</span><strong>Orgánico aceptado</strong><p>Confirma la fracción y la recompensa obtenida.</p></figcaption></figure>
+            <figure class="phone-shot"><button type="button" data-lightbox="assets/fase2/frontend-07-organico-saldo.jpeg" data-caption="Confirmación del nuevo saldo después de un depósito orgánico." aria-label="Ampliar saldo tras depósito orgánico" title="Ampliar captura"><img src="assets/fase2/frontend-07-organico-saldo.jpeg" alt="Saldo actualizado tras depósito orgánico" loading="lazy"></button><figcaption><span>07</span><strong>Saldo actualizado</strong><p>Refleja el movimiento confirmado por el backend.</p></figcaption></figure>
+            <figure class="phone-shot"><button type="button" data-lightbox="assets/fase2/frontend-08-reciclable.jpeg" data-caption="Resultado aceptado para un residuo reciclable." aria-label="Ampliar resultado reciclable" title="Ampliar captura"><img src="assets/fase2/frontend-08-reciclable.jpeg" alt="Resultado de residuo reciclable identificado" loading="lazy"></button><figcaption><span>08</span><strong>Reciclable aceptado</strong><p>Presenta la categoría y el mensaje educativo.</p></figcaption></figure>
+            <figure class="phone-shot"><button type="button" data-lightbox="assets/fase2/frontend-09-reciclable-saldo.jpeg" data-caption="Confirmación del saldo acumulado después de un depósito reciclable." aria-label="Ampliar saldo tras depósito reciclable" title="Ampliar captura"><img src="assets/fase2/frontend-09-reciclable-saldo.jpeg" alt="Saldo actualizado tras depósito reciclable" loading="lazy"></button><figcaption><span>09</span><strong>Acumulación</strong><p>El ledger conserva la secuencia de recompensas.</p></figcaption></figure>
+            <figure class="phone-shot"><button type="button" data-lightbox="assets/fase2/frontend-10-reintento.jpeg" data-caption="Resultado no concluyente que solicita preparar nuevamente el residuo." aria-label="Ampliar pantalla de reintento" title="Ampliar captura"><img src="assets/fase2/frontend-10-reintento.jpeg" alt="Pantalla de clasificación no concluyente" loading="lazy"></button><figcaption><span>10</span><strong>Baja confianza</strong><p>Solicita reintento y no asigna EcoPuntos.</p></figcaption></figure>
+            <figure class="phone-shot"><button type="button" data-lightbox="assets/fase2/frontend-11-historial.jpeg" data-caption="Historial de depósitos aceptados y no concluyentes." aria-label="Ampliar historial de depósitos" title="Ampliar captura"><img src="assets/fase2/frontend-11-historial.jpeg" alt="Historial de depósitos de EcoHuella" loading="lazy"></button><figcaption><span>11</span><strong>Historial</strong><p>Hace visible la trazabilidad de cada resultado.</p></figcaption></figure>
           </div>
         </section>
 
         <section class="subtab-panel" id="fase-2-backend" role="tabpanel" aria-labelledby="nav-backend" data-subtab-panel hidden>
-          <div class="section-heading">
+          <div class="section-heading phase-two-heading">
             <p class="eyebrow">Backend y contratos</p>
-            <h2>NestJS como centro de coordinación</h2>
-            <p>La app conversa con NestJS; NestJS administra reglas, sesiones y comunicación con IA.</p>
+            <h2>NestJS coordina la vertical funcional</h2>
+            <p>El backend concentra sesiones, reglas, idempotencia, errores normalizados y persistencia; FastAPI se limita a inferencia.</p>
           </div>
-          <div class="architecture-flow" aria-label="Arquitectura funcional de Fase 2">
-            <article class="flow-node">
-              <span>App</span>
-              <h3>Expo / React Native</h3>
-              <p>QR, sesión, resultado, puntos e historial.</p>
-            </article>
-            <article class="flow-node">
-              <span>API</span>
-              <h3>NestJS</h3>
-              <p>Estados de sesión, reglas de depósito e idempotencia.</p>
-            </article>
-            <article class="flow-node">
-              <span>IA</span>
-              <h3>FastAPI</h3>
-              <p>Recibe frames, ejecuta inferencia y devuelve respuesta estructurada.</p>
-            </article>
-            <article class="flow-node">
-              <span>DB</span>
-              <h3>PostgreSQL</h3>
-              <p>Conserva sesiones, clasificaciones, transacciones y puntos.</p>
-            </article>
+
+          <div class="runtime-flow" aria-label="Arquitectura actual del PoC">
+            <article><span>App</span><h3>Expo</h3><p>QR, sesión, resultado e historial.</p></article>
+            <i aria-hidden="true">→</i>
+            <article><span>API</span><h3>NestJS</h3><p>Autoridad de negocio y orquestación.</p></article>
+            <i aria-hidden="true">→</i>
+            <article><span>IA</span><h3>FastAPI</h3><p>MobileNetV2 TFLite y métricas.</p></article>
+            <i aria-hidden="true">↘</i>
+            <article><span>DB</span><h3>PostgreSQL</h3><p>Fuente oficial de verdad.</p></article>
+          </div>
+
+          <div class="phase-check-grid backend-contracts">
+            <article><h3>Sesión autoritativa</h3><p>El QR no crea estado local ficticio; NestJS devuelve la sesión válida.</p></article>
+            <article><h3>Idempotencia</h3><p>Repetir attempt_id recupera el resultado sin duplicar transacción ni puntos.</p></article>
+            <article><h3>Persistencia atómica</h3><p>Resultado, transacción y recompensa se confirman juntos o se revierten.</p></article>
+            <article><h3>Errores seguros</h3><p>La app recibe códigos normalizados sin direcciones internas ni stack traces.</p></article>
+            <article><h3>Recuperación</h3><p>Una falla de IA mantiene la sesión reutilizable y no produce registros parciales.</p></article>
+            <article><h3>Historial real</h3><p>La consulta recupera eventos completados y de baja confianza desde PostgreSQL.</p></article>
+          </div>
+
+          <div class="backend-score" aria-label="Cobertura verificada del backend M1">
+            <div><strong>109</strong><span>capacidades verificadas</span></div>
+            <div><strong>85.8%</strong><span>cobertura verificada</span></div>
+            <div><strong>87.4%</strong><span>cobertura implementada</span></div>
+            <p>Estas cifras corresponden exclusivamente a la matriz técnica de M1; no representan el avance total de la Fase 2.</p>
+          </div>
+
+          <div class="evidence-grid evidence-grid-wide">
+            <figure class="evidence-figure">
+              <button type="button" data-lightbox="assets/fase2/backend-readiness.png" data-caption="Estado de pruebas, reproducibilidad y preparación del backend para el frontend." aria-label="Ampliar preparación del backend" title="Ampliar captura">
+                <img src="assets/fase2/backend-readiness.png" alt="Matriz de preparación del backend para frontend" loading="lazy">
+              </button>
+              <figcaption><strong>Preparación M1.</strong> QR, sesiones, clasificación, EcoPuntos, historial y contratos de error están disponibles para integración.</figcaption>
+            </figure>
+            <figure class="evidence-figure">
+              <button type="button" data-lightbox="assets/fase2/arquitectura-solucion.png" data-caption="Arquitectura integral objetivo con edge, plataforma de datos y experiencia móvil." aria-label="Ampliar arquitectura integral" title="Ampliar captura">
+                <img src="assets/fase2/arquitectura-solucion.png" alt="Arquitectura integral objetivo de EcoHuella" loading="lazy">
+              </button>
+              <figcaption><strong>Arquitectura objetivo.</strong> Cloud, Jetson y automatización pertenecen a la evolución posterior al PoC local actualmente conectado por LAN.</figcaption>
+            </figure>
           </div>
         </section>
 
         <section class="subtab-panel" id="fase-2-ia" role="tabpanel" aria-labelledby="nav-ia" data-subtab-panel hidden>
-          <div class="section-heading">
-            <p class="eyebrow">Servicio de inferencia</p>
-            <h2>Clasificación preparada para la demo conectada</h2>
-            <p>El modelo se integra como servicio para responder con rapidez y mantener trazabilidad.</p>
+          <div class="section-heading phase-two-heading">
+            <p class="eyebrow">Inteligencia artificial</p>
+            <h2>Modelo medible, servicio desacoplado</h2>
+            <p>MobileNetV2 TFLite clasifica tres fracciones; el backend decide cuándo una predicción genera una consecuencia oficial.</p>
           </div>
+
+          <dl class="model-metrics">
+            <div><dt>96.13%</dt><dd>accuracy global</dd></div>
+            <div><dt>0.9614</dt><dd>F1 ponderado</dd></div>
+            <div><dt>96.33%</dt><dd>recall de orgánicos</dd></div>
+            <div><dt>0.95</dt><dd>umbral de aceptación</dd></div>
+          </dl>
+
+          <div class="scope-split">
+            <section>
+              <p class="mini-label">PoC actual</p>
+              <h3>Región controlada + MobileNetV2</h3>
+              <p>OpenCV prepara la captura y FastAPI ejecuta el modelo TFLite. LOW_CONFIDENCE se conserva como resultado válido.</p>
+            </section>
+            <section>
+              <p class="mini-label">Evolución prevista</p>
+              <h3>YOLO + Jetson Nano</h3>
+              <p>La detección de objetos, el edge definitivo y la actuación física se integran después de cerrar la vertical LAN.</p>
+            </section>
+          </div>
+
           <div class="phase-check-grid">
-            <article>
-              <h3>Captura breve</h3>
-              <p>El contenedor toma una secuencia corta de frames para analizar el residuo.</p>
-            </article>
-            <article>
-              <h3>Selección de frames</h3>
-              <p>OpenCV prepara las imágenes más representativas para el modelo TFLite.</p>
-            </article>
-            <article>
-              <h3>Umbral de confianza</h3>
-              <p>La respuesta distingue clasificación aceptada y baja confianza.</p>
-            </article>
-            <article>
-              <h3>Respuesta estructurada</h3>
-              <p>La API devuelve etiqueta, confianza, latencia y estado de la predicción.</p>
-            </article>
-            <article>
-              <h3>Reintento controlado</h3>
-              <p>Cuando la confianza no alcanza el umbral, el usuario recibe una salida clara.</p>
-            </article>
-            <article>
-              <h3>Mejora del dataset</h3>
-              <p>Los resultados agregados ayudan a detectar clases difíciles y mejorar el modelo.</p>
-            </article>
+            <article><h3>Preparación</h3><p>Limpieza, reetiquetado y normalización a orgánicos, reciclables y no reciclables.</p></article>
+            <article><h3>Entrenamiento</h3><p>Transfer learning, data augmentation y fine-tuning parcial en dos etapas.</p></article>
+            <article><h3>Validación</h3><p>Accuracy, precisión, recall, F1 y matriz de confusión por clase.</p></article>
+            <article><h3>Inferencia</h3><p>Respuesta con predicción, probabilidades, confianza, versión y tiempos.</p></article>
+            <article><h3>Decisión</h3><p>NestJS interpreta accepted sin trasladar la regla de producto al modelo.</p></article>
+            <article><h3>Mejora</h3><p>La principal línea de trabajo es reducir confusión entre reciclables y no reciclables.</p></article>
+          </div>
+
+          <div class="evidence-grid evidence-grid-wide">
+            <figure class="evidence-figure">
+              <button type="button" data-lightbox="assets/fase2/ia-entrenamiento.png" data-caption="Estrategia de entrenamiento y criterios de validación del modelo." aria-label="Ampliar entrenamiento de IA" title="Ampliar captura">
+                <img src="assets/fase2/ia-entrenamiento.png" alt="Entrenamiento y validación técnica del modelo" loading="lazy">
+              </button>
+              <figcaption><strong>Entrenamiento.</strong> La estrategia combina MobileNetV2, transferencia de aprendizaje, aumento de datos y ajuste parcial.</figcaption>
+            </figure>
+            <figure class="evidence-figure">
+              <button type="button" data-lightbox="assets/fase2/ia-mlops.png" data-caption="Ciclo MLOps objetivo desde datos y entrenamiento hasta despliegue y retroalimentación." aria-label="Ampliar ciclo MLOps" title="Ampliar captura">
+                <img src="assets/fase2/ia-mlops.png" alt="Diseño de inteligencia artificial y ciclo MLOps" loading="lazy">
+              </button>
+              <figcaption><strong>Ciclo de mejora.</strong> Versionado, métricas y retroalimentación permiten evolucionar el modelo sin acoplarlo a la app.</figcaption>
+            </figure>
           </div>
         </section>
 
         <section class="subtab-panel" id="fase-2-datos" role="tabpanel" aria-labelledby="nav-datos" data-subtab-panel hidden>
-          <div class="section-heading">
-            <p class="eyebrow">Datos y recompensa</p>
-            <h2>Sesiones, historial y EcoPuntos</h2>
-            <p>La base de datos sostiene la trazabilidad del depósito y evita recompensas duplicadas.</p>
+          <div class="section-heading phase-two-heading">
+            <p class="eyebrow">Datos y EcoPuntos</p>
+            <h2>Una fuente de verdad para cada depósito</h2>
+            <p>PostgreSQL conserva la sesión, el intento, la clasificación, la transacción y el movimiento de EcoPuntos como un mismo evento trazable.</p>
           </div>
-          <div class="phase-check-grid">
-            <article>
-              <h3>Sesión de depósito</h3>
-              <p>Registra contenedor, usuario demo, estado, creación y expiración.</p>
-            </article>
-            <article>
-              <h3>Resultado IA</h3>
-              <p>Guarda clase detectada, confianza y estado final de la clasificación.</p>
-            </article>
-            <article>
-              <h3>EcoPuntos</h3>
-              <p>Un depósito aceptado suma puntos mediante una transacción controlada.</p>
-            </article>
-            <article>
-              <h3>Historial</h3>
-              <p>La app recupera eventos anteriores para mostrar progreso del usuario.</p>
-            </article>
-            <article>
-              <h3>Consistencia</h3>
-              <p>La idempotencia evita que un mismo intento genere recompensas repetidas.</p>
-            </article>
-            <article>
-              <h3>Auditoría técnica</h3>
-              <p>Los registros permiten revisar latencia, errores y comportamiento del flujo.</p>
-            </article>
+
+          <div class="data-chain" aria-label="Cadena de datos de un depósito">
+            <div><span>01</span><strong>deposit_session</strong><p>Usuario, contenedor, estado y expiración.</p></div>
+            <div><span>02</span><strong>classification_result</strong><p>Predicción, confianza, probabilidades y modelo.</p></div>
+            <div><span>03</span><strong>recycling_transaction</strong><p>Consecuencia oficial aceptada o de baja confianza.</p></div>
+            <div><span>04</span><strong>points_ledger</strong><p>Movimiento único y saldo posterior.</p></div>
+          </div>
+
+          <div class="data-principles">
+            <article><h3>+1 por aceptación</h3><p>Solo accepted=true genera un DEPOSIT_REWARD.</p></article>
+            <article><h3>+0 por incertidumbre</h3><p>LOW_CONFIDENCE queda registrado sin recompensa.</p></article>
+            <article><h3>Sin duplicados</h3><p>attempt_id y restricciones únicas protegen transacción y ledger.</p></article>
+            <article><h3>Auditoría futura</h3><p>Modelo, tiempos y correlación quedan disponibles para análisis técnico.</p></article>
+          </div>
+
+          <div class="evidence-grid evidence-grid-wide">
+            <figure class="evidence-figure">
+              <button type="button" data-lightbox="assets/fase2/datos-modelo-conceptual.png" data-caption="Modelo conceptual de usuarios, contenedores, depósitos, clasificaciones y EcoPuntos." aria-label="Ampliar modelo conceptual de datos" title="Ampliar captura">
+                <img src="assets/fase2/datos-modelo-conceptual.png" alt="Modelo conceptual de la base de datos" loading="lazy">
+              </button>
+              <figcaption><strong>Modelo conceptual.</strong> Conecta al usuario, el contenedor, la clasificación y los puntos dentro de una estructura escalable.</figcaption>
+            </figure>
+            <figure class="evidence-figure">
+              <button type="button" data-lightbox="assets/fase2/datos-modelo-relacional.png" data-caption="Dominios relacionales previstos para identidad, operación, clasificación, gamificación y analítica." aria-label="Ampliar modelo relacional" title="Ampliar captura">
+                <img src="assets/fase2/datos-modelo-relacional.png" alt="Dominios del modelo relacional" loading="lazy">
+              </button>
+              <figcaption><strong>Evolución del modelo.</strong> El PoC usa doce tablas esenciales; gamificación avanzada, analítica y auditoría se amplían en fases posteriores.</figcaption>
+            </figure>
           </div>
         </section>
 
         <section class="subtab-panel" id="fase-2-pruebas" role="tabpanel" aria-labelledby="nav-pruebas" data-subtab-panel hidden>
-          <div class="section-heading">
-            <p class="eyebrow">Validación</p>
-            <h2>Condiciones para cerrar la Fase 2</h2>
-            <p>La entrega se valida con un recorrido completo y casos de error controlados.</p>
+          <div class="section-heading phase-two-heading">
+            <p class="eyebrow">Pruebas y cierre</p>
+            <h2>Demostrar el recorrido y también sus fallos</h2>
+            <p>La validación separa el desempeño del modelo, la consistencia transaccional y la experiencia observable de la app.</p>
           </div>
-          <div class="phase-check-grid">
-            <article>
-              <h3>Servicios disponibles</h3>
-              <p>NestJS, FastAPI y PostgreSQL responden con estado saludable.</p>
-            </article>
-            <article>
-              <h3>Flujo aceptado</h3>
-              <p>QR, sesión, clasificación, resultado y EcoPuntos funcionan de inicio a fin.</p>
-            </article>
-            <article>
-              <h3>Baja confianza</h3>
-              <p>La app solicita reintento sin cerrar incorrectamente la sesión.</p>
-            </article>
-            <article>
-              <h3>Estados de sesión</h3>
-              <p>Activa, completada, cancelada y expirada se reflejan en backend y app.</p>
-            </article>
-            <article>
-              <h3>Duplicados</h3>
-              <p>El mismo intento conserva el resultado original y no suma dos veces.</p>
-            </article>
-            <article>
-              <h3>Recuperación</h3>
-              <p>Los errores de IA o base de datos dejan el sistema en un estado consistente.</p>
-            </article>
+
+          <div class="test-bands">
+            <section><span>Nominal</span><h3>Flujo aceptado</h3><p>Acceso, QR, sesión, inferencia, persistencia, recompensa e historial.</p></section>
+            <section><span>Incertidumbre</span><h3>LOW_CONFIDENCE</h3><p>Reintento con nuevo attempt_id, sesión activa y cero EcoPuntos.</p></section>
+            <section><span>Robustez</span><h3>Idempotencia y rollback</h3><p>Repetición sin duplicados y recuperación sin persistencia parcial.</p></section>
+          </div>
+
+          <div class="phase-check-grid test-checklist">
+            <article><h3>Servicios saludables</h3><p>NestJS, FastAPI y PostgreSQL responden antes de iniciar la demo.</p></article>
+            <article><h3>QR autoritativo</h3><p>El backend valida el contenedor y controla la sesión.</p></article>
+            <article><h3>Tiempo medido</h3><p>Se registran latencia de inferencia y tiempo extremo a extremo por separado.</p></article>
+            <article><h3>Errores normalizados</h3><p>Contenedor, sesión, IA, base de datos y red tienen salidas distinguibles.</p></article>
+            <article><h3>Datos consistentes</h3><p>Transacción, clasificación, ledger y saldo conservan una sola consecuencia.</p></article>
+            <article><h3>Evidencia visible</h3><p>Resultado e historial permiten comprobar el evento desde la app.</p></article>
+          </div>
+
+          <div class="phase-two-callout validation-note">
+            <strong>Cierre de la Fase 2</strong>
+            <p>El backend ya presenta 85.8% de cobertura verificada en su matriz M1. La Fase 2 se considera cerrada cuando las siete interfaces completan el flujo con datos reales y los casos accepted, LOW_CONFIDENCE, duplicado y fallo controlado se observan de extremo a extremo.</p>
+          </div>
+
+          <div class="evidence-grid evidence-grid-three">
+            <figure class="evidence-figure portrait-document">
+              <button type="button" data-lightbox="assets/fase2/pruebas-protocolo-poc.png" data-caption="Protocolo de demostración del PoC con nueve momentos observables." aria-label="Ampliar protocolo de demostración" title="Ampliar captura">
+                <img src="assets/fase2/pruebas-protocolo-poc.png" alt="Protocolo propuesto para demostrar el PoC" loading="lazy">
+              </button>
+              <figcaption><strong>Protocolo.</strong> La prueba se ejecuta como experimento controlado, no como sucesión de pantallas.</figcaption>
+            </figure>
+            <figure class="evidence-figure portrait-document">
+              <button type="button" data-lightbox="assets/fase2/pruebas-criterios.png" data-caption="Criterios técnicos y escenarios de validación de la vertical funcional." aria-label="Ampliar criterios de validación" title="Ampliar captura">
+                <img src="assets/fase2/pruebas-criterios.png" alt="Criterios de validación de la vertical funcional" loading="lazy">
+              </button>
+              <figcaption><strong>Criterios.</strong> Latencia, precisión, estados negativos y evidencia se miden por capa.</figcaption>
+            </figure>
+            <figure class="evidence-figure">
+              <button type="button" data-lightbox="assets/fase2/backend-resumen.png" data-caption="Resumen de cobertura y capacidades diferidas del backend M1." aria-label="Ampliar resumen de cobertura del backend" title="Ampliar captura">
+                <img src="assets/fase2/backend-resumen.png" alt="Resumen de cobertura del backend" loading="lazy">
+              </button>
+              <figcaption><strong>Línea base.</strong> La matriz separa capacidades verificadas, parciales, diferidas y pendientes de decisión.</figcaption>
+            </figure>
           </div>
         </section>
       </div>
@@ -268,6 +390,32 @@
     <p>EcoHuella IA-Bio · Fase 2 de integración funcional</p>
   </footer>
 
+  <dialog class="image-lightbox" id="image-lightbox" aria-label="Vista ampliada de evidencia">
+    <button class="lightbox-close" type="button" aria-label="Cerrar vista ampliada">×</button>
+    <img src="" alt="">
+    <p></p>
+  </dialog>
+
   <script src="script.js"></script>
+  <script>
+    const lightbox = document.getElementById("image-lightbox");
+    const lightboxImage = lightbox?.querySelector("img");
+    const lightboxCaption = lightbox?.querySelector("p");
+
+    document.querySelectorAll("[data-lightbox]").forEach((button) => {
+      button.addEventListener("click", () => {
+        if (!lightbox || !lightboxImage || !lightboxCaption) return;
+        lightboxImage.src = button.dataset.lightbox;
+        lightboxImage.alt = button.querySelector("img")?.alt || "Evidencia ampliada";
+        lightboxCaption.textContent = button.dataset.caption || "";
+        lightbox.showModal();
+      });
+    });
+
+    lightbox?.querySelector(".lightbox-close")?.addEventListener("click", () => lightbox.close());
+    lightbox?.addEventListener("click", (event) => {
+      if (event.target === lightbox) lightbox.close();
+    });
+  </script>
 </body>
 </html>
