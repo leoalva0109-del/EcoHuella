@@ -161,12 +161,30 @@
           </div>
 
           <div class="evidence-grid evidence-grid-wide frontend-docs">
-            <figure class="evidence-figure portrait-document">
-              <button type="button" data-lightbox="assets/fase2/frontend-arquitectura.png" data-caption="Estructura modular de API, DTO, features, estado y tema del frontend." aria-label="Ampliar arquitectura del frontend" title="Ampliar captura">
-                <img src="assets/fase2/frontend-arquitectura.png" alt="Estructura modular del frontend EcoHuella" loading="lazy">
-              </button>
-              <figcaption><strong>Arquitectura modular.</strong> Navegación, API, features, estado y sistema visual mantienen responsabilidades separadas.</figcaption>
-            </figure>
+            <section class="text-evidence-panel architecture-panel" aria-labelledby="frontend-architecture-title">
+              <p class="mini-label">Arquitectura modular</p>
+              <h3 id="frontend-architecture-title">Una estructura preparada para crecer por funciones</h3>
+              <p class="panel-intro">La navegación, la comunicación HTTP y la lógica de cada dominio permanecen separadas para evitar dependencias innecesarias.</p>
+              <div class="architecture-map">
+                <div class="architecture-row">
+                  <span>app/</span>
+                  <div><strong>Navegación</strong><code>/ · /demo-access · /(tabs) · /deposit</code></div>
+                </div>
+                <div class="architecture-row">
+                  <span>src/api/</span>
+                  <div><strong>Integración</strong><code>client · dto · endpoints</code></div>
+                </div>
+                <div class="architecture-row">
+                  <span>features/</span>
+                  <div><strong>Dominios</strong><code>classification · demo · history · home · sessions</code></div>
+                </div>
+                <div class="architecture-row">
+                  <span>src/</span>
+                  <div><strong>Fundaciones</strong><code>components · hooks · state · theme · utils</code></div>
+                </div>
+              </div>
+              <p class="panel-footnote">Expo Router controla las rutas y TanStack Query administra el estado proveniente del servidor. El frontend nunca consulta FastAPI ni PostgreSQL directamente.</p>
+            </section>
             <figure class="evidence-figure portrait-document">
               <button type="button" data-lightbox="assets/fase2/frontend-matriz-evidencia.png" data-caption="Matriz de conectividad del frontend con servicios de backend e IA." aria-label="Ampliar matriz de evidencia del frontend" title="Ampliar captura">
                 <img src="assets/fase2/frontend-matriz-evidencia.png" alt="Matriz de evidencia de conectividad del frontend" loading="lazy">
@@ -368,12 +386,22 @@
               </button>
               <figcaption><strong>Protocolo.</strong> La prueba se ejecuta como experimento controlado, no como sucesión de pantallas.</figcaption>
             </figure>
-            <figure class="evidence-figure portrait-document">
-              <button type="button" data-lightbox="assets/fase2/pruebas-criterios.png" data-caption="Criterios técnicos y escenarios de validación de la vertical funcional." aria-label="Ampliar criterios de validación" title="Ampliar captura">
-                <img src="assets/fase2/pruebas-criterios.png" alt="Criterios de validación de la vertical funcional" loading="lazy">
-              </button>
-              <figcaption><strong>Criterios.</strong> Latencia, precisión, estados negativos y evidencia se miden por capa.</figcaption>
-            </figure>
+            <section class="text-evidence-panel criteria-panel" aria-labelledby="validation-criteria-title">
+              <p class="mini-label">Criterios de validación</p>
+              <h3 id="validation-criteria-title">Condiciones objetivas para cerrar el PoC</h3>
+              <div class="criteria-metrics" aria-label="Métricas de validación">
+                <div><strong>≥80%</strong><span>escenarios nominales sin intervención</span></div>
+                <div><strong>≤2 s</strong><span>captura hasta resultado disponible</span></div>
+                <div><strong>&lt;100 ms</strong><span>objetivo provisional de inferencia p95</span></div>
+              </div>
+              <ul class="criteria-list">
+                <li>Probar resultados accepted y LOW_CONFIDENCE.</li>
+                <li>Repetir attempt_id sin duplicar transacciones ni EcoPuntos.</li>
+                <li>Distinguir fallos de red, NestJS, FastAPI y PostgreSQL.</li>
+                <li>Conservar logs, health checks, historial y registros transaccionales.</li>
+              </ul>
+              <p class="panel-footnote">La confianza de una predicción se registra durante la demostración, pero no sustituye las métricas globales de precisión del modelo.</p>
+            </section>
             <figure class="evidence-figure">
               <button type="button" data-lightbox="assets/fase2/backend-resumen.png" data-caption="Resumen de cobertura y capacidades diferidas del backend M1." aria-label="Ampliar resumen de cobertura del backend" title="Ampliar captura">
                 <img src="assets/fase2/backend-resumen.png" alt="Resumen de cobertura del backend" loading="lazy">
