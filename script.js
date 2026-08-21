@@ -1,4 +1,13 @@
 const currentPage = window.location.pathname.split("/").pop() || "index.html";
+const phaseOnePages = new Set([
+  "fases.html",
+  "ia.html",
+  "tecnico.html",
+  "materiales.html",
+  "metodologia.html",
+  "diagramas.html",
+]);
+const activePage = phaseOnePages.has(currentPage) ? "fases.html" : currentPage;
 const siteHeader = document.querySelector(".site-header");
 const navLinks = document.querySelectorAll(".top-nav a");
 const navToggle = document.querySelector(".nav-toggle");
@@ -30,7 +39,7 @@ applyTheme(savedTheme ? savedTheme === "dark" : prefersDark);
 
 navLinks.forEach((link) => {
   const linkPage = new URL(link.href, window.location.href).pathname.split("/").pop();
-  if (linkPage === currentPage) {
+  if (linkPage === activePage) {
     link.classList.add("active");
     link.setAttribute("aria-current", "page");
   }
@@ -101,11 +110,13 @@ const syncTabsFromHash = () => {
   const targetId = decodeURIComponent(window.location.hash.replace("#", ""));
   if (!targetId) return;
 
-  const isSubtabTarget = Array.from(subtabButtons).some((button) => button.dataset.subtabTarget === targetId);
-  if (isSubtabTarget) {
+  const targetElement = document.getElementById(targetId);
+  const containingSubtab = targetElement?.closest("[data-subtab-panel]");
+
+  if (containingSubtab) {
     if (phaseButtons.length) activateTabGroup(phaseButtons, phasePanels, "fase-2", "tabTarget");
-    activateTabGroup(subtabButtons, subtabPanels, targetId, "subtabTarget");
-    requestAnimationFrame(() => document.getElementById(targetId)?.scrollIntoView({ block: "start" }));
+    activateTabGroup(subtabButtons, subtabPanels, containingSubtab.id, "subtabTarget");
+    requestAnimationFrame(() => targetElement.scrollIntoView({ block: "start" }));
     return;
   }
 

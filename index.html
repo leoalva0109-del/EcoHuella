@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="EcoHuella IA-Bio, contenedor inteligente para clasificar residuos con visión computacional y hardware embebido.">
   <title>EcoHuella IA-Bio | Clasificación inteligente de residuos</title>
-  <link rel="stylesheet" href="styles.css?v=20260821-video">
+  <link rel="stylesheet" href="styles.css?v=20260821-home">
 </head>
 <body>
   <header class="site-header">
@@ -22,15 +22,14 @@
       <nav class="top-nav" id="site-navigation" aria-label="Navegación principal">
         <a href="index.html">Inicio</a>
         <a href="fases.html">Fase 1</a>
-        <a class="nav-priority" href="fase2.html">Fase 2</a>
-        <a href="ia.html">IA y métricas</a>
+        <a href="fase2.html">Fase 2</a>
         <button class="theme-toggle" type="button" aria-pressed="false">🌙 Oscuro</button>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero-shell">
+    <section class="hero-shell home-hero">
       <picture class="hero-media">
         <source media="(max-width: 760px)" type="image/avif" srcset="assets/eco-bote-hero-mobile.avif">
         <source media="(max-width: 760px)" type="image/webp" srcset="assets/eco-bote-hero-mobile.webp">
@@ -42,71 +41,62 @@
         <p class="eyebrow">Contenedor inteligente para espacios urbanos y escolares</p>
         <h1>EcoHuella IA-Bio</h1>
         <p class="hero-copy">
-          La Fase 1 valida el modelo de IA, el prototipo físico y la experiencia
-          visual. La Fase 2 conecta app móvil, QR, backend, sesiones de depósito
-          y EcoPuntos para convertirlo en un flujo funcional completo.
+          Clasificación visual, prototipo físico y experiencia móvil conectada
+          para orientar cada depósito y conservar su trazabilidad.
         </p>
         <div class="hero-actions">
-          <a class="button primary" href="fase2.html#fase-2-frontend">Ver demo funcional</a>
-          <a class="button secondary" href="ia.html#test-video">Ver prueba del modelo</a>
+          <a class="button primary" href="fase2.html#demo-funcional">Ver demo funcional</a>
+          <a class="button secondary" href="#ruta-proyecto">Explorar el proyecto</a>
         </div>
       </div>
     </section>
 
-    <section class="section compact">
-      <div class="stats-grid">
-        <article class="stat-card">
-          <span class="stat-number">96.13</span>
-          <span class="stat-label">% accuracy</span>
+    <section class="section phase-preview home-route" id="ruta-proyecto">
+      <div class="section-heading">
+        <p class="eyebrow">Ruta del proyecto</p>
+        <h2>Dos frentes de trabajo, una sola solución</h2>
+        <p>
+          El proyecto reúne la inteligencia y el prototipo físico con la experiencia
+          móvil, los servicios y la trazabilidad de cada depósito.
+        </p>
+      </div>
+      <div class="phase-grid">
+        <article class="phase-card home-phase-card phase-one">
+          <span class="phase-kicker">Fase 1</span>
+          <h2>Inteligencia y prototipo</h2>
+          <p>
+            Modelo MobileNetV2, dataset CDMX, métricas, arquitectura, materiales,
+            energía solar, metodología y diagramas del sistema.
+          </p>
+          <a class="button inline-button" href="fases.html">Explorar Fase 1</a>
         </article>
-        <article class="stat-card">
-          <span class="stat-number">45,330</span>
-          <span class="stat-label">imágenes del split documentado</span>
-        </article>
-        <article class="stat-card">
-          <span class="stat-number">3</span>
-          <span class="stat-label">categorías de separación</span>
-        </article>
-        <article class="stat-card">
-          <span class="stat-number">80</span>
-          <span class="stat-label">% de reducción potencial estimada</span>
+        <article class="phase-card home-phase-card phase-two">
+          <span class="phase-kicker">Fase 2</span>
+          <h2>Experiencia e integración</h2>
+          <p>
+            Aplicación móvil, QR, NestJS, FastAPI, PostgreSQL, resultados,
+            EcoPuntos y evidencia del recorrido funcional.
+          </p>
+          <a class="button inline-button" href="fase2.html">Explorar Fase 2</a>
         </article>
       </div>
+    </section>
+
+    <section class="section compact home-metrics" aria-labelledby="home-metrics-title">
+      <div class="section-heading home-metrics-heading">
+        <p class="eyebrow">Evidencia resumida</p>
+        <h2 id="home-metrics-title">Indicadores documentados</h2>
+      </div>
+      <dl class="home-metrics-grid">
+        <div><dt>96.13%</dt><dd>accuracy global</dd></div>
+        <div><dt>45,330</dt><dd>imágenes del split documentado</dd></div>
+        <div><dt>3</dt><dd>categorías de separación</dd></div>
+        <div><dt>80%</dt><dd>reducción potencial estimada</dd></div>
+      </dl>
       <p class="metrics-note">
         Las métricas corresponden a cortes documentales distintos y la reducción del 80% es una hipótesis para piloto, no un resultado de campo.
         <a href="ia.html#contexto-metricas">Consultar muestra, método y limitaciones</a>.
       </p>
-    </section>
-
-    <section class="section phase-preview">
-      <div class="section-heading">
-        <p class="eyebrow">Ruta del proyecto</p>
-        <h2>Avance construido y siguiente etapa</h2>
-        <p>
-          La página ahora separa el trabajo validado del prototipo y la IA de la
-          etapa que integrará la aplicación, el backend y la recompensa por EcoPuntos.
-        </p>
-      </div>
-      <div class="phase-grid">
-        <article class="phase-card current">
-          <span class="phase-kicker">Fase 1</span>
-          <h2>Prototipo, IA y diseño físico</h2>
-          <p>
-            Sitio publicado, modelo MobileNetV2, dataset CDMX, métricas, video de
-            prueba, materiales, energía solar y diagramas del sistema.
-          </p>
-          <a class="button inline-button" href="fases.html#fase-1">Ver avances</a>
-        </article>
-        <article class="phase-card next">
-          <span class="phase-kicker">Fase 2</span>
-          <h2>Integración app, backend y EcoPuntos</h2>
-          <p>
-            Flujo de usuario con acceso demo, escaneo QR, sesión de depósito,
-            inferencia IA, resultado, recompensa e historial.
-          </p>
-          <a class="button inline-button" href="fase2.html">Ver plan</a>
-        </article>
-      </div>
     </section>
 
     <section class="section two-column">
@@ -206,16 +196,15 @@
       <nav class="footer-links" aria-label="Enlaces del proyecto">
         <a href="fases.html">Fase 1</a>
         <a href="fase2.html">Fase 2</a>
-        <a href="ia.html#contexto-metricas">IA y métricas</a>
       </nav>
       <p class="footer-date">Actualizado en agosto de 2026 · Contenido de uso académico.</p>
     </div>
     <div class="footer-cta">
       <div><strong>Recorre la integración completa</strong><p>App, inferencia, trazabilidad y EcoPuntos en una misma demostración.</p></div>
-      <a class="button footer-button" href="fase2.html#fase-2-frontend">Ver demo funcional</a>
+      <a class="button footer-button" href="fase2.html#demo-funcional">Ver demo funcional</a>
     </div>
   </footer>
 
-  <script src="script.js?v=20260821-phase1"></script>
+  <script src="script.js?v=20260821-home"></script>
 </body>
 </html>
