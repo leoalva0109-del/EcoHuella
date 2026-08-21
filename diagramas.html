@@ -14,19 +14,25 @@
         <span class="brand-mark" aria-hidden="true"></span>
         <span>EcoHuella IA-Bio</span>
       </a>
-      <button class="nav-toggle" type="button" aria-label="Abrir navegación" aria-expanded="false">
+      <button class="nav-toggle" type="button" aria-label="Abrir navegación" aria-expanded="false" aria-controls="site-navigation">
         <span></span>
         <span></span>
         <span></span>
       </button>
-      <nav class="top-nav" aria-label="Navegación principal">
+      <nav class="top-nav" id="site-navigation" aria-label="Navegación principal">
         <a href="index.html">Inicio</a>
-        <a href="fases.html">Fases</a>
+        <a href="fases.html">Fase 1</a>
+        <a class="nav-priority" href="fase2.html">Fase 2</a>
         <a href="ia.html">IA y métricas</a>
-        <a href="tecnico.html">Arquitectura</a>
-        <a href="materiales.html">Materiales</a>
-        <a href="metodologia.html">Metodología</a>
-        <a href="diagramas.html">Diagramas</a>
+        <details class="nav-more">
+          <summary>Más</summary>
+          <div class="nav-more-menu">
+            <a href="tecnico.html">Arquitectura</a>
+            <a href="materiales.html">Materiales</a>
+            <a href="metodologia.html">Metodología</a>
+            <a href="diagramas.html">Diagramas</a>
+          </div>
+        </details>
         <button class="theme-toggle" type="button" aria-pressed="false">🌙 Oscuro</button>
       </nav>
     </div>
@@ -50,7 +56,7 @@
       </div>
       <figure class="diagram-frame diagram-figure">
         <div class="diagram-scroll" aria-label="Diagrama de bloques desplazable">
-          <img class="zoomable diagram-image wide" src="assets/diagrama-bloques-modulos.png" alt="Diagrama de bloques entre cámara, Jetson Nano, controlador, pantalla, sensor y compartimento físico">
+          <img class="zoomable diagram-image wide" src="assets/diagrama-bloques-modulos.png" alt="Diagrama de bloques entre cámara, Jetson Nano, controlador, pantalla, sensor y compartimento físico" loading="lazy">
         </div>
         <figcaption>Cámara, Jetson Nano, pantalla, controlador, sensor y actuador conectados por el módulo de decisión.</figcaption>
       </figure>
@@ -63,7 +69,7 @@
       </div>
       <div class="diagram-frame">
         <div class="diagram-scroll" aria-label="Diagrama de flujo desplazable">
-          <img class="zoomable" src="assets/diagrama.png.png" alt="Diagrama de flujo del sistema EcoHuella IA-Bio">
+          <img class="zoomable" src="assets/diagrama-flujo-1200.webp" srcset="assets/diagrama-flujo-1200.webp 1200w, assets/diagrama-flujo-2200.webp 2200w" sizes="(max-width: 760px) 100vw, 1120px" alt="Diagrama de flujo del sistema EcoHuella IA-Bio" width="2200" height="2965" loading="lazy">
         </div>
       </div>
     </section>
@@ -129,7 +135,7 @@
       </div>
       <figure class="diagram-frame diagram-figure">
         <div class="diagram-scroll tall-diagram" aria-label="Diagrama de secuencia desplazable">
-          <img class="zoomable diagram-image tall" src="assets/diagrama-secuencia-control.png" alt="Diagrama de secuencia de control desde inicio hasta registro del evento">
+          <img class="zoomable diagram-image tall" src="assets/diagrama-secuencia-control.png" alt="Diagrama de secuencia de control desde inicio hasta registro del evento" loading="lazy">
         </div>
         <figcaption>Máquina de estados completa con validación de confianza y proximidad.</figcaption>
       </figure>
@@ -137,7 +143,27 @@
   </main>
 
   <footer class="site-footer">
-    <p>EcoHuella IA-Bio · Flujo de control para operación autónoma</p>
+    <div class="footer-inner">
+      <div class="footer-intro">
+        <strong>EcoHuella IA-Bio</strong>
+        <p>Proyecto académico del equipo EcoHuella IA-Bio · Universidad del Valle de México.</p>
+      </div>
+      <nav class="footer-links" aria-label="Enlaces del proyecto">
+        <a href="fases.html">Fase 1</a>
+        <a href="fase2.html">Fase 2</a>
+        <a href="ia.html#contexto-metricas">Métricas</a>
+        <a href="fase2.html#fase-2-datos">Datos y privacidad</a>
+      </nav>
+      <div class="footer-meta">
+        <p>Actualizado en agosto de 2026 · Contenido de uso académico.</p>
+        <p><a href="https://github.com/leoalva0109-del/EcoHuella">Repositorio GitHub</a> · <a href="https://github.com/leoalva0109-del/EcoHuella/issues">Contacto y seguimiento</a></p>
+        <p>Consulta el repositorio para documentación, atribuciones y términos de uso.</p>
+      </div>
+    </div>
+    <div class="footer-cta">
+      <div><strong>Recorre la integración completa</strong><p>App, inferencia, trazabilidad y EcoPuntos en una misma demostración.</p></div>
+      <a class="button footer-button" href="fase2.html#fase-2-frontend">Ver demo funcional</a>
+    </div>
   </footer>
 
   <script src="script.js"></script>

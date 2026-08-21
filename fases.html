@@ -14,19 +14,25 @@
         <span class="brand-mark" aria-hidden="true"></span>
         <span>EcoHuella IA-Bio</span>
       </a>
-      <button class="nav-toggle" type="button" aria-label="Abrir navegación" aria-expanded="false">
+      <button class="nav-toggle" type="button" aria-label="Abrir navegación" aria-expanded="false" aria-controls="site-navigation">
         <span></span>
         <span></span>
         <span></span>
       </button>
-      <nav class="top-nav" aria-label="Navegación principal">
+      <nav class="top-nav" id="site-navigation" aria-label="Navegación principal">
         <a href="index.html">Inicio</a>
-        <a href="fases.html">Fases</a>
+        <a href="fases.html">Fase 1</a>
+        <a class="nav-priority" href="fase2.html">Fase 2</a>
         <a href="ia.html">IA y métricas</a>
-        <a href="tecnico.html">Arquitectura</a>
-        <a href="materiales.html">Materiales</a>
-        <a href="metodologia.html">Metodología</a>
-        <a href="diagramas.html">Diagramas</a>
+        <details class="nav-more">
+          <summary>Más</summary>
+          <div class="nav-more-menu">
+            <a href="tecnico.html">Arquitectura</a>
+            <a href="materiales.html">Materiales</a>
+            <a href="metodologia.html">Metodología</a>
+            <a href="diagramas.html">Diagramas</a>
+          </div>
+        </details>
         <button class="theme-toggle" type="button" aria-pressed="false">🌙 Oscuro</button>
       </nav>
     </div>
@@ -44,20 +50,20 @@
     </section>
 
     <section class="section phase-tabs-shell" aria-label="Fases del proyecto">
-      <div class="phase-tabs" role="tablist" aria-label="Seleccionar fase">
-        <button class="phase-tab active" id="tab-fase-1" type="button" role="tab" aria-selected="true" aria-controls="fase-1" data-tab-target="fase-1">
+      <div class="phase-tabs" aria-label="Seleccionar fase">
+        <button class="phase-tab active" id="tab-fase-1" type="button" aria-controls="fase-1" data-tab-target="fase-1">
           <span>Fase 1</span>
           <strong>Base construida</strong>
           <small>IA, prototipo, materiales, metodología y diagramas.</small>
         </button>
-        <a class="phase-tab phase-link-tab" href="fase2.html" role="tab" aria-selected="false">
+        <a class="phase-tab phase-link-tab" href="fase2.html">
           <span>Fase 2</span>
           <strong>Integración funcional</strong>
           <small>App móvil, backend, inferencia, datos y EcoPuntos.</small>
         </a>
       </div>
 
-      <section class="phase-panel" id="fase-1" role="tabpanel" aria-labelledby="tab-fase-1" data-tab-panel>
+      <section class="phase-panel" id="fase-1" role="region" aria-labelledby="tab-fase-1" data-tab-panel>
         <div class="phase-panel-header">
           <div>
             <p class="eyebrow">Contenido de Fase 1</p>
@@ -118,7 +124,27 @@
   </main>
 
   <footer class="site-footer">
-    <p>EcoHuella IA-Bio · Fase 1 del desarrollo</p>
+    <div class="footer-inner">
+      <div class="footer-intro">
+        <strong>EcoHuella IA-Bio</strong>
+        <p>Proyecto académico del equipo EcoHuella IA-Bio · Universidad del Valle de México.</p>
+      </div>
+      <nav class="footer-links" aria-label="Enlaces del proyecto">
+        <a href="fases.html">Fase 1</a>
+        <a href="fase2.html">Fase 2</a>
+        <a href="ia.html#contexto-metricas">Métricas</a>
+        <a href="fase2.html#fase-2-datos">Datos y privacidad</a>
+      </nav>
+      <div class="footer-meta">
+        <p>Actualizado en agosto de 2026 · Contenido de uso académico.</p>
+        <p><a href="https://github.com/leoalva0109-del/EcoHuella">Repositorio GitHub</a> · <a href="https://github.com/leoalva0109-del/EcoHuella/issues">Contacto y seguimiento</a></p>
+        <p>Consulta el repositorio para documentación, atribuciones y términos de uso.</p>
+      </div>
+    </div>
+    <div class="footer-cta">
+      <div><strong>Recorre la integración completa</strong><p>App, inferencia, trazabilidad y EcoPuntos en una misma demostración.</p></div>
+      <a class="button footer-button" href="fase2.html#fase-2-frontend">Ver demo funcional</a>
+    </div>
   </footer>
 
   <script src="script.js"></script>

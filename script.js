@@ -1,7 +1,21 @@
 const currentPage = window.location.pathname.split("/").pop() || "index.html";
+const siteHeader = document.querySelector(".site-header");
 const navLinks = document.querySelectorAll(".top-nav a");
 const navToggle = document.querySelector(".nav-toggle");
+const navMore = document.querySelector(".nav-more");
 const themeToggle = document.querySelector(".theme-toggle");
+
+const setNavOpen = (isOpen, returnFocus = false) => {
+  document.body.classList.toggle("nav-open", isOpen);
+
+  if (navToggle) {
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+    navToggle.setAttribute("aria-label", isOpen ? "Cerrar navegación" : "Abrir navegación");
+    if (!isOpen && returnFocus) navToggle.focus();
+  }
+
+  if (!isOpen) navMore?.removeAttribute("open");
+};
 
 const applyTheme = (isDark) => {
   document.body.classList.toggle("dark-mode", isDark);
@@ -17,53 +31,74 @@ const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 applyTheme(savedTheme ? savedTheme === "dark" : prefersDark);
 
 navLinks.forEach((link) => {
-  if (link.getAttribute("href") === currentPage) {
+  const linkPage = new URL(link.href, window.location.href).pathname.split("/").pop();
+  if (linkPage === currentPage) {
     link.classList.add("active");
+    link.setAttribute("aria-current", "page");
   }
 
-  link.addEventListener("click", () => {
-    document.body.classList.remove("nav-open");
-    navToggle?.setAttribute("aria-expanded", "false");
-  });
+  link.addEventListener("click", () => setNavOpen(false));
 });
 
+if (navMore?.querySelector("a.active")) navMore.classList.add("active");
+
 navToggle?.addEventListener("click", () => {
-  const isOpen = document.body.classList.toggle("nav-open");
-  navToggle.setAttribute("aria-expanded", String(isOpen));
+  setNavOpen(!document.body.classList.contains("nav-open"));
 });
 
 themeToggle?.addEventListener("click", () => {
   applyTheme(!document.body.classList.contains("dark-mode"));
 });
 
+document.addEventListener("click", (event) => {
+  if (document.body.classList.contains("nav-open") && siteHeader && !siteHeader.contains(event.target)) {
+    setNavOpen(false);
+  }
+
+  if (navMore?.open && !navMore.contains(event.target)) navMore.removeAttribute("open");
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && document.body.classList.contains("nav-open")) {
+    event.preventDefault();
+    setNavOpen(false, true);
+    return;
+  }
+
+  if (event.key === "Escape" && navMore?.open) {
+    navMore.removeAttribute("open");
+    navMore.querySelector("summary")?.focus();
+  }
+});
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 1024) setNavOpen(false);
+});
+
 document.querySelectorAll(".zoomable").forEach((img) => {
-  img.addEventListener("click", () => {
-    img.classList.toggle("active");
-  });
+  img.addEventListener("click", () => img.classList.toggle("active"));
 });
 
 const activateTabGroup = (buttons, panels, targetId, datasetKey, updateHash = false) => {
   const activeButton = Array.from(buttons).find((button) => button.dataset[datasetKey] === targetId);
   const activePanel = document.getElementById(targetId);
 
-  if (!activeButton || !activePanel) {
-    return false;
-  }
+  if (!activeButton || !activePanel) return false;
 
   buttons.forEach((button) => {
     const isActive = button === activeButton;
     button.classList.toggle("active", isActive);
-    button.setAttribute("aria-selected", String(isActive));
+    if (button.getAttribute("role") === "tab") {
+      button.setAttribute("aria-selected", String(isActive));
+      button.tabIndex = isActive ? 0 : -1;
+    }
   });
 
   panels.forEach((panel) => {
     panel.hidden = panel.id !== targetId;
   });
 
-  if (updateHash) {
-    history.pushState(null, "", `#${targetId}`);
-  }
-
+  if (updateHash) history.pushState(null, "", `#${targetId}`);
   return true;
 };
 
@@ -74,17 +109,11 @@ const subtabPanels = document.querySelectorAll("[data-subtab-panel]");
 
 const syncTabsFromHash = () => {
   const targetId = decodeURIComponent(window.location.hash.replace("#", ""));
-
-  if (!targetId) {
-    return;
-  }
+  if (!targetId) return;
 
   const isSubtabTarget = Array.from(subtabButtons).some((button) => button.dataset.subtabTarget === targetId);
-
   if (isSubtabTarget) {
-    if (phaseButtons.length) {
-      activateTabGroup(phaseButtons, phasePanels, "fase-2", "tabTarget");
-    }
+    if (phaseButtons.length) activateTabGroup(phaseButtons, phasePanels, "fase-2", "tabTarget");
     activateTabGroup(subtabButtons, subtabPanels, targetId, "subtabTarget");
     requestAnimationFrame(() => document.getElementById(targetId)?.scrollIntoView({ block: "start" }));
     return;
@@ -103,14 +132,29 @@ phaseButtons.forEach((button) => {
 
 subtabButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    if (phaseButtons.length) {
-      activateTabGroup(phaseButtons, phasePanels, "fase-2", "tabTarget");
-    }
+    if (phaseButtons.length) activateTabGroup(phaseButtons, phasePanels, "fase-2", "tabTarget");
     activateTabGroup(subtabButtons, subtabPanels, button.dataset.subtabTarget, "subtabTarget", true);
-    document.body.classList.remove("nav-open");
-    navToggle?.setAttribute("aria-expanded", "false");
   });
 });
 
+const bindTabKeyboard = (buttons) => {
+  const list = Array.from(buttons);
+  list.forEach((button, index) => {
+    button.addEventListener("keydown", (event) => {
+      let nextIndex = null;
+      if (event.key === "ArrowRight") nextIndex = (index + 1) % list.length;
+      if (event.key === "ArrowLeft") nextIndex = (index - 1 + list.length) % list.length;
+      if (event.key === "Home") nextIndex = 0;
+      if (event.key === "End") nextIndex = list.length - 1;
+      if (nextIndex === null) return;
+
+      event.preventDefault();
+      list[nextIndex].focus();
+      list[nextIndex].click();
+    });
+  });
+};
+
+bindTabKeyboard(document.querySelectorAll('.phase-two-tabs [role="tab"]'));
 syncTabsFromHash();
 window.addEventListener("popstate", syncTabsFromHash);

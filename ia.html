@@ -14,19 +14,25 @@
         <span class="brand-mark" aria-hidden="true"></span>
         <span>EcoHuella IA-Bio</span>
       </a>
-      <button class="nav-toggle" type="button" aria-label="Abrir navegación" aria-expanded="false">
+      <button class="nav-toggle" type="button" aria-label="Abrir navegación" aria-expanded="false" aria-controls="site-navigation">
         <span></span>
         <span></span>
         <span></span>
       </button>
-      <nav class="top-nav" aria-label="Navegación principal">
+      <nav class="top-nav" id="site-navigation" aria-label="Navegación principal">
         <a href="index.html">Inicio</a>
-        <a href="fases.html">Fases</a>
+        <a href="fases.html">Fase 1</a>
+        <a class="nav-priority" href="fase2.html">Fase 2</a>
         <a href="ia.html">IA y métricas</a>
-        <a href="tecnico.html">Arquitectura</a>
-        <a href="materiales.html">Materiales</a>
-        <a href="metodologia.html">Metodología</a>
-        <a href="diagramas.html">Diagramas</a>
+        <details class="nav-more">
+          <summary>Más</summary>
+          <div class="nav-more-menu">
+            <a href="tecnico.html">Arquitectura</a>
+            <a href="materiales.html">Materiales</a>
+            <a href="metodologia.html">Metodología</a>
+            <a href="diagramas.html">Diagramas</a>
+          </div>
+        </details>
         <button class="theme-toggle" type="button" aria-pressed="false">🌙 Oscuro</button>
       </nav>
     </div>
@@ -109,15 +115,34 @@
           <p>Desempeño global del modelo sobre el conjunto de prueba.</p>
         </article>
         <article class="metric-card">
-          <span class="metric-value">0.9615</span>
+          <span class="metric-value">0.9614</span>
           <h3>F1-score</h3>
-          <p>Balance entre precisión y recall para clasificación multiclase.</p>
+          <p>Promedio ponderado reportado para la clasificación multiclase.</p>
         </article>
         <article class="metric-card">
           <span class="metric-value">96.33%</span>
           <h3>Recall orgánico</h3>
           <p>Capacidad para recuperar correctamente residuos biodegradables.</p>
         </article>
+      </div>
+    </section>
+
+    <section class="section metric-context" id="contexto-metricas">
+      <div class="section-heading">
+        <p class="eyebrow">Contexto verificable</p>
+        <h2>Cómo leer las métricas</h2>
+        <p>Estas cifras describen la evaluación del modelo y no equivalen todavía a resultados de operación en campo.</p>
+      </div>
+      <dl class="metric-context-grid">
+        <div><dt>Dataset documentado</dt><dd>45,330 imágenes organizadas con una división reproducible de 70% entrenamiento, 15% validación y 15% prueba.</dd></div>
+        <div><dt>Muestra de prueba</dt><dd>6,802 imágenes: 2,034 no reciclables, 2,371 orgánicas y 2,397 reciclables.</dd></div>
+        <div><dt>Método</dt><dd>MobileNetV2 con transfer learning, aumento de datos y ajuste fino parcial para tres clases.</dd></div>
+        <div><dt>Fecha de evaluación</dt><dd>Ejecución registrada el 27 de abril de 2026; accuracy 0.9613 y F1 ponderado 0.9614.</dd></div>
+      </dl>
+      <div class="metric-limitations">
+        <strong>Limitaciones visibles</strong>
+        <p>La mayor confusión aparece entre reciclables y no reciclables. El umbral operativo de 0.95 es una regla del PoC, no la accuracy. La reducción potencial del 80% en contaminación cruzada sigue siendo una hipótesis que requiere piloto controlado, línea base y muestra de usuarios.</p>
+        <a href="#evidencia-modelo">Ver reporte y matriz de confusión</a>
       </div>
     </section>
 
@@ -132,15 +157,15 @@
         </p>
       </div>
       <figure class="video-panel">
-        <video controls preload="metadata">
-          <source src="https://media.githubusercontent.com/media/leoalva0109-del/EcoHuella/main/assets/test-modelo-ia.mp4" type="video/mp4">
+        <video controls preload="metadata" poster="assets/test-modelo-ia-poster.webp">
+          <source src="assets/test-modelo-ia.mp4" type="video/mp4">
           Tu navegador no puede reproducir este video.
         </video>
         <figcaption>Test del modelo de IA aplicado al reconocimiento de residuos.</figcaption>
       </figure>
     </section>
 
-    <section class="section">
+    <section class="section" id="evidencia-modelo">
       <div class="section-heading">
         <p class="eyebrow">Evidencia del proceso</p>
         <h2>Dataset, entrenamiento y evaluación</h2>
@@ -152,7 +177,7 @@
       </div>
       <div class="training-grid">
         <article class="training-shot">
-          <img src="assets/entrenamiento-04.png" alt="Terminal con split 70 15 15 del dataset CDMX">
+          <img src="assets/entrenamiento-04.png" alt="Terminal con split 70 15 15 del dataset CDMX" loading="lazy">
           <div>
             <span>Split reproducible</span>
             <h3>45,330 imágenes en train, val y test</h3>
@@ -160,7 +185,7 @@
           </div>
         </article>
         <article class="training-shot">
-          <img src="assets/entrenamiento-07.png" alt="Resumen del modelo MobileNetV2 entrenado para EcoHuella">
+          <img src="assets/entrenamiento-07.png" alt="Resumen del modelo MobileNetV2 entrenado para EcoHuella" loading="lazy">
           <div>
             <span>Transfer learning</span>
             <h3>MobileNetV2 + cabeza clasificadora</h3>
@@ -168,7 +193,7 @@
           </div>
         </article>
         <article class="training-shot">
-          <img src="assets/entrenamiento-05.png" alt="Reporte de entrenamiento y métricas finales del modelo">
+          <img src="assets/entrenamiento-05.png" alt="Reporte de entrenamiento y métricas finales del modelo" loading="lazy">
           <div>
             <span>Evaluación final</span>
             <h3>96.13% de accuracy en test</h3>
@@ -176,7 +201,7 @@
           </div>
         </article>
         <article class="training-shot">
-          <img src="assets/entrenamiento-06.png" alt="Matriz de confusión del modelo EcoHuella IA-Bio">
+          <img src="assets/entrenamiento-06.png" alt="Matriz de confusión del modelo EcoHuella IA-Bio" loading="lazy">
           <div>
             <span>Matriz de confusión</span>
             <h3>Errores concentrados y medibles</h3>
@@ -231,7 +256,27 @@
   </main>
 
   <footer class="site-footer">
-    <p>EcoHuella IA-Bio · Modelo IA optimizado para operación en tiempo real</p>
+    <div class="footer-inner">
+      <div class="footer-intro">
+        <strong>EcoHuella IA-Bio</strong>
+        <p>Proyecto académico del equipo EcoHuella IA-Bio · Universidad del Valle de México.</p>
+      </div>
+      <nav class="footer-links" aria-label="Enlaces del proyecto">
+        <a href="fases.html">Fase 1</a>
+        <a href="fase2.html">Fase 2</a>
+        <a href="ia.html#contexto-metricas">Métricas</a>
+        <a href="fase2.html#fase-2-datos">Datos y privacidad</a>
+      </nav>
+      <div class="footer-meta">
+        <p>Actualizado en agosto de 2026 · Contenido de uso académico.</p>
+        <p><a href="https://github.com/leoalva0109-del/EcoHuella">Repositorio GitHub</a> · <a href="https://github.com/leoalva0109-del/EcoHuella/issues">Contacto y seguimiento</a></p>
+        <p>Consulta el repositorio para documentación, atribuciones y términos de uso.</p>
+      </div>
+    </div>
+    <div class="footer-cta">
+      <div><strong>Recorre la integración completa</strong><p>App, inferencia, trazabilidad y EcoPuntos en una misma demostración.</p></div>
+      <a class="button footer-button" href="fase2.html#fase-2-frontend">Ver demo funcional</a>
+    </div>
   </footer>
 
   <script src="script.js"></script>
