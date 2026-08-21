@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Fase 2 de EcoHuella IA-Bio: experiencia móvil, frontend, backend, IA, datos y validación integral del PoC.">
   <title>Fase 2 | EcoHuella IA-Bio</title>
-  <link rel="stylesheet" href="styles.css?v=20260821-simple">
+  <link rel="stylesheet" href="styles.css?v=20260821-phase1">
 </head>
 <body class="phase-two-page">
   <header class="site-header">
@@ -37,7 +37,7 @@
         La app móvil, el backend, la inteligencia artificial y los datos trabajan
         como un solo flujo para registrar cada depósito y sus EcoPuntos.
       </p>
-      <dl class="phase-two-facts" aria-label="Resumen de Fase 2">
+      <dl class="phase-facts" aria-label="Resumen de Fase 2">
         <div><dt>7</dt><dd>interfaces funcionales</dd></div>
         <div><dt>4</dt><dd>capas conectadas</dd></div>
         <div><dt>0.95</dt><dd>umbral operativo</dd></div>
@@ -45,9 +45,9 @@
       </dl>
     </section>
 
-    <section class="phase-two-tabs-shell" aria-label="Navegación secundaria de Fase 2">
-      <p class="phase-two-tabs-label">Explorar la fase</p>
-      <div class="phase-two-tabs" role="tablist" aria-label="Secciones de Fase 2">
+    <section class="phase-section-tabs-shell" aria-label="Navegación secundaria de Fase 2">
+      <p class="phase-section-tabs-label">Explorar la fase</p>
+      <div class="phase-section-tabs" role="tablist" aria-label="Secciones de Fase 2">
         <button class="nav-tab-button active" id="nav-ruta" type="button" role="tab" tabindex="0" aria-selected="true" aria-controls="roadmap-fase-2" data-subtab-target="roadmap-fase-2">Ruta</button>
         <button class="nav-tab-button" id="nav-app" type="button" role="tab" tabindex="-1" aria-selected="false" aria-controls="fase-2-app" data-subtab-target="fase-2-app">App móvil</button>
         <button class="nav-tab-button" id="nav-frontend" type="button" role="tab" tabindex="-1" aria-selected="false" aria-controls="fase-2-frontend" data-subtab-target="fase-2-frontend">Frontend</button>
@@ -441,14 +441,9 @@
       <nav class="footer-links" aria-label="Enlaces del proyecto">
         <a href="fases.html">Fase 1</a>
         <a href="fase2.html">Fase 2</a>
-        <a href="ia.html#contexto-metricas">Métricas</a>
-        <a href="fase2.html#fase-2-datos">Datos y privacidad</a>
+        <a href="ia.html#contexto-metricas">IA y métricas</a>
       </nav>
-      <div class="footer-meta">
-        <p>Actualizado en agosto de 2026 · Contenido de uso académico.</p>
-        <p><a href="https://github.com/leoalva0109-del/EcoHuella">Repositorio GitHub</a> · <a href="https://github.com/leoalva0109-del/EcoHuella/issues">Contacto y seguimiento</a></p>
-        <p>Consulta el repositorio para documentación, atribuciones y términos de uso.</p>
-      </div>
+      <p class="footer-date">Actualizado en agosto de 2026 · Contenido de uso académico.</p>
     </div>
     <div class="footer-cta">
       <div><strong>Recorre la integración completa</strong><p>App, inferencia, trazabilidad y EcoPuntos en una misma demostración.</p></div>
@@ -462,7 +457,7 @@
     <p></p>
   </dialog>
 
-  <script src="script.js?v=20260821-simple"></script>
+  <script src="script.js?v=20260821-phase1"></script>
   <script>
     const lightbox = document.getElementById("image-lightbox");
     const lightboxImage = lightbox?.querySelector("img");

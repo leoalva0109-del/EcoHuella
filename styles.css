@@ -1503,11 +1503,15 @@ body.dark-mode .subtab-button.active {
   gap: 8px;
 }
 
-.footer-links a,
-.footer-meta a {
+.footer-links a {
   color: #164fba;
   font-weight: 720;
   text-underline-offset: 3px;
+}
+
+.footer-date {
+  margin: 0;
+  max-width: 340px;
 }
 
 .footer-cta {
@@ -1549,8 +1553,7 @@ body.dark-mode .footer-cta strong {
   color: #f8fafc;
 }
 
-body.dark-mode .footer-links a,
-body.dark-mode .footer-meta a {
+body.dark-mode .footer-links a {
   color: #9ec5ff;
 }
 
@@ -1849,28 +1852,31 @@ body.dark-mode .footer-cta {
   }
 }
 
-/* Fase 2: integracion funcional y evidencia */
+/* Vistas de fase */
+.phase-one-hero,
 .phase-two-hero {
   padding: 52px 0 24px;
 }
 
+.phase-one-hero h1,
 .phase-two-hero h1 {
   max-width: 720px;
   font-size: 3rem;
 }
 
+.phase-one-hero > p:not(.eyebrow),
 .phase-two-hero > p:not(.eyebrow) {
   max-width: 760px;
   font-size: 1rem;
 }
 
-.phase-two-tabs-shell {
+.phase-section-tabs-shell {
   width: min(1180px, calc(100% - 40px));
   margin: 0 auto;
   padding: 8px 0 18px;
 }
 
-.phase-two-tabs-label {
+.phase-section-tabs-label {
   margin-bottom: 8px;
   color: var(--muted);
   font-size: 0.8rem;
@@ -1878,7 +1884,7 @@ body.dark-mode .footer-cta {
   line-height: 1.4;
 }
 
-.phase-two-tabs {
+.phase-section-tabs {
   width: 100%;
   margin: 0;
   padding: 6px;
@@ -1893,7 +1899,8 @@ body.dark-mode .footer-cta {
   box-shadow: 0 10px 28px rgba(17, 24, 39, 0.06);
 }
 
-.phase-two-tabs .nav-tab-button {
+.phase-section-tabs > a,
+.phase-section-tabs .nav-tab-button {
   flex: 1 0 106px;
   min-height: 40px;
   border: 0;
@@ -1904,19 +1911,28 @@ body.dark-mode .footer-cta {
   font-size: 0.9rem;
   font-weight: 760;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 14px;
+  text-align: center;
+  text-decoration: none;
 }
 
-.phase-two-tabs .nav-tab-button:hover {
+.phase-section-tabs > a:hover,
+.phase-section-tabs .nav-tab-button:hover {
   background: #eef4ff;
   color: var(--blue);
 }
 
-.phase-two-tabs .nav-tab-button.active {
+.phase-section-tabs > a.active,
+.phase-section-tabs .nav-tab-button.active {
   background: var(--blue);
   color: #fff;
 }
 
-body.dark-mode .phase-two-tabs .nav-tab-button:hover {
+body.dark-mode .phase-section-tabs > a:not(.active):hover,
+body.dark-mode .phase-section-tabs .nav-tab-button:not(.active):hover {
   background: rgba(127, 184, 255, 0.14);
 }
 
@@ -1924,48 +1940,109 @@ body.dark-mode .phase-two-tabs .nav-tab-button:hover {
   scroll-margin-top: 150px;
 }
 
-.phase-two-facts,
+.phase-facts,
 .model-metrics {
   display: grid;
   margin: 24px 0 0;
   padding: 0;
 }
 
-.phase-two-facts {
+.phase-facts {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
 
-.phase-two-facts div {
+.phase-facts div {
   min-height: 78px;
   padding: 16px 20px;
 }
 
-.phase-two-facts div + div {
+.phase-facts div + div {
   border-left: 1px solid var(--line);
 }
 
-.phase-two-facts dt,
-.phase-two-facts dd,
+.phase-facts dt,
+.phase-facts dd,
 .model-metrics dt,
 .model-metrics dd {
   margin: 0;
 }
 
-.phase-two-facts dt {
+.phase-facts dt {
   color: var(--green);
   font-size: 1.55rem;
   font-weight: 900;
   line-height: 1;
 }
 
-.phase-two-facts dd {
+.phase-facts dd {
   color: var(--muted);
   font-size: 0.88rem;
   font-weight: 700;
   line-height: 1.4;
   margin-top: 8px;
+}
+
+.phase-one-overview {
+  padding-top: 28px;
+}
+
+.phase-one-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 26px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.phase-one-pillars article {
+  min-width: 0;
+  padding: 26px 24px;
+}
+
+.phase-one-pillars article + article {
+  border-left: 1px solid var(--line);
+}
+
+.phase-one-pillars span {
+  color: var(--green);
+  font-size: 0.8rem;
+  font-weight: 850;
+}
+
+.phase-one-pillars article:nth-child(2) span {
+  color: var(--blue);
+}
+
+.phase-one-pillars h3 {
+  margin: 10px 0 8px;
+}
+
+.phase-one-readiness {
+  align-items: stretch;
+}
+
+.phase-one-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.phase-one-actions .button {
+  margin-top: 0;
+}
+
+.button.quiet-button {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.button.quiet-button:hover {
+  border-color: var(--blue);
+  color: var(--blue);
 }
 
 .metric-source-strip {
@@ -2722,7 +2799,7 @@ body.dark-mode .phase-two-tabs .nav-tab-button:hover {
 }
 
 @media (max-width: 980px) {
-  .phase-two-facts,
+  .phase-facts,
   .model-metrics,
   .frontend-overview,
   .data-chain,
@@ -2730,14 +2807,14 @@ body.dark-mode .phase-two-tabs .nav-tab-button:hover {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .phase-two-facts div:nth-child(3),
+  .phase-facts div:nth-child(3),
   .model-metrics div:nth-child(3),
   .frontend-overview section:nth-child(3),
   .data-chain > div:nth-child(3) {
     border-left: 0;
   }
 
-  .phase-two-facts div:nth-child(n + 3),
+  .phase-facts div:nth-child(n + 3),
   .frontend-overview section:nth-child(3),
   .data-chain > div:nth-child(n + 3) {
     border-top: 1px solid var(--line);
@@ -2784,7 +2861,21 @@ body.dark-mode .phase-two-tabs .nav-tab-button:hover {
     display: inline;
   }
 
-  .phase-two-facts,
+  .phase-one-hero h1,
+  .phase-two-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .phase-one-pillars {
+    grid-template-columns: 1fr;
+  }
+
+  .phase-one-pillars article + article {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .phase-facts,
   .evidence-grid-wide,
   .evidence-grid-three,
   .state-comparison,
@@ -2799,7 +2890,7 @@ body.dark-mode .phase-two-tabs .nav-tab-button:hover {
     grid-template-columns: 1fr;
   }
 
-  .phase-two-facts div + div,
+  .phase-facts div + div,
   .frontend-overview section + section,
   .data-chain > div + div,
   .backend-score div + div {
@@ -2852,15 +2943,16 @@ body.dark-mode .phase-two-tabs .nav-tab-button:hover {
     grid-column: auto;
   }
 
-  .phase-two-tabs-shell {
+  .phase-section-tabs-shell {
     width: calc(100vw - 28px);
   }
 
-  .phase-two-tabs {
+  .phase-section-tabs {
     width: 100%;
   }
 
-  .phase-two-tabs .nav-tab-button {
+  .phase-section-tabs > a,
+  .phase-section-tabs .nav-tab-button {
     flex-basis: 126px;
   }
 
@@ -2884,7 +2976,7 @@ body.dark-mode .phase-two-tabs .nav-tab-button:hover {
     min-height: auto;
   }
 
-  .phase-two-facts div,
+  .phase-facts div,
   .model-metrics div,
   .data-chain > div,
   .frontend-overview section {

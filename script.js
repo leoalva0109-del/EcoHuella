@@ -145,6 +145,7 @@ const bindTabKeyboard = (buttons) => {
   });
 };
 
-bindTabKeyboard(document.querySelectorAll('.phase-two-tabs [role="tab"]'));
+bindTabKeyboard(document.querySelectorAll('.phase-section-tabs [role="tab"]'));
 syncTabsFromHash();
 window.addEventListener("popstate", syncTabsFromHash);
+window.addEventListener("hashchange", syncTabsFromHash);
