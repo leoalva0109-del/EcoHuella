@@ -1561,6 +1561,22 @@ body.phase-one-page.dark-mode .video-panel video {
   background: rgba(7, 17, 31, 0.18);
 }
 
+body.phase-one-page img.transparent-product {
+  object-fit: contain;
+  background: transparent;
+  mix-blend-mode: normal;
+  filter: drop-shadow(0 18px 22px rgba(17, 24, 39, 0.18));
+}
+
+body.phase-one-page .image-panel img.transparent-product {
+  padding: 22px;
+}
+
+body.phase-one-page.dark-mode img.transparent-product {
+  background: transparent;
+  filter: drop-shadow(0 18px 24px rgba(0, 0, 0, 0.4));
+}
+
 .tall-diagram {
   display: flex;
   justify-content: center;
