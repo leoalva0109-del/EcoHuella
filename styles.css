@@ -553,8 +553,10 @@ body.nav-open .nav-toggle span:nth-child(3) {
 
 .video-panel video {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  height: auto;
+  max-height: min(72vh, 720px);
   display: block;
+  object-fit: contain;
   background: #101820;
 }
 
@@ -1486,6 +1488,77 @@ body.dark-mode .subtab-button.active {
 .diagram-image.tall {
   max-height: none;
   object-fit: contain;
+}
+
+body.phase-one-page .image-panel,
+body.phase-one-page .component-card,
+body.phase-one-page .material-card,
+body.phase-one-page .training-shot,
+body.phase-one-page .diagram-frame,
+body.phase-one-page .video-panel {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0.24)),
+    linear-gradient(135deg, rgba(31, 143, 77, 0.12), rgba(20, 99, 255, 0.09));
+  backdrop-filter: blur(12px);
+}
+
+body.phase-one-page .image-panel img,
+body.phase-one-page .component-card img,
+body.phase-one-page .card-media,
+body.phase-one-page .card-media.contain-media,
+body.phase-one-page .training-shot img,
+body.phase-one-page .power-image img,
+body.phase-one-page .diagram-image,
+body.phase-one-page .diagram-scroll img,
+body.phase-one-page .video-panel video {
+  background: transparent;
+}
+
+body.phase-one-page .component-card img,
+body.phase-one-page .training-shot img,
+body.phase-one-page .power-image img {
+  border-bottom-color: rgba(217, 222, 231, 0.58);
+}
+
+body.phase-one-page .card-media,
+body.phase-one-page .diagram-scroll img,
+body.phase-one-page .diagram-image {
+  border-color: rgba(217, 222, 231, 0.58);
+}
+
+body.phase-one-page .diagram-scroll {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(31, 143, 77, 0.12), transparent 34%),
+    radial-gradient(circle at 82% 12%, rgba(20, 99, 255, 0.1), transparent 32%);
+}
+
+body.phase-one-page:not(.dark-mode) .component-card img,
+body.phase-one-page:not(.dark-mode) .card-media.contain-media,
+body.phase-one-page:not(.dark-mode) .training-shot img,
+body.phase-one-page:not(.dark-mode) .power-image img,
+body.phase-one-page:not(.dark-mode) .diagram-scroll img {
+  mix-blend-mode: multiply;
+}
+
+body.phase-one-page.dark-mode .image-panel,
+body.phase-one-page.dark-mode .component-card,
+body.phase-one-page.dark-mode .material-card,
+body.phase-one-page.dark-mode .training-shot,
+body.phase-one-page.dark-mode .diagram-frame,
+body.phase-one-page.dark-mode .video-panel {
+  background:
+    linear-gradient(145deg, rgba(16, 27, 45, 0.78), rgba(16, 27, 45, 0.32)),
+    linear-gradient(135deg, rgba(78, 220, 135, 0.1), rgba(127, 184, 255, 0.1));
+}
+
+body.phase-one-page.dark-mode .component-card img,
+body.phase-one-page.dark-mode .card-media.contain-media,
+body.phase-one-page.dark-mode .training-shot img,
+body.phase-one-page.dark-mode .power-image img,
+body.phase-one-page.dark-mode .diagram-image,
+body.phase-one-page.dark-mode .diagram-scroll img,
+body.phase-one-page.dark-mode .video-panel video {
+  background: rgba(7, 17, 31, 0.18);
 }
 
 .tall-diagram {
