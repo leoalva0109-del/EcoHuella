@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Fase 3 de EcoHuella IA-Bio: estación física, control electrónico, fabricación por etapas y piloto académico supervisado.">
+  <title>Fase 3 | EcoHuella IA-Bio</title>
+  <link rel="stylesheet" href="styles.css?v=20261014-phase3">
+</head>
+<body class="phase-three-page">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Inicio de EcoHuella IA-Bio">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>EcoHuella IA-Bio</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Abrir navegación" aria-expanded="false" aria-controls="site-navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="top-nav" id="site-navigation" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="fases.html">Fase 1</a>
+        <a href="fase2.html">Fase 2</a>
+        <a href="fase3.html">Fase 3</a>
+        <button class="theme-toggle" type="button" aria-pressed="false">🌙 Oscuro</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="fase-3">
+    <section class="page-hero phase-page-hero phase-three-hero">
+      <p class="eyebrow">Fase 3 · Construcción y validación</p>
+      <h1>Del diseño al piloto escolar</h1>
+      <p>
+        La estación física, la electrónica de control y el programa académico se
+        organizan como un ciclo seguro, medible y listo para validarse por etapas.
+      </p>
+      <dl class="phase-facts" aria-label="Resumen de Fase 3">
+        <div><dt>3</dt><dd>fracciones separadas</dd></div>
+        <div><dt>3</dt><dd>compuertas independientes</dd></div>
+        <div><dt>6</dt><dd>momentos del ciclo</dd></div>
+        <div><dt>16</dt><dd>semanas máximas de piloto</dd></div>
+      </dl>
+    </section>
+
+    <section class="phase-section-tabs-shell" aria-label="Navegación secundaria de Fase 3">
+      <p class="phase-section-tabs-label">Explorar Fase 3</p>
+      <div class="phase-section-tabs" role="tablist" aria-label="Secciones de Fase 3">
+        <button class="nav-tab-button active" id="nav3-ruta" type="button" role="tab" tabindex="0" aria-selected="true" aria-controls="fase-3-ruta" data-subtab-target="fase-3-ruta">Ruta</button>
+        <button class="nav-tab-button" id="nav3-estacion" type="button" role="tab" tabindex="-1" aria-selected="false" aria-controls="fase-3-estacion" data-subtab-target="fase-3-estacion">Estación</button>
+        <button class="nav-tab-button" id="nav3-control" type="button" role="tab" tabindex="-1" aria-selected="false" aria-controls="fase-3-control" data-subtab-target="fase-3-control">Control</button>
+        <button class="nav-tab-button" id="nav3-fabricacion" type="button" role="tab" tabindex="-1" aria-selected="false" aria-controls="fase-3-fabricacion" data-subtab-target="fase-3-fabricacion">Fabricación</button>
+        <button class="nav-tab-button" id="nav3-piloto" type="button" role="tab" tabindex="-1" aria-selected="false" aria-controls="fase-3-piloto" data-subtab-target="fase-3-piloto">Piloto</button>
+      </div>
+    </section>
+
+    <section class="section phase-three-workspace" aria-label="Contenido de Fase 3">
+      <div class="subtab-panels">
+        <section class="subtab-panel" id="fase-3-ruta" role="tabpanel" aria-labelledby="nav3-ruta" data-subtab-panel>
+          <div class="section-heading phase-two-heading">
+            <p class="eyebrow">Ciclo completo</p>
+            <h2>La clasificación solo inicia el proceso</h2>
+            <p>La estación acepta un depósito únicamente cuando visión, interbloqueos, paso físico y cierre coinciden.</p>
+          </div>
+
+          <ol class="phase-three-cycle" aria-label="Ciclo funcional de la estación">
+            <li><span>01</span><div><h3>Sesión</h3><p>El QR vincula usuario, contenedor e intento único.</p></div></li>
+            <li><span>02</span><div><h3>Presentación</h3><p>Una pieza se coloca en la zona iluminada de inspección.</p></div></li>
+            <li><span>03</span><div><h3>Clasificación</h3><p>La IA propone una fracción o rechaza ante duda.</p></div></li>
+            <li><span>04</span><div><h3>Autorización</h3><p>El ESP32 comprueba paro, tapa, sensores y posición.</p></div></li>
+            <li><span>05</span><div><h3>Depósito</h3><p>Solo una compuerta abre y el sensor confirma el paso.</p></div></li>
+            <li><span>06</span><div><h3>Registro</h3><p>El cierre confirmado permite guardar el evento y sus EcoPuntos.</p></div></li>
+          </ol>
+
+          <div class="phase-three-rule">
+            <span>Regla central</span>
+            <strong>Sin confirmación física, no hay registro válido ni EcoPuntos.</strong>
+            <p>Atasco, enlace perdido, sensor incoherente o cierre incompleto llevan el ciclo a estado de error.</p>
+          </div>
+
+          <figure class="evidence-figure evidence-feature phase-three-plan">
+            <button type="button" data-lightbox="assets/fase3/ciclo-funcional.webp" data-caption="Interfaz, visión, tres compuertas y seis momentos del ciclo funcional." aria-label="Ampliar ciclo funcional de la estación" title="Ampliar plano">
+              <img src="assets/fase3/ciclo-funcional.webp" alt="Plano funcional de la interfaz, visión y compuertas de EcoHuella" width="2481" height="1754">
+            </button>
+            <figcaption><strong>Ciclo funcional.</strong> La persona presenta una pieza, recibe orientación y deposita únicamente cuando la compuerta correcta está habilitada.</figcaption>
+          </figure>
+        </section>
+
+        <section class="subtab-panel" id="fase-3-estacion" role="tabpanel" aria-labelledby="nav3-estacion" data-subtab-panel hidden>
+          <div class="section-heading phase-two-heading">
+            <p class="eyebrow">Diseño físico</p>
+            <h2>Una estación modular y mantenible</h2>
+            <p>La envolvente separa interacción, residuos y electrónica para facilitar limpieza, servicio y validación.</p>
+          </div>
+
+          <dl class="phase-three-dimensions" aria-label="Dimensiones conceptuales de la estación">
+            <div><dt>1450 mm</dt><dd>ancho del cuerpo</dd></div>
+            <div><dt>600 mm</dt><dd>profundidad</dd></div>
+            <div><dt>1600 mm</dt><dd>altura total</dd></div>
+            <div><dt>3 × 450 mm</dt><dd>luz por bahía</dd></div>
+          </dl>
+
+          <div class="phase-three-zones">
+            <article><span>Zona de usuario</span><h3>Cámara, luz y pantalla</h3><p>El marco guía mantiene la pieza visible antes de autorizar el depósito.</p></article>
+            <article><span>Zona de paso</span><h3>Tres bocas independientes</h3><p>Cada hoja gira hacia dentro y descarga por un chute fijo.</p></article>
+            <article><span>Zona de residuos</span><h3>Recipientes removibles</h3><p>Los tres botes se retiran desde un panel posterior de servicio.</p></article>
+            <article><span>Zona seca</span><h3>Electrónica aislada</h3><p>Control, protecciones y conexiones permanecen fuera de derrames.</p></article>
+          </div>
+
+          <figure class="evidence-figure evidence-feature phase-three-plan">
+            <button type="button" data-lightbox="assets/fase3/estacion-general.webp" data-caption="Alzados frontal y posterior de la estación con interfaz, tres bahías y accesos de servicio." aria-label="Ampliar alzados de la estación" title="Ampliar plano">
+              <img src="assets/fase3/estacion-general.webp" alt="Alzados frontal y posterior de la estación EcoHuella" width="2481" height="1754" loading="lazy">
+            </button>
+            <figcaption><strong>Envolvente conceptual.</strong> El frente concentra la interacción; la parte posterior separa el acceso al chase electrónico y a los recipientes.</figcaption>
+          </figure>
+        </section>
+
+        <section class="subtab-panel" id="fase-3-control" role="tabpanel" aria-labelledby="nav3-control" data-subtab-panel hidden>
+          <div class="section-heading phase-two-heading">
+            <p class="eyebrow">Electrónica y seguridad</p>
+            <h2>Percepción, control y potencia con responsabilidades separadas</h2>
+            <p>La decisión visual no mueve motores directamente: el ESP32 valida estados y el paro físico puede cortar los actuadores.</p>
+          </div>
+
+          <div class="phase-three-signal-flow" aria-label="Responsabilidades de control">
+            <article><span>01</span><h3>Jetson</h3><p>Cámara, pantalla, IA y enlace con la aplicación.</p></article>
+            <i aria-hidden="true">→</i>
+            <article><span>02</span><h3>ESP32</h3><p>Máquina de estados, sensores, watchdog y timeout.</p></article>
+            <i aria-hidden="true">→</i>
+            <article><span>03</span><h3>PCA9685</h3><p>Entrega señal PWM; no alimenta servos ni motores.</p></article>
+            <i aria-hidden="true">→</i>
+            <article><span>04</span><h3>Actuación</h3><p>Una compuerta habilitada con posición vigilada.</p></article>
+            <i aria-hidden="true">→</i>
+            <article><span>05</span><h3>Servidor</h3><p>Valida el evento físico y evita duplicados.</p></article>
+          </div>
+
+          <div class="phase-three-power-chain" aria-label="Ruta de energía protegida">
+            <article><span>Entrada</span><strong>Panel solar</strong><p>Producción dimensionada con consumo medido.</p></article>
+            <article><span>Gestión</span><strong>Controlador MPPT</strong><p>Compatible con la química de la batería.</p></article>
+            <article><span>Reserva</span><strong>LiFePO4 + BMS</strong><p>Almacenamiento y protección de la batería.</p></article>
+            <article><span>Distribución</span><strong>Ramas DC protegidas</strong><p>Cómputo, lógica y actuadores con protección separada.</p></article>
+          </div>
+
+          <div class="phase-three-safety">
+            <article><h3>Paro físico</h3><p>Interrumpe la energía o habilitación de las tres compuertas aunque falle el software.</p></article>
+            <article><h3>Interbloqueos</h3><p>Tapa abierta, timeout, sensor contradictorio o compuerta fuera de origen impiden movimiento.</p></article>
+            <article><h3>Confirmación</h3><p>Paso y cierre deben corresponder con sesión, clase y compuerta antes de registrar.</p></article>
+          </div>
+
+          <figure class="evidence-figure evidence-feature phase-three-plan">
+            <button type="button" data-lightbox="assets/fase3/circuiteria.webp" data-caption="Circuitería funcional, cadena de control y distribución de potencia DC protegida." aria-label="Ampliar circuitería funcional" title="Ampliar plano">
+              <img src="assets/fase3/circuiteria.webp" alt="Circuitería funcional y distribución de potencia de EcoHuella" width="2481" height="1754" loading="lazy">
+            </button>
+            <figcaption><strong>Arquitectura funcional.</strong> La lógica y la potencia viajan por rutas separadas; la distribución DC protege cada rama según su carga.</figcaption>
+          </figure>
+        </section>
+
+        <section class="subtab-panel" id="fase-3-fabricacion" role="tabpanel" aria-labelledby="nav3-fabricacion" data-subtab-panel hidden>
+          <div class="section-heading phase-two-heading">
+            <p class="eyebrow">Construcción progresiva</p>
+            <h2>Probar una unidad antes de repetir tres</h2>
+            <p>La fabricación comienza con el mecanismo más crítico y avanza solo cuando seguridad, limpieza y control son verificables.</p>
+          </div>
+
+          <div class="phase-three-build-stages">
+            <article><span>01</span><h3>Prototipo mecánico</h3><p>Una compuerta, un chute, sensores, tope y paro físico.</p><small>Avanza al demostrar giro, cierre y riesgo controlado.</small></article>
+            <article><span>02</span><h3>Replicar canales</h3><p>Tres bahías aisladas, recipientes removibles y accesos posteriores.</p><small>Avanza con limpieza y estabilidad comprobadas.</small></article>
+            <article><span>03</span><h3>Integrar control</h3><p>Cámara, pantalla, ESP32, actuadores, gabinete y cableado protegido.</p><small>Avanza al responder correctamente a interbloqueos.</small></article>
+            <article><span>04</span><h3>Preparar piloto</h3><p>Acabados, sellos, resguardos, mantenimiento y protocolo de operación.</p><small>Avanza con pruebas documentadas y responsables definidos.</small></article>
+          </div>
+
+          <div class="phase-three-materials" aria-label="Materiales por función">
+            <article><span>Estructura</span><strong>Aluminio anodizado</strong><p>Bastidor modular, uniones revisables y resistencia ambiental.</p></article>
+            <article><span>Carcasa</span><strong>HDPE o aluminio</strong><p>Paneles resistentes, reemplazables y con holgura térmica.</p></article>
+            <article><span>Contención</span><strong>PP, HDPE y acero inoxidable</strong><p>Recipientes lavables y bandeja para retener escurrimientos.</p></article>
+            <article><span>Sellado</span><strong>EPDM y policarbonato</strong><p>Juntas de servicio y ventana óptica reemplazable.</p></article>
+          </div>
+
+          <div class="phase-three-mechanism-copy">
+            <div>
+              <p class="mini-label">Mecanismo de boca</p>
+              <h3>Hoja exterior con giro de 0° a 90°</h3>
+              <p>La boca libre parte de 250 × 150 mm y la hoja de 270 × 170 mm. La bisagra, la biela y los puntos de pellizco deben permanecer protegidos.</p>
+            </div>
+            <ul class="clean-list">
+              <li>El tope mecánico recibe la carga de apertura.</li>
+              <li>Sensores confirman posiciones abierta y cerrada.</li>
+              <li>El retorno a cerrado concluye el ciclo o responde a pérdida de energía.</li>
+            </ul>
+          </div>
+
+          <figure class="evidence-figure evidence-feature phase-three-plan">
+            <button type="button" data-lightbox="assets/fase3/compuerta.webp" data-caption="Detalle constructivo provisional de la hoja frontal y su giro hacia el interior." aria-label="Ampliar mecanismo de compuerta" title="Ampliar plano">
+              <img src="assets/fase3/compuerta.webp" alt="Detalle constructivo de la compuerta frontal" width="2481" height="1754" loading="lazy">
+            </button>
+            <figcaption><strong>Detalle de partida.</strong> Las cotas son conceptuales y deben validarse con el mecanismo, el recipiente y los residuos límite antes de liberar fabricación.</figcaption>
+          </figure>
+        </section>
+
+        <section class="subtab-panel" id="fase-3-piloto" role="tabpanel" aria-labelledby="nav3-piloto" data-subtab-panel hidden>
+          <div class="section-heading phase-two-heading">
+            <p class="eyebrow">Validación académica</p>
+            <h2>Un semestre para medir operación y aprendizaje</h2>
+            <p>El piloto separa la preparación técnica, la calibración, la participación continua y el cierre evaluativo.</p>
+          </div>
+
+          <div class="phase-three-timeline" aria-label="Etapas del piloto académico">
+            <article><span>Preparación</span><h3>Permisos y línea base</h3><p>Responsables, riesgos, configuración, formación y protocolo.</p></article>
+            <article><span>Semanas 1-4</span><h3>Operación supervisada</h3><p>Calibración, depósitos válidos, disponibilidad e incidencias.</p></article>
+            <article><span>Semanas 5-12</span><h3>Participación continua</h3><p>Actividades ambientales, historial y auditorías de fracciones.</p></article>
+            <article><span>Semanas 13-16</span><h3>Cierre y evaluación</h3><p>Pesaje, conciliación, aprendizaje y decisión de continuidad.</p></article>
+          </div>
+
+          <div class="phase-three-indicators">
+            <article><span>01</span><h3>Participación</h3><p>Estudiantes activos en varias semanas.</p></article>
+            <article><span>02</span><h3>Separación</h3><p>Muestreo y contaminación cruzada por fracción.</p></article>
+            <article><span>03</span><h3>Confiabilidad</h3><p>Disponibilidad, latencia, atascos y paros seguros.</p></article>
+            <article><span>04</span><h3>Material recuperado</h3><p>Masa pesada y entrega documentada por ruta.</p></article>
+            <article><span>05</span><h3>Aprendizaje</h3><p>Diagnóstico inicial y final con instrumentos comparables.</p></article>
+          </div>
+
+          <div class="phase-three-pause">
+            <div><p class="mini-label">Criterio de pausa</p><h3>La seguridad tiene prioridad sobre la continuidad</h3></div>
+            <ul class="clean-list">
+              <li>El paro no corta los actuadores.</li>
+              <li>Se repiten fallas de confirmación.</li>
+              <li>Hay derrame en la electrónica o riesgo de atrapamiento.</li>
+              <li>No existe una ruta acordada para cada fracción.</li>
+            </ul>
+          </div>
+
+          <div class="phase-two-callout">
+            <strong>Alcance del piloto</strong>
+            <p>La clasificación no demuestra reciclaje por sí sola. El aprovechamiento se confirma mediante pesaje y entrega documentada.</p>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-intro">
+        <strong>EcoHuella IA-Bio</strong>
+        <p>Proyecto académico del equipo EcoHuella IA-Bio · Universidad del Valle de México.</p>
+      </div>
+      <nav class="footer-links" aria-label="Enlaces del proyecto">
+        <a href="fases.html">Fase 1</a>
+        <a href="fase2.html">Fase 2</a>
+        <a href="fase3.html">Fase 3</a>
+      </nav>
+      <p class="footer-date">Actualizado en octubre de 2026 · Contenido de uso académico.</p>
+    </div>
+    <div class="footer-cta">
+      <div><strong>Del prototipo al piloto</strong><p>Consulta el ciclo de construcción, seguridad y validación institucional.</p></div>
+      <a class="button footer-button" href="#fase-3-ruta">Ver ciclo completo</a>
+    </div>
+  </footer>
+
+  <dialog class="image-lightbox" id="image-lightbox" aria-label="Vista ampliada de planos">
+    <button class="lightbox-close" type="button" aria-label="Cerrar vista ampliada">×</button>
+    <img src="assets/fase3/estacion-general.webp" alt="Plano ampliado de EcoHuella">
+    <p></p>
+  </dialog>
+
+  <script src="script.js?v=20261014-phase3"></script>
+  <script>
+    const lightbox = document.getElementById("image-lightbox");
+    const lightboxImage = lightbox?.querySelector("img");
+    const lightboxCaption = lightbox?.querySelector("p");
+
+    document.querySelectorAll("[data-lightbox]").forEach((button) => {
+      button.addEventListener("click", () => {
+        if (!lightbox || !lightboxImage || !lightboxCaption) return;
+        lightboxImage.src = button.dataset.lightbox;
+        lightboxImage.alt = button.querySelector("img")?.alt || "Plano ampliado";
+        lightboxCaption.textContent = button.dataset.caption || "";
+        lightbox.showModal();
+      });
+    });
+
+    lightbox?.querySelector(".lightbox-close")?.addEventListener("click", () => lightbox.close());
+    lightbox?.addEventListener("click", (event) => {
+      if (event.target === lightbox) lightbox.close();
+    });
+  </script>
+</body>
+</html>
