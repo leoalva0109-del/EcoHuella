@@ -3841,37 +3841,256 @@ body.dark-mode .home-phase-card.phase-three .phase-kicker {
     grid-template-columns: 1fr;
   }
 
+  .phase-three-hero {
+    padding: 38px 0 20px;
+  }
+
   .phase-three-page .phase-section-tabs {
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 3px;
+    padding: 4px;
     overflow: visible;
   }
 
   .phase-three-page .phase-section-tabs .nav-tab-button {
     grid-column: span 2;
     min-width: 0;
-    padding: 0 6px;
+    min-height: 42px;
+    padding: 0 4px;
+    font-size: 0.8rem;
     white-space: normal;
   }
 
-  .phase-three-page .phase-section-tabs .nav-tab-button:nth-child(n + 4) {
-    grid-column: span 3;
+  .phase-three-page .phase-section-tabs .nav-tab-button:nth-child(4) {
+    grid-column: 2 / span 2;
   }
 
-  .phase-three-hero h1 {
-    font-size: 2.2rem;
+  .phase-three-page .phase-section-tabs .nav-tab-button:nth-child(5) {
+    grid-column: 4 / span 2;
   }
 
-  .phase-three-cycle,
-  .phase-three-zones,
-  .phase-three-build-stages,
-  .phase-three-materials,
-  .phase-three-timeline,
-  .phase-three-power-chain,
-  .phase-three-safety,
-  .phase-three-signal-flow,
-  .phase-three-indicators {
+  .phase-three-page .phase-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 22px;
+  }
+
+  .phase-three-page .phase-facts div {
+    min-height: 76px;
+    padding: 14px 12px;
+  }
+
+  .phase-three-page .phase-facts div + div {
+    border-top: 0;
+    border-left: 1px solid var(--line);
+  }
+
+  .phase-three-page .phase-facts div:nth-child(3) {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .phase-three-page .phase-facts div:nth-child(4) {
+    border-top: 1px solid var(--line);
+  }
+
+  .phase-three-page .phase-facts dd {
+    font-size: 0.8rem;
+  }
+
+  .phase-three-page .phase-three-dimensions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 22px 0;
+  }
+
+  .phase-three-page .phase-three-dimensions div {
+    min-height: 88px;
+    padding: 16px 12px;
+  }
+
+  .phase-three-page .phase-three-dimensions div + div {
+    border-left: 1px solid var(--line);
+    border-top: 0;
+  }
+
+  .phase-three-page .phase-three-dimensions div:nth-child(3) {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .phase-three-page .phase-three-dimensions div:nth-child(4) {
+    border-top: 1px solid var(--line);
+  }
+
+  .phase-three-page .phase-three-dimensions dt {
+    font-size: 1.25rem;
+  }
+
+  .phase-three-page .phase-three-zones,
+  .phase-three-page .phase-three-build-stages,
+  .phase-three-page .phase-three-materials,
+  .phase-three-page .phase-three-indicators,
+  .phase-three-page .phase-three-timeline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .phase-three-page .phase-three-zones article,
+  .phase-three-page .phase-three-materials article,
+  .phase-three-page .phase-three-build-stages article,
+  .phase-three-page .phase-three-indicators article,
+  .phase-three-page .phase-three-timeline article {
+    min-height: 0;
+    padding: 16px 14px;
+  }
+
+  .phase-three-page .phase-three-build-stages,
+  .phase-three-page .phase-three-timeline {
+    margin: 22px 0;
+  }
+
+  .phase-three-page .phase-three-build-stages small {
+    margin-top: 12px;
+    padding-top: 10px;
+  }
+
+  .phase-three-page .phase-three-indicators h3 {
+    margin: 12px 0 8px;
+  }
+
+  .phase-three-page .phase-three-timeline article + article {
+    border-left: 1px solid var(--line);
+    border-top: 0;
+  }
+
+  .phase-three-page .phase-three-timeline article:nth-child(odd) {
+    border-left: 0;
+  }
+
+  .phase-three-page .phase-three-timeline article:nth-child(n + 3) {
+    border-top: 1px solid var(--line);
+  }
+
+  .phase-three-page .phase-three-cycle {
     grid-template-columns: 1fr;
+    margin-top: 22px;
+  }
+
+  .phase-three-page .phase-three-cycle li {
+    min-height: 0;
+    padding: 16px 14px;
+  }
+
+  .phase-three-page .phase-three-rule,
+  .phase-three-page .phase-three-pause {
+    margin: 22px 0;
+    padding: 20px 16px;
+  }
+
+  .phase-three-page .phase-three-safety {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .phase-three-page .phase-three-safety article {
+    min-height: 0;
+    padding: 16px;
+  }
+
+  .phase-three-page .phase-three-signal-flow {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    margin: 24px 0;
+  }
+
+  .phase-three-page .phase-three-signal-flow article {
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr);
+    column-gap: 12px;
+    min-height: 0;
+    padding: 14px;
+  }
+
+  .phase-three-page .phase-three-signal-flow article span {
+    grid-row: span 2;
+    align-self: center;
+  }
+
+  .phase-three-page .phase-three-signal-flow h3 {
+    margin: 0 0 4px;
+  }
+
+  .phase-three-page .phase-three-signal-flow p {
+    margin: 0;
+  }
+
+  .phase-three-page .phase-three-signal-flow i {
+    display: block;
+    height: 20px;
+    transform: rotate(90deg);
+  }
+
+  .phase-three-page .phase-three-power-chain {
+    grid-template-columns: 1fr;
+  }
+
+  .phase-three-page .phase-three-power-chain article {
+    min-height: 0;
+    padding: 16px;
+  }
+
+  .phase-three-page .phase-three-mechanism-copy {
+    gap: 16px;
+    margin-top: 24px;
+    padding: 20px 16px;
+  }
+
+  .phase-three-page .phase-three-plan {
+    margin-top: 24px;
+  }
+
+  .phase-three-page .phase-three-plan figcaption {
+    padding: 14px 16px 16px;
+    font-size: 0.84rem;
+  }
+
+  .phase-three-page .phase-three-workspace {
+    padding-top: 16px;
+  }
+
+  .phase-three-page .subtab-panel > .section-heading {
+    margin-bottom: 18px;
+  }
+
+  .phase-three-page .phase-three-hero h1 {
+    max-width: 15ch;
+    font-size: 2rem;
+    line-height: 1.12;
+  }
+
+  .phase-three-page .phase-three-hero > p:not(.eyebrow) {
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .phase-three-page .phase-three-indicators article > span {
+    width: 32px;
+    height: 32px;
+  }
+
+  .phase-three-page .phase-three-materials article strong,
+  .phase-three-page .phase-three-zones h3,
+  .phase-three-page .phase-three-build-stages h3,
+  .phase-three-page .phase-three-indicators h3 {
+    font-size: 0.98rem;
+  }
+
+  .phase-three-page .phase-three-materials article p,
+  .phase-three-page .phase-three-zones article p,
+  .phase-three-page .phase-three-build-stages article p,
+  .phase-three-page .phase-three-indicators article p {
+    font-size: 0.82rem;
+    line-height: 1.5;
   }
 
   .phase-three-rule {
@@ -3879,20 +4098,21 @@ body.dark-mode .home-phase-card.phase-three .phase-kicker {
     gap: 10px;
   }
 
-  .phase-three-dimensions {
+}
+
+@media (max-width: 380px) {
+  .phase-three-page .phase-three-zones,
+  .phase-three-page .phase-three-build-stages,
+  .phase-three-page .phase-three-materials,
+  .phase-three-page .phase-three-indicators,
+  .phase-three-page .phase-three-timeline {
     grid-template-columns: 1fr;
   }
 
-  .phase-three-dimensions div + div,
-  .phase-three-dimensions div:nth-child(3),
-  .phase-three-timeline article + article,
-  .phase-three-timeline article:nth-child(3) {
+  .phase-three-page .phase-three-timeline article + article,
+  .phase-three-page .phase-three-timeline article:nth-child(odd),
+  .phase-three-page .phase-three-timeline article:nth-child(n + 3) {
     border-left: 0;
     border-top: 1px solid var(--line);
-  }
-
-  .phase-three-mechanism-copy,
-  .phase-three-pause {
-    padding: 24px 20px;
   }
 }
