@@ -17,7 +17,8 @@ const mimeTypes = {
   ".webp": "image/webp",
   ".svg": "image/svg+xml",
   ".mp4": "video/mp4",
-  ".webm": "video/webm"
+  ".webm": "video/webm",
+  ".blend": "application/octet-stream"
 };
 
 function send(res, status, body, type = "text/plain; charset=utf-8") {
